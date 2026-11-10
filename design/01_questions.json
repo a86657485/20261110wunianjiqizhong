@@ -1,11 +1,11 @@
 {
-  "version": "2026-11-09-midterm-v1.4.2",
+  "version": "2026-11-10-midterm-v1.5",
   "shell": "算法嘉年华·站点通行证",
   "paperType": "midterm",
   "grade": 5,
   "lessons": "1-7",
-  "codeSource": "教材L1-L7；source-banks L3–L7；L2 detective quiz；L1应用考察点；去呆板化六准则",
-  "paperRule": "期中整卷＝轻量站点闯关：主卷7站（L1–L7）必做＋可选加分挑战站；本关题全部作答提交即可解锁下一关（不因分数卡关）；学生端不下发答案/解析/remix/内部代号；禁止沿用旧期末5qimokaoshi地图/布局/组件命名；外壳组件自拟（CarnivalMap/StageNode等）",
+  "codeSource": "教材L1-L7；source-banks L3–L7；L2 detective quiz；L1应用考察点；去呆板化六准则；v1.5增补28题为不带图新情境迁移（见 remixFrom）",
+  "paperRule": "期中整卷＝轻量站点闯关：主卷7站（L1–L7）必做52题（带图24＋不带图28）同场一次考完＋可选加分挑战站；本关题全部作答提交即可解锁下一关（不因分数卡关）；学生端不下发答案/解析/remix/内部代号；禁止沿用旧期末5qimokaoshi地图/布局/组件命名；外壳组件自拟（CarnivalMap/StageNode等）",
   "clientFieldsBeforeSubmit": [
     "id",
     "section",
@@ -66,12 +66,12 @@
   ],
   "typeCounts": {
     "main": {
-      "single_choice": 11,
+      "single_choice": 36,
       "matching": 3,
-      "flowchart_op": 4,
+      "flowchart_op": 7,
       "app_op": 6,
       "sentence_fill": 0,
-      "total": 24
+      "total": 52
     },
     "challenge": {
       "single_choice": 4,
@@ -87,7 +87,18 @@
     "M18",
     "M19",
     "M21",
-    "M23"
+    "M23",
+    "M26",
+    "M28",
+    "M31",
+    "M34",
+    "M35",
+    "M40",
+    "M41",
+    "M46",
+    "M47",
+    "M48",
+    "M52"
   ],
   "questions": [
     {
@@ -1205,6 +1216,1317 @@
       "recallImageMotionNote": null
     },
     {
+      "id": "M25",
+      "type": "single_choice",
+      "lesson": 1,
+      "prompt": "下面哪一件最能说明「算法就在日常生活里」？",
+      "options": [
+        "晨检时按「测温→登记→对照标准→决定是否进班」去做",
+        "早上醒来时心情很好",
+        "随便按遥控器，碰上哪个台算哪个",
+        "只记住考试得了 95 分这个结果"
+      ],
+      "answer": "晨检时按「测温→登记→对照标准→决定是否进班」去做",
+      "analysis": "算法存在于日常生活：晨检这组明确、有序、可执行的步骤就是生活里的算法。心情好坏没有步骤；乱按遥控器没有明确方法；一次分数只是结果，不是求解方案。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "迁移运用",
+        "抽象建模"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.8,
+      "estimatedMinutes": 1.1,
+      "misconceptionMap": {
+        "早上醒来时心情很好": "把生活现象或感受误当成算法",
+        "随便按遥控器，碰上哪个台算哪个": "把无序、碰运气的操作当成算法",
+        "只记住考试得了 95 分这个结果": "把某一次结果当成算法方案"
+      },
+      "appRef": "新情境·校园晨检",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L1-G2＋校园晨检步骤",
+      "remixNote": "新编迁移，离开嘉年华菜谱壳。须从四件生活事中认出「有明确步骤的做事」才能说明生活里有算法；非背定义。",
+      "goalIds": [
+        "L1-G2"
+      ],
+      "examPoint": "在新的校园情境中识别：生活里按明确有序步骤做事，就能体现算法；现象、乱操作、一次得数都不是。",
+      "whyInSyllabus": "对齐第1课学习目标2与教学重点「算法的基本含义」：知道算法存在于日常生活。不涉及编程或后续课结构。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "生活处处有算法",
+      "hasRecallImage": false,
+      "stage": 1,
+      "stageId": "gate_l1",
+      "stageName": "点心站·有序步骤"
+    },
+    {
+      "id": "M26",
+      "type": "single_choice",
+      "lesson": 1,
+      "prompt": "小组写下「种蒜苗」说明如下。别组按同一份做，换水节奏却对不上。主要问题更可能是？",
+      "diagram": {
+        "visual": "①准备蒜瓣；②放入装水的杯中；③过一段时间换水；④等待发芽"
+      },
+      "options": [
+        "「过一段时间」没说清多久，别人难以同样执行",
+        "种蒜苗不能写成步骤",
+        "必须先用计算机演示，否则就不算方案",
+        "只要最后有蒜苗，说明怎么写都一样"
+      ],
+      "answer": "「过一段时间」没说清多久，别人难以同样执行",
+      "analysis": "算法须是明确、可执行的求解方案。「过一段时间」没有可对照的标准，别人无法稳定照做。种蒜苗完全可以写成步骤；不一定要上机；结果碰巧成功也不能证明写法明确。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "验证优化",
+        "算法设计"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.76,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "种蒜苗不能写成步骤": "把生活实践排除在算法描述之外",
+        "必须先用计算机演示，否则就不算方案": "误以为算法必须先上机",
+        "只要最后有蒜苗，说明怎么写都一样": "用一次结果代替对步骤是否明确的判断"
+      },
+      "appRef": "新情境·科学课种蒜苗",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L1-G1＋种蒜苗说明排障",
+      "remixNote": "逆向排障。与主卷 M03 含糊指令、M06 可可说明对比不同壳：科学课种植，焦点在「时长含糊导致无法同样执行」。",
+      "goalIds": [
+        "L1-G1"
+      ],
+      "examPoint": "诊断一份看起来像步骤的说明何以不够明确、难以执行。",
+      "whyInSyllabus": "对齐第1课学习目标1与教学难点「把问题解决的过程描述成有序步骤」中的「明确、可执行」。未引入循环结构术语或编程。",
+      "reverseDebug": true,
+      "section": "main",
+      "lessonTitle": "生活处处有算法",
+      "hasRecallImage": false,
+      "stage": 1,
+      "stageId": "gate_l1",
+      "stageName": "点心站·有序步骤"
+    },
+    {
+      "id": "M27",
+      "type": "single_choice",
+      "lesson": 1,
+      "prompt": "班里征集「给绿萝浇水」的方案。哪一份更符合算法的基本含义？",
+      "options": [
+        "①取约 100 毫升水 ②沿盆边缓缓倒入 ③托盘稍湿即停",
+        "浇到差不多就行，看感觉",
+        "上次浇过，这次直接说「完成」",
+        "只要盆栽还活着，就不需要步骤"
+      ],
+      "answer": "①取约 100 毫升水 ②沿盆边缓缓倒入 ③托盘稍湿即停",
+      "analysis": "算法的基本含义是：用明确、可执行的步骤描述求解方案。A 说清了用量、做法和停下的观察标准。「差不多／看感觉」含糊；只报「完成」或看结果存活，都没有给出可执行方法。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "抽象建模",
+        "算法设计"
+      ],
+      "soloLevel": "M",
+      "difficultyEstimate": 0.78,
+      "estimatedMinutes": 1.1,
+      "misconceptionMap": {
+        "浇到差不多就行，看感觉": "把凭感觉的含糊说法当成足够明确的算法",
+        "上次浇过，这次直接说「完成」": "用宣告结果代替步骤描述",
+        "只要盆栽还活着，就不需要步骤": "认为有结果就可以不要方法"
+      },
+      "appRef": "新情境·给绿萝浇水",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L1-K1＋浇水方案对比",
+      "remixNote": "用新生活情境考算法基本含义，不用定义句填空。干扰项有「凭感觉浇水」的合理诱惑。",
+      "goalIds": [
+        "L1-K1"
+      ],
+      "examPoint": "从若干生活方案中选出更符合「明确、可执行的求解方案」的一份。",
+      "whyInSyllabus": "对齐第1课教学重点「算法的基本含义」。内容为日常浇水步骤，不超纲。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "生活处处有算法",
+      "hasRecallImage": false,
+      "stage": 1,
+      "stageId": "gate_l1",
+      "stageName": "点心站·有序步骤"
+    },
+    {
+      "id": "M28",
+      "type": "single_choice",
+      "lesson": 1,
+      "prompt": "小理写「包书皮」步骤如下，却把②放到了①之前，结果常常裁错尺寸。这说明？",
+      "diagram": {
+        "visual": "①量书面长宽；②按尺寸裁包书纸；③包紧贴边；④贴姓名贴"
+      },
+      "options": [
+        "有先后依赖的步骤不能随便对调",
+        "裁纸和量尺寸完全独立，对调不会影响结果",
+        "包书皮是手工活动，不必写成有序步骤",
+        "只要最后包上了书皮，顺序都可以打乱"
+      ],
+      "answer": "有先后依赖的步骤不能随便对调",
+      "analysis": "「按尺寸裁纸」依赖先量出长宽；把②放到①前，关键先后被打乱，容易裁错。并非所有步骤都相互独立；生活手工同样可以把过程写成有序步骤；最终有书皮不能证明顺序无关。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "问题分解",
+        "验证优化"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.74,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "裁纸和量尺寸完全独立，对调不会影响结果": "把有依赖的步骤误看成可交换的独立步",
+        "包书皮是手工活动，不必写成有序步骤": "把生活任务排除在有序步骤描述之外",
+        "只要最后包上了书皮，顺序都可以打乱": "用最终结果否定步骤顺序的作用"
+      },
+      "appRef": "新情境·包书皮",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L1-D1＋包书皮错序排障",
+      "remixNote": "逆向排障。与主卷 M02 果汁倒杯错序同考「关键先后」，但换成先量后裁的新依赖，避免原关原数。",
+      "goalIds": [
+        "L1-D1"
+      ],
+      "examPoint": "在有先后依赖的新任务中，说明步骤顺序被打乱会导致问题无法稳定解决。",
+      "whyInSyllabus": "对齐第1课教学难点「把问题解决的过程描述成有序步骤」及教材提问「步骤的顺序能改变吗」。不涉及后续结构课。",
+      "reverseDebug": true,
+      "section": "main",
+      "lessonTitle": "生活处处有算法",
+      "hasRecallImage": false,
+      "stage": 1,
+      "stageId": "gate_l1",
+      "stageName": "点心站·有序步骤"
+    },
+    {
+      "id": "M29",
+      "type": "single_choice",
+      "lesson": 2,
+      "prompt": "甲、乙叠纸鹤的折法不完全相同，但都是「准备一张纸→按步骤折叠→得到一只鹤」。这说明什么？",
+      "options": [
+        "做法可以不同，但常常都包含准备、按步骤做、得到结果这几段",
+        "折法不同就没有算法",
+        "只有甲的折法才配叫算法",
+        "做手工不能谈算法"
+      ],
+      "answer": "做法可以不同，但常常都包含准备、按步骤做、得到结果这几段",
+      "analysis": "教材指出：不同人做同一件事可以有不同方法，但基本过程常有共同之处。准备材料、按步骤加工、得到成果，分别对应输入、处理、输出。折法不同不等于没有算法；也不能只承认某一种折法；手工同样可以认识算法。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "抽象建模",
+        "迁移运用"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.78,
+      "estimatedMinutes": 1.1,
+      "misconceptionMap": {
+        "折法不同就没有算法": "把「方法唯一」误当成算法的前提",
+        "只有甲的折法才配叫算法": "只承认某一种具体做法",
+        "做手工不能谈算法": "把算法限定在计算或程序中"
+      },
+      "appRef": "新情境·叠纸鹤",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L2-G1＋不同折法的共同过程",
+      "remixNote": "新编。对应教材「不同人做法可不同，基本过程常有共同之处」，进一步认识算法含义，而非再认借书机输入。",
+      "goalIds": [
+        "L2-G1"
+      ],
+      "examPoint": "理解：同一件事可以有不同做法，但常常共享「准备—处理—得到结果」的基本过程。",
+      "whyInSyllabus": "对齐第2课学习目标1及课文关于不同方法、共同基本过程的论述。不引入变量或编程语句。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "算法认识与体验",
+      "hasRecallImage": false,
+      "stage": 2,
+      "stageId": "gate_l2",
+      "stageName": "侦探亭·输入处理输出"
+    },
+    {
+      "id": "M30",
+      "type": "single_choice",
+      "lesson": 2,
+      "prompt": "校园「自制书签」。哪一段既把步骤写清楚，又符合「准备→加工→得到成品」的基本过程？",
+      "options": [
+        "①准备卡纸和彩笔 ②按模板裁剪并涂色 ③打孔穿绳，得到书签",
+        "书签会很好看",
+        "随便画两笔就算完成",
+        "先把做好的书签收起来，再开始准备卡纸"
+      ],
+      "answer": "①准备卡纸和彩笔 ②按模板裁剪并涂色 ③打孔穿绳，得到书签",
+      "analysis": "自然语言步骤要写清楚，并且符合输入→处理→输出的基本流程。A 先备料、再加工、最后得到成品。「会很好看」只是评价；「随便画两笔」含糊不可执行；D 把成品放到准备材料之前，基本流程颠倒。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "算法设计",
+        "抽象建模"
+      ],
+      "soloLevel": "M",
+      "difficultyEstimate": 0.8,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "书签会很好看": "用评价或预期结果代替步骤与流程",
+        "随便画两笔就算完成": "步骤含糊，别人难以照做",
+        "先把做好的书签收起来，再开始准备卡纸": "把输出放到输入之前，基本流程颠倒"
+      },
+      "appRef": "新情境·自制书签",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L2-G2＋自制书签步骤与基本流程",
+      "remixNote": "同时考查「用自然语言写步骤」和「知道基本流程」。D 为流程颠倒的诱惑项；离开番茄炒蛋连线壳。",
+      "goalIds": [
+        "L2-G2",
+        "L2-K1"
+      ],
+      "examPoint": "选出既明确可执行、又符合准备→加工→成品（输入—处理—输出）顺序的说明。",
+      "whyInSyllabus": "对齐第2课学习目标2与教学重点「算法的基本流程」。书签制作属已学生活情境，不超纲。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "算法认识与体验",
+      "hasRecallImage": false,
+      "stage": 2,
+      "stageId": "gate_l2",
+      "stageName": "侦探亭·输入处理输出"
+    },
+    {
+      "id": "M31",
+      "type": "single_choice",
+      "lesson": 2,
+      "prompt": "自助豆浆柜：放入空杯并点「原味」，机器研磨加热，再流出一杯豆浆。小柯把「流出豆浆」标成输入。主要错在哪？",
+      "options": [
+        "「流出豆浆」是做完后得到的结果，应看作输出",
+        "空杯和所选口味不能看作输入",
+        "研磨加热不能看作处理",
+        "这台机器没有输出"
+      ],
+      "answer": "「流出豆浆」是做完后得到的结果，应看作输出",
+      "analysis": "开始前提供的空杯和口味是输入，研磨加热是处理，最后得到的豆浆是输出。小柯把输出误标为输入。其他三项本身判断错误。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "抽象建模",
+        "验证优化"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.76,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "空杯和所选口味不能看作输入": "反向误判，把真正的输入否定掉",
+        "研磨加热不能看作处理": "反向误判，把真正的处理否定掉",
+        "这台机器没有输出": "忽视完成后得到的豆浆就是输出"
+      },
+      "appRef": "新情境·自助豆浆柜",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L2-K1＋豆浆柜IPO标错排障",
+      "remixNote": "逆向排障。新情境识别输出；与主卷 M04 扫证=输入、M05 做菜连线区分，不复用原关。",
+      "goalIds": [
+        "L2-K1"
+      ],
+      "examPoint": "在新设备情境中纠正「把输出标成输入」的流程误判。",
+      "whyInSyllabus": "对齐第2课教学重点「算法的基本流程」（输入—处理—输出）。零编程，不涉及第8课以后内容。",
+      "reverseDebug": true,
+      "section": "main",
+      "lessonTitle": "算法认识与体验",
+      "hasRecallImage": false,
+      "stage": 2,
+      "stageId": "gate_l2",
+      "stageName": "侦探亭·输入处理输出"
+    },
+    {
+      "id": "M32",
+      "type": "single_choice",
+      "lesson": 2,
+      "prompt": "要让别人能照着「给自行车轮胎打气」。哪一段用自然语言写得更明确、可执行？",
+      "options": [
+        "①旋开气嘴帽 ②把气筒接口接紧 ③打到胎侧标明的气压 ④取下气筒并盖上帽",
+        "打一会儿气，差不多就停",
+        "让轮胎变得更好",
+        "先盖上气嘴帽，再开始接气筒"
+      ],
+      "answer": "①旋开气嘴帽 ②把气筒接口接紧 ③打到胎侧标明的气压 ④取下气筒并盖上帽",
+      "analysis": "明确可执行的自然语言要说清做什么、做到什么程度、先后如何。A 有动作和可对照的气压标准。「一会儿／差不多」含糊；「变得更好」没有可执行动作；D 顺序颠倒，盖上帽后再接气筒难以执行。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "算法设计",
+        "验证优化"
+      ],
+      "soloLevel": "M",
+      "difficultyEstimate": 0.78,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "打一会儿气，差不多就停": "时长和标准含糊，别人难以同样执行",
+        "让轮胎变得更好": "只有目标评价，没有可执行步骤",
+        "先盖上气嘴帽，再开始接气筒": "步骤看起来具体，但关键先后错了，难以执行"
+      },
+      "appRef": "新情境·给轮胎打气",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L2-D1＋打气说明对比",
+      "remixNote": "补强 L2-D1 迁移。干扰项不用「魔法」等凑数，改为含糊标准与错序，比主卷 M06 更接近真实误区。",
+      "goalIds": [
+        "L2-D1"
+      ],
+      "examPoint": "比较多段自然语言，选出把打气步骤写明确、可执行的一组，并能排除含糊与错序。",
+      "whyInSyllabus": "对齐第2课学习目标2与教学难点「用自然语言描述做事的步骤」。打气为已生活动，无超纲概念。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "算法认识与体验",
+      "hasRecallImage": false,
+      "stage": 2,
+      "stageId": "gate_l2",
+      "stageName": "侦探亭·输入处理输出"
+    },
+    {
+      "id": "M33",
+      "type": "single_choice",
+      "lesson": 3,
+      "prompt": "科学节「彩环塔」规则与汉诺塔相同。当前状态如下，只做合法一步，应怎样？",
+      "diagram": {
+        "visual": "柱1：大；柱2：中、小（小在上）；柱3：空"
+      },
+      "options": [
+        "把柱2顶端的小环移到柱3",
+        "把柱2的中环直接移到柱1的大环上",
+        "把柱1的大环放到柱2的小环上",
+        "一次把柱2的两个环都移到柱3"
+      ],
+      "answer": "把柱2顶端的小环移到柱3",
+      "analysis": "规则：每次只移一个，且只能拿柱顶的环，并保持小环在大环上面。柱2顶端是小环，柱3为空，可以放。中环被小环压着不能直接移；大环不能压到小环上；一次不能移两环。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "问题分解",
+        "迁移运用"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.7,
+      "estimatedMinutes": 1.3,
+      "misconceptionMap": {
+        "把柱2的中环直接移到柱1的大环上": "忽略「每次只能拿顶端的环」，中环被小环压着",
+        "把柱1的大环放到柱2的小环上": "违反「小环始终在大环上面」",
+        "一次把柱2的两个环都移到柱3": "违反「每次只能移动一个圆环」"
+      },
+      "appRef": "新情境·科学节彩环塔",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L3-G1＋彩环塔新残局",
+      "remixNote": "知识仍是汉诺塔规则，换科学节外壳与新残局（柱2叠中小、柱1仅大）。不同于主卷 M07 的「柱1大中、柱2小」。",
+      "goalIds": [
+        "L3-G1",
+        "L3-K1"
+      ],
+      "examPoint": "在新残局中运用「一次一环、只移顶端、小在大上」判断合法下一步。",
+      "whyInSyllabus": "对齐第3课学习目标1与教学重点「游戏中的操作规律」。未另造超纲新游戏，仅换外壳与残局。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "游戏体验寻规律",
+      "hasRecallImage": false,
+      "stage": 3,
+      "stageId": "gate_l3",
+      "stageName": "汉诺塔实验室"
+    },
+    {
+      "id": "M34",
+      "type": "single_choice",
+      "lesson": 3,
+      "prompt": "同伴方案写着：「一次把柱1的大环和中环一起移到柱3。」写得很具体。主要问题是？",
+      "options": [
+        "虽然说清了对象，但一次移两环，规则不允许，无法执行",
+        "只要写具体了，就不必再看规则",
+        "大环和中环不能写在同一句话里",
+        "方案必须改用拼音来写才算明确"
+      ],
+      "answer": "虽然说清了对象，但一次移两环，规则不允许，无法执行",
+      "analysis": "「明确、可执行」既要说清对象与动作，还要能按规则真正做出来。该方案指代清楚，但一次移两环，违反规则，仍不可执行。不是用词或语言形式的问题。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "验证优化",
+        "算法设计"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.72,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "只要写具体了，就不必再看规则": "把「写清楚」误当成已经可执行",
+        "大环和中环不能写在同一句话里": "把问题误判为句子写法禁忌",
+        "方案必须改用拼音来写才算明确": "把明确性误当成书写文字种类"
+      },
+      "appRef": "新情境·科学节彩环塔",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L3-G2＋一次移两环方案评阅",
+      "remixNote": "与主卷 M09「那个／那边」指代不明区分：本方案已经具体，错在违反规则因而不可执行。进一步认识「明确可执行步骤」。",
+      "goalIds": [
+        "L3-G2"
+      ],
+      "examPoint": "评阅一份「写得很具体但不合法」的方案，理解明确还须可执行。",
+      "whyInSyllabus": "对齐第3课学习目标2「进一步认识算法是通过明确的、可执行的操作步骤描述的问题求解方案」。规则仍为教材汉诺塔两条。",
+      "reverseDebug": true,
+      "section": "main",
+      "lessonTitle": "游戏体验寻规律",
+      "hasRecallImage": false,
+      "stage": 3,
+      "stageId": "gate_l3",
+      "stageName": "汉诺塔实验室"
+    },
+    {
+      "id": "M35",
+      "type": "single_choice",
+      "lesson": 3,
+      "prompt": "彩环塔当前状态如下。哪一步违反了操作规律？",
+      "diagram": {
+        "visual": "柱1：大、小（小在上）；柱2：中；柱3：空"
+      },
+      "options": [
+        "把柱1的大环移到柱3",
+        "把小环从柱1移到柱3",
+        "把小环从柱1移到柱2的中环上",
+        "把中环从柱2移到柱3"
+      ],
+      "answer": "把柱1的大环移到柱3",
+      "analysis": "柱1顶端是小环，大环被压着，不能直接移到柱3。其余三步都合法：小环可移到空柱3，也可放到中环上（小在上）；中环在柱2顶端，柱3为空，可以放置。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "验证优化",
+        "问题分解"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.7,
+      "estimatedMinutes": 1.3,
+      "misconceptionMap": {
+        "把小环从柱1移到柱3": "把合法的「顶端小环移到空柱」误判为违规",
+        "把小环从柱1移到柱2的中环上": "误以为小环不能放到中环上（其实符合小在大上）",
+        "把中环从柱2移到柱3": "把合法的「顶端中环移到空柱」误判为违规"
+      },
+      "appRef": "新情境·科学节彩环塔",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L3-K1＋新残局找违规步",
+      "remixNote": "逆向排障：在合法三步中找出「被压着的大环不能直接移动」。残局与 M07／M33 均不同。",
+      "goalIds": [
+        "L3-K1"
+      ],
+      "examPoint": "根据「一次一环、只移顶端、小在大上」，从四步中找出违规操作。",
+      "whyInSyllabus": "对齐第3课教学重点「在游戏过程中体会其中存在的操作规律」。知识不出汉诺塔规则。",
+      "reverseDebug": true,
+      "section": "main",
+      "lessonTitle": "游戏体验寻规律",
+      "hasRecallImage": false,
+      "stage": 3,
+      "stageId": "gate_l3",
+      "stageName": "汉诺塔实验室"
+    },
+    {
+      "id": "M36",
+      "type": "flowchart_op",
+      "lesson": 3,
+      "prompt": "要把柱2上的两环（下中上小）移到空的柱3，柱1已有大环。按可执行顺序点选放入①②③。",
+      "diagram": {
+        "visual": "柱1：大；柱2：中、小（小在上）；柱3：空"
+      },
+      "cards": [
+        "小环：柱2→柱1",
+        "中环：柱2→柱3",
+        "小环：柱1→柱3"
+      ],
+      "slots": [
+        "①",
+        "②",
+        "③"
+      ],
+      "answer": {
+        "①": "小环：柱2→柱1",
+        "②": "中环：柱2→柱3",
+        "③": "小环：柱1→柱3"
+      },
+      "analysis": "中环被小环压着，须先把小环合法放到柱1的大环上，再移中环到空的柱3，最后把小环移到柱3的中环上。不能先移中环，也不能一次移两环。此顺序与主卷「两环从柱1到柱3、中间柱为空」的三步不同。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "算法设计",
+        "问题分解"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.72,
+      "estimatedMinutes": 1.5,
+      "misconceptionMap": {
+        "先移中环：柱2→柱3": "忽略中环被小环压着，不能先移",
+        "先把小环直接移到柱3再移中环": "小环先占住柱3后，中环无法再落到空柱，步骤不可行",
+        "一次移动柱2的两环": "违反一次只移一个环"
+      },
+      "appRef": "新情境·科学节彩环塔",
+      "interactionSpecKey": "flowchart_order_cards",
+      "remixFrom": "new:教材L3-D1＋两环从柱2到柱3（柱1已有大环）",
+      "remixNote": "文字卡片排序，不配回忆插图。任务与主卷 M08（两环柱1→柱3、中间柱空）不同构，避免交标准三步答案。",
+      "goalIds": [
+        "L3-D1"
+      ],
+      "examPoint": "把新残局下的合法移动过程写成有序、可执行的三步。",
+      "whyInSyllabus": "对齐第3课教学难点「把问题解决的过程用图示或文字描述为有序步骤」。点选卡片，不要求手写，不另造新游戏。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "游戏体验寻规律",
+      "hasRecallImage": false,
+      "stage": 3,
+      "stageId": "gate_l3",
+      "stageName": "汉诺塔实验室"
+    },
+    {
+      "id": "M37",
+      "type": "single_choice",
+      "lesson": 4,
+      "prompt": "同学在图书馆把书封面对准设备，屏幕立刻弹出书名和架位。这主要是哪类身边的算法应用？",
+      "options": [
+        "识别",
+        "路径规划",
+        "推荐",
+        "搜索"
+      ],
+      "answer": "识别",
+      "analysis": "根据封面图像给出书名和架位，属于教材所列的识别类应用。现场没有在重新选路，也不是按历史喜好做推荐；同学并没有输入关键词去查找，故不能算搜索。",
+      "literacy": [
+        "计算思维",
+        "信息意识"
+      ],
+      "ctTags": [
+        "抽象建模",
+        "迁移运用"
+      ],
+      "soloLevel": "M",
+      "difficultyEstimate": 0.78,
+      "estimatedMinutes": 1.1,
+      "misconceptionMap": {
+        "路径规划": "看到「架位」就误联想到路线规划",
+        "推荐": "把「系统给出书名」误当成按历史喜好推荐",
+        "搜索": "把根据封面图像找出书名，误当成输入关键词去搜索"
+      },
+      "appRef": "新情境·图书馆拍封面识书",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L4-G1＋拍封面识书",
+      "remixNote": "新实例辨认「识别」。干扰项用搜索／推荐等易混领域，且选项中的括号是类型说明而非自曝错因。",
+      "goalIds": [
+        "L4-G1"
+      ],
+      "examPoint": "结合图书馆新实例，判断这是识别类应用而不是搜索、推荐或路径规划。",
+      "whyInSyllabus": "教材已列识别、推荐、搜索、路径规划等主要领域。拍封面识书是识别的生活迁移，不引入未学技术名词。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "算法应用在身边",
+      "hasRecallImage": false,
+      "stage": 4,
+      "stageId": "gate_l4",
+      "stageName": "奇趣游园会"
+    },
+    {
+      "id": "M38",
+      "type": "single_choice",
+      "lesson": 4,
+      "prompt": "用搜索引擎查「校园科技节时间」，更相关的官网通知排在前面。这件事主要说明什么？",
+      "options": [
+        "搜索算法能帮我们更快找到更相关的信息，作用很大",
+        "搜索引擎只会随机显示网页，没有算法",
+        "只要有算法帮忙，就不必再判断内容是否可靠",
+        "这类应用只存在于游戏里，学习中用不到"
+      ],
+      "answer": "搜索算法能帮我们更快找到更相关的信息，作用很大",
+      "analysis": "教材强调算法在社会各领域发挥着重要作用：搜索算法分析相关性并把更相关的结果靠前呈现，方便获取信息。这不是随机无算法；有算法帮忙仍要判断内容是否可靠；学习生活中同样常用搜索。",
+      "literacy": [
+        "计算思维",
+        "信息意识",
+        "信息社会责任"
+      ],
+      "ctTags": [
+        "迁移运用"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.76,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "搜索引擎只会随机显示网页，没有算法": "否认搜索过程中有算法，也看不到其作用",
+        "只要有算法帮忙，就不必再判断内容是否可靠": "过度迷信算法输出，忽视仍须判断信息是否可靠",
+        "这类应用只存在于游戏里，学习中用不到": "把算法应用的领域理解得过窄"
+      },
+      "appRef": "新情境·搜索校园通知",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L4-G2＋搜索结果排序的作用",
+      "remixNote": "考「作用与意义」而非只贴类型标签。C 项真正考查信息社会责任：有算法仍要判断信息是否可靠。",
+      "goalIds": [
+        "L4-G2"
+      ],
+      "examPoint": "说明搜索算法把更相关结果靠前，是它在信息获取中的重要作用；同时不能放弃对内容可靠性的判断。",
+      "whyInSyllabus": "对齐第4课学习目标2及教材对搜索引擎、网页相关性的说明。不要求了解排名公式或未学技术细节。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "算法应用在身边",
+      "hasRecallImage": false,
+      "stage": 4,
+      "stageId": "gate_l4",
+      "stageName": "奇趣游园会"
+    },
+    {
+      "id": "M39",
+      "type": "single_choice",
+      "lesson": 4,
+      "prompt": "短视频根据小雨平时的观看记录，自动连续播放相似内容。这主要属于哪类应用？",
+      "options": [
+        "推荐",
+        "路径规划",
+        "搜索",
+        "识别人脸并解锁"
+      ],
+      "answer": "推荐",
+      "analysis": "按历史观看记录自动连播相似内容，属于教材中的推荐算法。小雨并未输入关键词去查找（不是搜索），也不是在规划路线或做人脸解锁。",
+      "literacy": [
+        "信息意识",
+        "计算思维"
+      ],
+      "ctTags": [
+        "抽象建模",
+        "迁移运用"
+      ],
+      "soloLevel": "U",
+      "difficultyEstimate": 0.8,
+      "estimatedMinutes": 1.1,
+      "misconceptionMap": {
+        "路径规划": "与「连续播放」的路径字面意思混淆",
+        "搜索": "把「系统给内容」都看成搜索，忽略她没有主动输入关键词查找",
+        "识别人脸并解锁": "把常见的识别应用套到不相关的情境上"
+      },
+      "appRef": "新情境·短视频连续播放",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L4-K1＋短视频推荐辨识",
+      "remixNote": "主挂领域辨识。最强诱惑是「搜索」：二者都给内容，但本题是按历史记录推送而非关键词查找。非主卷游园会连线壳。",
+      "goalIds": [
+        "L4-K1"
+      ],
+      "examPoint": "区分推荐与搜索等易混领域：按历史记录自动推送相似内容属于推荐。",
+      "whyInSyllabus": "教材已明示「短视频网站、购物网站有推荐算法」。不展开推荐模型，不超纲。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "算法应用在身边",
+      "hasRecallImage": false,
+      "stage": 4,
+      "stageId": "gate_l4",
+      "stageName": "奇趣游园会"
+    },
+    {
+      "id": "M40",
+      "type": "single_choice",
+      "lesson": 4,
+      "prompt": "拍照识植物时，应用把眼前的「紫藤」显示成「紫薇」。更合理的做法是？",
+      "options": [
+        "把识别结果当作线索，再对照特征或请教老师后确认",
+        "必须立刻把屏幕上的名字当成最终答案",
+        "认错一次就说明识别应用根本不存在",
+        "改用路径规划来决定植物的名字"
+      ],
+      "answer": "把识别结果当作线索，再对照特征或请教老师后确认",
+      "analysis": "识别算法能帮助我们快速给出候选名称，但一次结果可能有误，需要结合特征或请教后再确认。不能把一次输出当成不可怀疑的答案；一次出错也不等于这类应用不存在；路径规划解决的是路线问题，不能用来定植物名。",
+      "literacy": [
+        "信息意识",
+        "计算思维"
+      ],
+      "ctTags": [
+        "验证优化",
+        "迁移运用"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.74,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "必须立刻把屏幕上的名字当成最终答案": "盲目接受识别输出，不核验",
+        "认错一次就说明识别应用根本不存在": "用一次失败否定这类算法应用的存在与作用",
+        "改用路径规划来决定植物的名字": "把不同领域的算法应用混用"
+      },
+      "appRef": "新情境·拍照识植物",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L4-D1＋识花结果核验",
+      "remixNote": "结合实例判断「识别」的作用与限度（线索而非最终权威）。不同于主卷 M10 封路重选、M12 历史推荐与当前需求。",
+      "goalIds": [
+        "L4-D1"
+      ],
+      "examPoint": "在识别结果出错时，能判断其类型与作用：可作线索，但须核验，不能盲信或全盘否定。",
+      "whyInSyllabus": "对齐第4课教学难点「身边的算法应用实例」及「了解身边的算法应用」。核验信息属于本课信息意识，不引入未学技术。",
+      "reverseDebug": true,
+      "section": "main",
+      "lessonTitle": "算法应用在身边",
+      "hasRecallImage": false,
+      "stage": 4,
+      "stageId": "gate_l4",
+      "stageName": "奇趣游园会"
+    },
+    {
+      "id": "M41",
+      "type": "single_choice",
+      "lesson": 5,
+      "prompt": "求下面三本书的平均价格。小诺先把 12 除以 3，再加 18 和 24，结果很奇怪。这说明？",
+      "diagram": {
+        "visual": "三本书价格：12 元、18 元、24 元"
+      },
+      "options": [
+        "计算时步骤的先后会影响结果",
+        "平均价格不能用步骤来描述",
+        "只要会加法，步骤顺序都可以打乱",
+        "一定是书的价格写错了，与顺序无关"
+      ],
+      "answer": "计算时步骤的先后会影响结果",
+      "analysis": "求平均应先把三个价格加起来，再除以 3。先把其中一个数除以 3 再去做加法，顺序变了，结果就会偏。平均计算完全可以用有序步骤描述；不是价格本身写错这么简单。本题不涉及温度换算。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "验证优化",
+        "算法设计"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.74,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "平均价格不能用步骤来描述": "否认数学运算中可以用算法描述方法",
+        "只要会加法，步骤顺序都可以打乱": "忽略顺序结构中先后会影响结果",
+        "一定是书的价格写错了，与顺序无关": "把异常结果完全归咎于数据，不检查步骤顺序"
+      },
+      "appRef": "新情境·三本书平均价",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L5-G1＋平均价格错序排障",
+      "remixNote": "逆向排障，考顺序结构。刻意避开主卷温度换算数据与公式，防止交叉泄步骤。",
+      "goalIds": [
+        "L5-G1"
+      ],
+      "examPoint": "通过平均价格的错序，认识顺序结构：步骤先后会影响结果。",
+      "whyInSyllabus": "对齐第5课学习目标1「认识算法的顺序结构」及「算法在数学解题中的作用」。平均数为五年级已学运算，无温度公式、无变量编程。",
+      "reverseDebug": true,
+      "section": "main",
+      "lessonTitle": "数学运算讲方法",
+      "hasRecallImage": false,
+      "stage": 5,
+      "stageId": "gate_l5",
+      "stageName": "生活算法站"
+    },
+    {
+      "id": "M42",
+      "type": "single_choice",
+      "lesson": 5,
+      "prompt": "用「先把各科分数相加，再除以科目数」去算不同同学的平均分，都能得到各自结果。这说明什么？",
+      "options": [
+        "算法说的是可重复使用的方法，不只是某一次算出的那个数",
+        "每个人的平均分都必须相同",
+        "换了数据就必须另起一个完全无关的名称，不能叫同一套方法",
+        "只有第一次算对的那个数字才叫算法"
+      ],
+      "answer": "算法说的是可重复使用的方法，不只是某一次算出的那个数",
+      "analysis": "同一套「先求和再除以个数」的方法，换不同同学的分数仍能用，说明算法是解决问题的方法描述，不是某一次的得数。平均分本就可以不同；换数据正是同一方法的再次使用；数字本身不是算法。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "抽象建模",
+        "迁移运用"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.78,
+      "estimatedMinutes": 1.1,
+      "misconceptionMap": {
+        "每个人的平均分都必须相同": "把「同一套方法」误理解成「结果必须一样」",
+        "换了数据就必须另起一个完全无关的名称，不能叫同一套方法": "不理解方法可以换输入重复使用",
+        "只有第一次算对的那个数字才叫算法": "把某次得数当成算法"
+      },
+      "appRef": "新情境·平均分方法复用",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L5-G2＋平均分方法换数据",
+      "remixNote": "用「同一方法换数据仍能用」考方法≠某次得数，离开温度与写死℃的壳，避免与 M14／M15 贴皮。",
+      "goalIds": [
+        "L5-G2"
+      ],
+      "examPoint": "从「同一套平均分步骤可算不同同学」理解：算法是方法描述，不是某一次得数。",
+      "whyInSyllabus": "对齐第5课学习目标2「算法是解决问题的方法描述」。运算为已学平均分，不超纲。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "数学运算讲方法",
+      "hasRecallImage": false,
+      "stage": 5,
+      "stageId": "gate_l5",
+      "stageName": "生活算法站"
+    },
+    {
+      "id": "M43",
+      "type": "single_choice",
+      "lesson": 5,
+      "prompt": "要算「买 3 支同样的笔一共多少钱」。哪一段用自然语言把算法写得清楚、能照着做？",
+      "options": [
+        "①先记下单价 ②用单价乘 3 ③得到总价",
+        "直接写「一共 15 元」",
+        "先把一个总价除以 3，再去乘单价",
+        "不用步骤，猜一个整数即可"
+      ],
+      "answer": "①先记下单价 ②用单价乘 3 ③得到总价",
+      "analysis": "用自然语言描述运算算法，要写清先做什么、再做什么。A 是「单价×数量＝总价」的明确步骤。B 只给出一次写死的得数，题干并未给出单价，别人无法照做；C 步骤混乱，不能稳定求总价；D 没有方法。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "算法设计"
+      ],
+      "soloLevel": "M",
+      "difficultyEstimate": 0.8,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "直接写「一共 15 元」": "写死某次得数，没有描述可换单价使用的方法",
+        "先把一个总价除以 3，再去乘单价": "步骤顺序和运算关系混乱",
+        "不用步骤，猜一个整数即可": "用猜测代替明确有序的计算方法"
+      },
+      "appRef": "新情境·买笔算总价",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L5-K1＋买笔总价的自然语言步骤",
+      "remixNote": "考用自然语言描述运算算法。选项不出现温度换算步骤，避免与主卷交叉泄题。",
+      "goalIds": [
+        "L5-K1"
+      ],
+      "examPoint": "选出能把「单价×数量」写成明确有序自然语言步骤的一段，排除写死得数与乱序。",
+      "whyInSyllabus": "对齐第5课教学重点「用自然语言描述数学运算中的算法」。乘法求总价为已学内容。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "数学运算讲方法",
+      "hasRecallImage": false,
+      "stage": 5,
+      "stageId": "gate_l5",
+      "stageName": "生活算法站"
+    },
+    {
+      "id": "M44",
+      "type": "single_choice",
+      "lesson": 5,
+      "prompt": "要把「2 米 15 厘米」改写成厘米。哪一套步骤顺序明确且正确？",
+      "options": [
+        "①把 2 米换成 200 厘米 ②再加 15 厘米 ③得到 215 厘米",
+        "①把 2 和 15 直接相加得 17 ②在后面写上「厘米」",
+        "①先写「厘米」 ②再随便填一个数",
+        "①把 15 厘米换成米 ②再减去 2"
+      ],
+      "answer": "①把 2 米换成 200 厘米 ②再加 15 厘米 ③得到 215 厘米",
+      "analysis": "单位统一后再相加：先把 2 米换算成 200 厘米，再加 15 厘米，得到 215 厘米。把 2 和 15 直接相加忽略了单位换算；随便填数不是算法；先把 15 厘米换成米再减 2，步骤与运算都不对。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "算法设计",
+        "问题分解"
+      ],
+      "soloLevel": "M",
+      "difficultyEstimate": 0.78,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "①把 2 和 15 直接相加得 17 ②在后面写上「厘米」": "忽略先统一单位，误把不同单位的数直接相加",
+        "①先写「厘米」 ②再随便填一个数": "没有明确计算步骤",
+        "①把 15 厘米换成米 ②再减去 2": "换算方向和运算都错误"
+      },
+      "appRef": "新情境·米和厘米改写",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L5-D1＋长度单位改写步骤",
+      "remixNote": "把简单计算写成明确有序步骤；顺序和单位处理都会影响结果。不用周长图（挑战 C03 已用）和温度公式。",
+      "goalIds": [
+        "L5-D1"
+      ],
+      "examPoint": "能把长度单位改写写成正确、有序、可执行的步骤，并排除直接相加等常见错序。",
+      "whyInSyllabus": "对齐第5课教学难点「把简单计算题的解题过程，用明确有序的步骤表示」。米与厘米换算为已学计量知识。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "数学运算讲方法",
+      "hasRecallImage": false,
+      "stage": 5,
+      "stageId": "gate_l5",
+      "stageName": "生活算法站"
+    },
+    {
+      "id": "M45",
+      "type": "single_choice",
+      "lesson": 6,
+      "prompt": "下面哪一件最能体现「先判断，再从两条做法里选一条」？",
+      "options": [
+        "图书馆：带了借书卡就自助借书，没带就到服务台登记",
+        "把书放进书包，再拉上拉链，再背上书包",
+        "晾晒的衣服还没干就再等一会儿，干了再收",
+        "做汤：先洗菜，再切块，再下锅"
+      ],
+      "answer": "图书馆：带了借书卡就自助借书，没带就到服务台登记",
+      "analysis": "分支结构是先判断条件，再选择其中一条路径去做。A 按「是否带卡」在自助借书与服务台登记中选一条。B、D 是按固定顺序做完的顺序结构。C 是条件不满足就反复等待，属于重复执行，不是只选一条路。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "抽象建模",
+        "迁移运用"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.76,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "把书放进书包，再拉上拉链，再背上书包": "把顺序结构看成分支",
+        "晾晒的衣服还没干就再等一会儿，干了再收": "把反复等待直到条件变化看成「选一条路」的分支",
+        "做汤：先洗菜，再切块，再下锅": "把固定顺序的做事当成分支"
+      },
+      "appRef": "新情境·图书馆借书卡",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L6-G1＋先判断再选路辨认",
+      "remixNote": "在新生活事例中认识分支结构。C 用反复等待作合理诱惑，从分支课角度辨析「选一条路」与「反复做」，题干不用内部代号，也不用「循环体」。",
+      "goalIds": [
+        "L6-G1"
+      ],
+      "examPoint": "从顺序、反复等待等相近流程中，认出「先判断再选一条路径」的分支。",
+      "whyInSyllabus": "对齐第6课学习目标1「认识算法的分支结构」。事例为借书、收衣服等已学生活情境，不引入复合条件和编程语句。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "判断选择用分支",
+      "hasRecallImage": false,
+      "stage": 6,
+      "stageId": "gate_l6",
+      "stageName": "分支岛"
+    },
+    {
+      "id": "M46",
+      "type": "single_choice",
+      "lesson": 6,
+      "prompt": "规则：身高≥120cm 可去深水区，否则去浅水区。恰好 120cm 时？",
+      "options": [
+        "是→深水区",
+        "否→浅水区",
+        "两个区都去",
+        "两个区都不能去"
+      ],
+      "answer": "是→深水区",
+      "analysis": "条件是「身高≥120」，包含等于。恰好 120cm 时条件成立，走「是」，去深水区。不能因为「刚好踩线」就走否，也不能两个区都去或都不去。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "验证优化",
+        "算法设计"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.74,
+      "estimatedMinutes": 1.1,
+      "misconceptionMap": {
+        "否→浅水区": "忽略「≥」包含等于，把临界值误走到否侧（可能受「小于某值」类规则影响）",
+        "两个区都去": "临界时不知道只走一条路径",
+        "两个区都不能去": "临界时误以为两边都不满足"
+      },
+      "appRef": "新情境·深水区身高线",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L6-G2＋身高≥120 临界路径",
+      "remixNote": "新阈值、新方向：主卷 M18 是「＜140 恰好走否」；本题是「≥120 恰好走是」，防止套「临界都走否」。",
+      "goalIds": [
+        "L6-G2",
+        "L6-K1"
+      ],
+      "examPoint": "根据「≥」确定临界值的判断结果与执行路径。",
+      "whyInSyllabus": "对齐第6课学习目标2「确定分支结构的判断条件和执行路径」。身高与分区是生活规则，不含复合逻辑运算。",
+      "reverseDebug": true,
+      "section": "main",
+      "lessonTitle": "判断选择用分支",
+      "hasRecallImage": false,
+      "stage": 6,
+      "stageId": "gate_l6",
+      "stageName": "分支岛"
+    },
+    {
+      "id": "M47",
+      "type": "single_choice",
+      "lesson": 6,
+      "prompt": "规则是「没戴泳帽不能入池，戴了才能入池」。哪项把判断和路径配得正确？",
+      "options": [
+        "判断「戴了泳帽吗？」是→入池；否→不能入池",
+        "判断「戴了泳帽吗？」是→不能入池；否→入池",
+        "不用判断，所有人都直接入池",
+        "先让所有人入池，再补问有没有帽"
+      ],
+      "answer": "判断「戴了泳帽吗？」是→入池；否→不能入池",
+      "analysis": "要把规则翻译成判断条件与两条路径，并且出口必须和条件配合。戴了帽应入池，没戴不能入池。B 把是／否出口接反；C、D 取消或后置判断，无法按规则执行。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "算法设计",
+        "验证优化"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.75,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "判断「戴了泳帽吗？」是→不能入池；否→入池": "条件对了，但是／否出口接反",
+        "不用判断，所有人都直接入池": "取消判断，无法落实分情况执行",
+        "先让所有人入池，再补问有没有帽": "把判断放到执行之后，路径已经走错"
+      },
+      "appRef": "新情境·泳帽入池",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L6-K1＋泳帽规则的条件与路径",
+      "remixNote": "考判断条件与出口配合。最强诱惑是出口接反；不同于身高临界、积分满 80、温度补测。",
+      "goalIds": [
+        "L6-K1"
+      ],
+      "examPoint": "把生活规则准确转成「条件＋两条路径」，并能发现出口接反。",
+      "whyInSyllabus": "对齐第6课教学重点「分支结构的判断条件和执行路径」。规则为简单是否判断，无与／或运算。",
+      "reverseDebug": true,
+      "section": "main",
+      "lessonTitle": "判断选择用分支",
+      "hasRecallImage": false,
+      "stage": 6,
+      "stageId": "gate_l6",
+      "stageName": "分支岛"
+    },
+    {
+      "id": "M48",
+      "type": "flowchart_op",
+      "lesson": 6,
+      "prompt": "规则「练习超过 30 分钟才加练，恰好 30 分钟不加练」。点卡片补全：◇条件 → 是／否两个出口。",
+      "cards": [
+        "时间＞30分钟",
+        "时间≥30分钟",
+        "时间≤30分钟",
+        "加练",
+        "不加练"
+      ],
+      "slots": [
+        "diamond",
+        "yes",
+        "no"
+      ],
+      "answer": {
+        "diamond": "时间＞30分钟",
+        "yes": "加练",
+        "no": "不加练"
+      },
+      "acceptAlternate": {
+        "diamond": "时间≤30分钟",
+        "yes": "不加练",
+        "no": "加练"
+      },
+      "analysis": "「超过 30 分钟」不含等于，菱形应用「时间＞30分钟」，是→加练，否→不加练。若写成「时间≤30分钟」，则出口应对调（是→不加练，否→加练）。「时间≥30分钟」把恰好 30 分钟误纳入加练，不能作为正确答案。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "算法设计",
+        "验证优化"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.7,
+      "estimatedMinutes": 1.5,
+      "misconceptionMap": {
+        "时间≥30分钟": "把「超过」误当成「满／达到」（含等于），恰好 30 分钟会被错判为加练",
+        "出口与条件不配合": "即使条件写对，是／否两侧动作接反",
+        "把动作放进菱形": "菱形应放能回答是／否的条件，而不是「加练」这类动作"
+      },
+      "appRef": "新情境·练习加时",
+      "interactionSpecKey": "flowchart_fill_triple",
+      "remixFrom": "new:教材L6-D1＋「超过30分钟」出口配合",
+      "remixNote": "文字流程图补全，不配插图。与主卷 M17「满 80 用≥」形成对照：本题专考「超过」应用「＞」。可接受交替为「≤30」且出口对调。",
+      "goalIds": [
+        "L6-D1"
+      ],
+      "examPoint": "用流程图描述分支：菱形放是／否条件，出口与「超过 30 分钟」的含义配合。",
+      "whyInSyllabus": "对齐第6课教学难点「用流程图描述分支结构」。点选卡片，不要求手写；条件为单一比较，不超纲。",
+      "reverseDebug": true,
+      "section": "main",
+      "lessonTitle": "判断选择用分支",
+      "hasRecallImage": false,
+      "stage": 6,
+      "stageId": "gate_l6",
+      "stageName": "分支岛"
+    },
+    {
+      "id": "M49",
+      "type": "single_choice",
+      "lesson": 7,
+      "prompt": "图书角自助机规定：「条码没扫上就再对准扫一次，直到成功。」下面哪一步其实在反复执行？",
+      "options": [
+        "显示欢迎页并等待同学到来",
+        "条码没扫上就再次对准扫描",
+        "扫成功后打印一张借书凭条",
+        "把凭条放进书袋并离开设备"
+      ],
+      "answer": "条码没扫上就再次对准扫描",
+      "analysis": "循环结构的特征是某一步会按条件反复执行。这里反复的是「没扫上就再扫」。显示欢迎、成功后打印凭条、离开设备通常各做一次，不是这段重复规律的本身。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "抽象建模",
+        "迁移运用"
+      ],
+      "soloLevel": "U",
+      "difficultyEstimate": 0.8,
+      "estimatedMinutes": 1.1,
+      "misconceptionMap": {
+        "显示欢迎页并等待同学到来": "把开始前的一次性等待当成反复扫描",
+        "扫成功后打印一张借书凭条": "把循环结束后的一次性输出当成反复步骤",
+        "把凭条放进书袋并离开设备": "把结束动作当成反复执行的步骤"
+      },
+      "appRef": "新情境·自助扫码借书",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L7-G1＋扫码反复对准",
+      "remixNote": "新情境识别重复规律。离开摆渡车满员、路口等灯原壳。",
+      "goalIds": [
+        "L7-G1"
+      ],
+      "examPoint": "在自助扫码流程中找出「按条件反复执行」的那一步，从而认识循环结构。",
+      "whyInSyllabus": "对齐第7课学习目标1「认识其中存在的重复规律与循环结构」。不使用「循环体」一词，不引入循环次数变量或编程语句。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "重复操作用循环",
+      "hasRecallImage": false,
+      "stage": 7,
+      "stageId": "gate_l7",
+      "stageName": "莲花山小交警"
+    },
+    {
+      "id": "M50",
+      "type": "single_choice",
+      "lesson": 7,
+      "prompt": "同一路口：上学高峰机动车排队很长，放学时行人过街队伍很长。信号灯时长更应怎样设置？",
+      "options": [
+        "按不同时段的通行需要调整时长，让更多人、车安全通过",
+        "任何时候都把某一方向的灯永久亮着",
+        "时长只能随机变化，不能根据需要来定",
+        "高峰时把另一方向的灯时长减到 0 最安全"
+      ],
+      "answer": "按不同时段的通行需要调整时长，让更多人、车安全通过",
+      "analysis": "第7课要求了解交通信号灯时长设置的作用和意义：时长应服务当下的通行需要。上学高峰与放学行人高峰不同，应按时段合理调整，让相应方向有足够时间安全通过。单向永久亮着、随机乱变、或把另一方向减到 0，都不能保障安全通行。",
+      "literacy": [
+        "计算思维",
+        "信息社会责任"
+      ],
+      "ctTags": [
+        "迁移运用",
+        "验证优化"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.74,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "任何时候都把某一方向的灯永久亮着": "忽略另一方向同样需要通行时间",
+        "时长只能随机变化，不能根据需要来定": "否定时长设置要服务于通行需要",
+        "高峰时把另一方向的灯时长减到 0 最安全": "把「给一方更多时间」极端化，反而造成另一方无法安全通过"
+      },
+      "appRef": "新情境·校门口时段调灯",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L7-G2＋上学放学不同高峰的时长意义",
+      "remixNote": "专考信号灯时长的作用和意义，不虚挂到非时长题。冲突改为「不同时段不同高峰」，区别于主卷 M24「开放日行人排队很长→加长行人灯」。",
+      "goalIds": [
+        "L7-G2"
+      ],
+      "examPoint": "理解信号灯时长应按不同时段的通行需要来设置，以保障人、车安全通过。",
+      "whyInSyllabus": "对齐第7课学习目标2中「了解交通信号灯时长设置的作用和意义」。只讨论调整原则，不要求计算具体秒数或编写程序。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "重复操作用循环",
+      "hasRecallImage": false,
+      "stage": 7,
+      "stageId": "gate_l7",
+      "stageName": "莲花山小交警"
+    },
+    {
+      "id": "M51",
+      "type": "single_choice",
+      "lesson": 7,
+      "prompt": "下面哪一件主要是在「反复做同一类操作，直到条件变化」？",
+      "options": [
+        "自动浇花：土壤还干就再浇一次，湿了才停止",
+        "今天是不是雨天：是就带伞，不是就不用带",
+        "先洗手，再取餐盘，再排队打菜",
+        "只做一次「打开教室门」"
+      ],
+      "answer": "自动浇花：土壤还干就再浇一次，湿了才停止",
+      "analysis": "生活中的循环结构，是按条件反复做同一类操作直到条件变化。自动浇花在「还干」时重复浇，湿了才停。雨天带伞是按条件选一条路（分支）；洗手取盘打菜是顺序；打开一次门没有反复。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "抽象建模",
+        "迁移运用"
+      ],
+      "soloLevel": "M",
+      "difficultyEstimate": 0.76,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "今天是不是雨天：是就带伞，不是就不用带": "把分支（选一条路）看成反复执行的循环",
+        "先洗手，再取餐盘，再排队打菜": "把顺序结构看成循环",
+        "只做一次「打开教室门」": "把一次性动作看成循环"
+      },
+      "appRef": "新情境·自动浇花",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L7-K1＋自动浇花中的循环",
+      "remixNote": "识别生活中的循环结构。最强诱惑为雨天带伞的分支，壳不同于主卷 M23「有天桥吗」。题干不用「循环体」。",
+      "goalIds": [
+        "L7-K1"
+      ],
+      "examPoint": "从生活事例中找出循环：反复做同一类操作直到条件变化，并能与分支、顺序区分。",
+      "whyInSyllabus": "对齐第7课教学重点「观察、发现生活中的循环结构」。自动浇花为生活实例，无编程实现细节。",
+      "reverseDebug": false,
+      "section": "main",
+      "lessonTitle": "重复操作用循环",
+      "hasRecallImage": false,
+      "stage": 7,
+      "stageId": "gate_l7",
+      "stageName": "莲花山小交警"
+    },
+    {
+      "id": "M52",
+      "type": "flowchart_op",
+      "lesson": 7,
+      "prompt": "自助借书图已有「对准条码扫描」和菱形「没扫上？」。回边应从「还要再扫」一侧接到哪里？",
+      "diagram": {
+        "note": "残局：开始→对准条码扫描→◇没扫上？→是／否（否→打印凭条）"
+      },
+      "options": [
+        "接回「对准条码扫描」",
+        "接到「打印凭条」",
+        "接到「结束」",
+        "接到开始框外面任意处"
+      ],
+      "answer": "接回「对准条码扫描」",
+      "analysis": "循环的回边要落到需要反复执行的步骤。还要再扫，就应回到「对准条码扫描」。接到打印凭条或结束，会在还没扫上时提前结束；接到开始框外任意处则落点不明确，别人无法执行。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "算法设计",
+        "验证优化"
+      ],
+      "soloLevel": "R",
+      "difficultyEstimate": 0.72,
+      "estimatedMinutes": 1.4,
+      "misconceptionMap": {
+        "接到「打印凭条」": "还没扫成功就进入结束动作，回边落点错误",
+        "接到「结束」": "条件仍要再扫时却直接结束",
+        "接到开始框外面任意处": "认为回边可以随便接，忽略必须落到反复执行的步骤"
+      },
+      "appRef": "新情境·自助扫码借书",
+      "interactionSpecKey": "flowchart_back_edge",
+      "remixFrom": "new:教材L7-D1＋扫码回边落点",
+      "remixNote": "文字残局点选回边，不配回忆插图。与主卷 M21／C05 过街「观察并等待」壳区分，考点仍是回边落到反复步骤。",
+      "goalIds": [
+        "L7-D1"
+      ],
+      "examPoint": "用流程图描述循环：回边必须接到反复执行的「对准条码扫描」，而不是打印凭条或任意处。",
+      "whyInSyllabus": "对齐第7课教学难点「用流程图描述循环结构」。点选回边落点，不要求手写，不使用「循环体」，不引入编程语句。",
+      "reverseDebug": true,
+      "section": "main",
+      "lessonTitle": "重复操作用循环",
+      "hasRecallImage": false,
+      "stage": 7,
+      "stageId": "gate_l7",
+      "stageName": "莲花山小交警"
+    },
+    {
       "id": "C01",
       "section": "challenge",
       "type": "single_choice",
@@ -1416,19 +2738,19 @@
       "recallImageMotionNote": null
     }
   ],
-  "previousVersion": "2026-11-09-midterm-v1.4.1",
-  "confirmedAt": "2026-11-09T23:30:00+08:00",
-  "revisionNote": "v1.4.2：老师硬口径——回忆 caption／prompt、过关反馈、操作引导不得暗示正确选项或关键步骤；自检改写 M01／M03／M04／M06／M07／M09／M10／M12–M17／M20–M24／C01–C03／C05 等；stages.clearFeedback 改为纯鼓励过关语；维持无填空、百分制100、不设达标线、7+1闯关、挑战+2／+10、M21 无 L7-G2。",
+  "previousVersion": "2026-11-09-midterm-v1.4.2",
+  "confirmedAt": "2026-11-10T16:00:00+08:00",
+  "revisionNote": "v1.5：老师拍板同场一次考完（约60–65分钟／两课时）；计分方案甲 round(firstCorrectCount/52*100)，不设达标线；增补不带图28题 M25–M52 并入原 gate_l1–gate_l7（每站先原带图题、再尾随该课增补题；答完解锁，不因分数卡关）；挑战仍每对+2、满分+10，另计，C01–C05不动；锁库旧题 M01–M24、C01–C05 题干／答案／干扰项／题型／goalIds／分值／回忆插图字段一字不改；M41／M46／M52 按 draft 原文写入、先不改；L7-G2 仅由专考信号灯时长的 M24（原）与 M50（增）主挂。",
   "scoring": {
     "mode": "percentage",
     "passLine": null,
     "passLineNote": "老师确认不用达标；不设达标线、不因分数卡关",
-    "teacherConfirmed": "2026-11-09 不用达标，用百分制；同日改口无填空",
+    "teacherConfirmed": "2026-11-09 不用达标，用百分制；同日改口无填空；2026-11-10 同场一次考完，方案甲 round(首答正确/52×100)，增补并入原7站",
     "main": {
-      "questionCount": 24,
+      "questionCount": 52,
       "fullScore": 100,
-      "formula": "round(firstCorrectCount / 24 * 100)",
-      "perQuestionPoints": 4.1667,
+      "formula": "round(firstCorrectCount / 52 * 100)",
+      "perQuestionPoints": 1.9231,
       "useFirstSubmitOnly": true
     },
     "challenge": {
@@ -1450,9 +2772,9 @@
     "teacherConfirmedChallengeBonus": "2026-11-09 每对+2，满分+10"
   },
   "typeQuotaMain": {
-    "single_choice": 11,
+    "single_choice": 36,
     "matching": 3,
-    "flowchart_op": 4,
+    "flowchart_op": 7,
     "app_op": 6,
     "sentence_fill": 0
   },
@@ -1467,9 +2789,13 @@
       "questionIds": [
         "M01",
         "M02",
-        "M03"
+        "M03",
+        "M25",
+        "M26",
+        "M27",
+        "M28"
       ],
-      "suggestedMinutes": 4,
+      "suggestedMinutes": 8.5,
       "unlockRule": "start",
       "clearFeedback": "点心站通关！下一站：侦探亭。",
       "required": true
@@ -1483,9 +2809,13 @@
       "questionIds": [
         "M04",
         "M05",
-        "M06"
+        "M06",
+        "M29",
+        "M30",
+        "M31",
+        "M32"
       ],
-      "suggestedMinutes": 4,
+      "suggestedMinutes": 8.5,
       "unlockRule": "prevStageAllAnswered",
       "clearFeedback": "侦探亭通关！下一站：汉诺塔实验室。",
       "required": true
@@ -1499,9 +2829,13 @@
       "questionIds": [
         "M07",
         "M08",
-        "M09"
+        "M09",
+        "M33",
+        "M34",
+        "M35",
+        "M36"
       ],
-      "suggestedMinutes": 4,
+      "suggestedMinutes": 9.5,
       "unlockRule": "prevStageAllAnswered",
       "clearFeedback": "汉诺塔实验室通关！下一站：奇趣游园会。",
       "required": true
@@ -1515,9 +2849,13 @@
       "questionIds": [
         "M10",
         "M11",
-        "M12"
+        "M12",
+        "M37",
+        "M38",
+        "M39",
+        "M40"
       ],
-      "suggestedMinutes": 3.5,
+      "suggestedMinutes": 8.0,
       "unlockRule": "prevStageAllAnswered",
       "clearFeedback": "奇趣游园会通关！下一站：生活算法站。",
       "required": true
@@ -1531,9 +2869,13 @@
       "questionIds": [
         "M13",
         "M14",
-        "M15"
+        "M15",
+        "M41",
+        "M42",
+        "M43",
+        "M44"
       ],
-      "suggestedMinutes": 4,
+      "suggestedMinutes": 8.5,
       "unlockRule": "prevStageAllAnswered",
       "clearFeedback": "生活算法站通关！下一站：分支岛。",
       "required": true
@@ -1548,9 +2890,13 @@
         "M16",
         "M17",
         "M18",
-        "M19"
+        "M19",
+        "M45",
+        "M46",
+        "M47",
+        "M48"
       ],
-      "suggestedMinutes": 5,
+      "suggestedMinutes": 10.5,
       "unlockRule": "prevStageAllAnswered",
       "clearFeedback": "分支岛通关！下一站：莲花山小交警。",
       "required": true
@@ -1566,9 +2912,13 @@
         "M21",
         "M22",
         "M23",
-        "M24"
+        "M24",
+        "M49",
+        "M50",
+        "M51",
+        "M52"
       ],
-      "suggestedMinutes": 5.5,
+      "suggestedMinutes": 10.5,
       "unlockRule": "prevStageAllAnswered",
       "clearFeedback": "莲花山通关！主卷七站全部走完。可以交卷看百分，或进加分挑战关。",
       "required": true
@@ -1633,105 +2983,119 @@
     }
   },
   "coverageMatrix": {
-    "rule": "L1–L7 每条 G1/G2/K1/D1 至少 1 道主卷题",
-    "note": "challenge 题可补充但不计入本矩阵的「至少1」硬门槛；goalIds 学生端不下发",
+    "rule": "L1–L7 每条 G1/G2/K1/D1 至少 1 道主卷题；v1.5 增补后每课四项均另有增补主挂",
+    "note": "challenge 题可补充但不计入本矩阵的「至少1」硬门槛；goalIds 学生端不下发；L7-G2 仅由专考信号灯时长的题主挂：M24（原带图）与 M50（增补不带图），勿虚挂",
     "lessons": {
       "L1": {
         "G1": {
           "goalId": "L1-G1",
           "mainQuestionIds": [
             "M02",
-            "M03"
+            "M03",
+            "M26"
           ],
-          "mainCount": 2
+          "mainCount": 3
         },
         "G2": {
           "goalId": "L1-G2",
           "mainQuestionIds": [
-            "M01"
+            "M01",
+            "M25"
           ],
-          "mainCount": 1
+          "mainCount": 2
         },
         "K1": {
           "goalId": "L1-K1",
           "mainQuestionIds": [
             "M01",
-            "M03"
+            "M03",
+            "M27"
           ],
-          "mainCount": 2
+          "mainCount": 3
         },
         "D1": {
           "goalId": "L1-D1",
           "mainQuestionIds": [
             "M02",
-            "M03"
+            "M03",
+            "M28"
           ],
-          "mainCount": 2
+          "mainCount": 3
         }
       },
       "L2": {
         "G1": {
           "goalId": "L2-G1",
           "mainQuestionIds": [
-            "M06"
+            "M06",
+            "M29"
           ],
-          "mainCount": 1
+          "mainCount": 2
         },
         "G2": {
           "goalId": "L2-G2",
           "mainQuestionIds": [
             "M04",
             "M05",
-            "M06"
+            "M06",
+            "M30"
           ],
-          "mainCount": 3
+          "mainCount": 4
         },
         "K1": {
           "goalId": "L2-K1",
           "mainQuestionIds": [
             "M04",
-            "M05"
+            "M05",
+            "M30",
+            "M31"
           ],
-          "mainCount": 2
+          "mainCount": 4
         },
         "D1": {
           "goalId": "L2-D1",
           "mainQuestionIds": [
-            "M06"
+            "M06",
+            "M32"
           ],
-          "mainCount": 1
+          "mainCount": 2
         }
       },
       "L3": {
         "G1": {
           "goalId": "L3-G1",
           "mainQuestionIds": [
-            "M07"
+            "M07",
+            "M33"
           ],
-          "mainCount": 1
+          "mainCount": 2
         },
         "G2": {
           "goalId": "L3-G2",
           "mainQuestionIds": [
             "M08",
-            "M09"
+            "M09",
+            "M34"
           ],
-          "mainCount": 2
+          "mainCount": 3
         },
         "K1": {
           "goalId": "L3-K1",
           "mainQuestionIds": [
-            "M07"
+            "M07",
+            "M33",
+            "M35"
           ],
-          "mainCount": 1
+          "mainCount": 3
         },
         "D1": {
           "goalId": "L3-D1",
           "mainQuestionIds": [
             "M08",
-            "M09"
+            "M09",
+            "M36"
           ],
-          "mainCount": 2
+          "mainCount": 3
         }
       },
       "L4": {
@@ -1739,97 +3103,110 @@
           "goalId": "L4-G1",
           "mainQuestionIds": [
             "M10",
-            "M12"
+            "M12",
+            "M37"
           ],
-          "mainCount": 2
+          "mainCount": 3
         },
         "G2": {
           "goalId": "L4-G2",
           "mainQuestionIds": [
             "M11",
-            "M12"
+            "M12",
+            "M38"
           ],
-          "mainCount": 2
+          "mainCount": 3
         },
         "K1": {
           "goalId": "L4-K1",
           "mainQuestionIds": [
-            "M11"
+            "M11",
+            "M39"
           ],
-          "mainCount": 1
+          "mainCount": 2
         },
         "D1": {
           "goalId": "L4-D1",
           "mainQuestionIds": [
-            "M10"
+            "M10",
+            "M40"
           ],
-          "mainCount": 1
+          "mainCount": 2
         }
       },
       "L5": {
         "G1": {
           "goalId": "L5-G1",
           "mainQuestionIds": [
-            "M13"
+            "M13",
+            "M41"
           ],
-          "mainCount": 1
+          "mainCount": 2
         },
         "G2": {
           "goalId": "L5-G2",
           "mainQuestionIds": [
             "M14",
-            "M15"
+            "M15",
+            "M42"
           ],
-          "mainCount": 2
+          "mainCount": 3
         },
         "K1": {
           "goalId": "L5-K1",
           "mainQuestionIds": [
             "M14",
-            "M15"
+            "M15",
+            "M43"
           ],
-          "mainCount": 2
+          "mainCount": 3
         },
         "D1": {
           "goalId": "L5-D1",
           "mainQuestionIds": [
-            "M13"
+            "M13",
+            "M44"
           ],
-          "mainCount": 1
+          "mainCount": 2
         }
       },
       "L6": {
         "G1": {
           "goalId": "L6-G1",
           "mainQuestionIds": [
-            "M16"
+            "M16",
+            "M45"
           ],
-          "mainCount": 1
+          "mainCount": 2
         },
         "G2": {
           "goalId": "L6-G2",
           "mainQuestionIds": [
             "M17",
             "M18",
-            "M19"
+            "M19",
+            "M46"
           ],
-          "mainCount": 3
+          "mainCount": 4
         },
         "K1": {
           "goalId": "L6-K1",
           "mainQuestionIds": [
             "M16",
             "M18",
-            "M19"
+            "M19",
+            "M46",
+            "M47"
           ],
-          "mainCount": 3
+          "mainCount": 5
         },
         "D1": {
           "goalId": "L6-D1",
           "mainQuestionIds": [
-            "M17"
+            "M17",
+            "M48"
           ],
-          "mainCount": 1
+          "mainCount": 2
         }
       },
       "L7": {
@@ -1838,14 +3215,16 @@
           "mainQuestionIds": [
             "M20",
             "M22",
-            "M23"
+            "M23",
+            "M49"
           ],
-          "mainCount": 3
+          "mainCount": 4
         },
         "G2": {
           "goalId": "L7-G2",
           "mainQuestionIds": [
-            "M24"
+            "M24",
+            "M50"
           ],
           "mainCount": 2
         },
@@ -1854,16 +3233,18 @@
           "mainQuestionIds": [
             "M20",
             "M22",
-            "M23"
+            "M23",
+            "M51"
           ],
-          "mainCount": 3
+          "mainCount": 4
         },
         "D1": {
           "goalId": "L7-D1",
           "mainQuestionIds": [
-            "M21"
+            "M21",
+            "M52"
           ],
-          "mainCount": 1
+          "mainCount": 2
         }
       }
     },
@@ -1880,7 +3261,41 @@
         "goalId": "L7-G2",
         "via": "M24 改写：开放日行人绿灯时长意义（兼 M21 流程图循环）"
       }
-    ]
+    ],
+    "v15Supplement": {
+      "addedMainIds": [
+        "M25",
+        "M26",
+        "M27",
+        "M28",
+        "M29",
+        "M30",
+        "M31",
+        "M32",
+        "M33",
+        "M34",
+        "M35",
+        "M36",
+        "M37",
+        "M38",
+        "M39",
+        "M40",
+        "M41",
+        "M42",
+        "M43",
+        "M44",
+        "M45",
+        "M46",
+        "M47",
+        "M48",
+        "M49",
+        "M50",
+        "M51",
+        "M52"
+      ],
+      "hasRecallImage": false,
+      "note": "28 道不带图新题并入主卷；每课 G1/G2/K1/D1 各有增补主挂（见 draft 主挂表）"
+    }
   },
   "recallImageSpec": {
     "layout": "oneQuestionPerPage",

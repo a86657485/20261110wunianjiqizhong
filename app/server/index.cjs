@@ -2,7 +2,7 @@
 /**
  * 五年级《身边的算法》期中 · 算法嘉年华·站点通行证
  * 默认 PORT=8780；DATA_DIR 默认 ./data；勿占用 8766。
- * 命题版本锁定：2026-11-09-midterm-v1.4.2
+ * 命题版本：2026-11-10-midterm-v1.5
  */
 const http = require('node:http');
 const fs = require('node:fs');
@@ -346,6 +346,7 @@ function createService(options = {}) {
         required: !!s.required,
       })),
       passLine: null,
+      mainQuestionCount: scoring.main.questionCount,
       updatedAt: now(),
     };
   }
@@ -361,7 +362,10 @@ function createService(options = {}) {
         shell: paper.shell,
         version: paper.version,
         passLine: null,
-        suggestedMinutes: 30,
+        mainQuestionCount: scoring.main.questionCount,
+        suggestedMinutes: paper.stages
+          .filter((s) => s.required)
+          .reduce((sum, s) => sum + (Number(s.suggestedMinutes) || 0), 0),
         classes: CLASSES,
       });
     }

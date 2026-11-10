@@ -300,6 +300,78 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   background: #ffffff;
   /* solid opaque — readable text, not washed overlay */
 }
+.qa-stack--no-recall {
+  /* 不带图题：不留空图区，题干与控件铺满 */
+}
+.qa-stack--no-recall .qa-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 16px 18px 18px;
+}
+.question-page--no-recall .scene-prompt,
+.qa-stack--no-recall .scene-prompt {
+  font-size: 1.12rem;
+  margin-bottom: 14px;
+}
+.qa-stack--no-recall .scene-interact {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.qa-stack--no-recall .scene-interact > div {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.qa-stack--no-recall .option-list {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.qa-stack--no-recall .option-btn {
+  flex: 1 1 0;
+  min-height: 52px;
+  max-height: 110px;
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+}
+.qa-stack--no-recall .slots-row {
+  margin-bottom: 18px;
+  gap: 12px;
+}
+.qa-stack--no-recall .slot-box {
+  min-width: 150px;
+  min-height: 72px;
+  flex: 1 1 150px;
+  font-size: 1.02rem;
+}
+.qa-stack--no-recall .cards-row {
+  gap: 12px;
+}
+.qa-stack--no-recall .card-chip {
+  min-height: 52px;
+  padding: 12px 16px;
+  font-size: 1.02rem;
+}
+.state-board {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border: 2px dashed #fdba74;
+  border-radius: 12px;
+  background: #fff7ed;
+  font-weight: 700;
+  color: var(--brand-dark);
+  line-height: 1.55;
+  white-space: pre-wrap;
+  flex: 0 0 auto;
+}
 .scene-prompt {
   font-size: 1.05rem;
   font-weight: 700;
