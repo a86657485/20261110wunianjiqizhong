@@ -16,7 +16,10 @@ function questionShowsRecall(question) {
 
 function ChoiceOptions({ options, value, onChange }) {
   return (
-    <div className="option-list" role="radiogroup">
+    <div
+      className={'option-list' + ((options || []).length >= 3 ? ' option-list--tiles' : '')}
+      role="radiogroup"
+    >
       {(options || []).map((opt) => {
         const picked = value === opt;
         return (

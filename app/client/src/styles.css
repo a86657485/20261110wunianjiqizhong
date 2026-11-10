@@ -33,12 +33,14 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .app-shell {
   max-width: 100%;
   width: 100%;
+  height: 100%;
   margin: 0;
   padding: 6px 8px 8px;
   min-height: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .page-fill {
   flex: 1 1 auto;
@@ -224,7 +226,7 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .status-open { color: var(--brand-dark); }
 .status-done { color: var(--ok); }
 
-/* Question page — 上图下题 stack (no overlay / no sunk translucent card) */
+/* Question page — 上图下题：余量给插图，题区贴合内容，避免选项下大片留白 */
 /* NO pre-answer option highlight / answer leak */
 .qa-stack {
   flex: 1 1 auto;
@@ -239,30 +241,43 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 }
 .recall-zone {
   position: relative;
-  flex: 0 0 auto;
+  flex: 1 1 auto;
+  min-height: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(160deg, #fed7aa 0%, #ffedd5 50%, #fff7ed 100%);
+  background: #fde8d0;
   border-bottom: 1px solid #fed7aa;
-  min-height: 120px;
-  max-height: 38%;
   overflow: hidden;
 }
+.recall-zone-bleed,
 .recall-zone-img {
-  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
-  height: auto;
-  max-height: 220px;
-  object-fit: contain; /* 等比例，不拉伸变形 */
+  height: 100%;
   object-position: center center;
-  background: #ffedd5;
+  pointer-events: none;
+}
+.recall-zone-bleed {
+  object-fit: cover;
+  filter: blur(22px);
+  transform: scale(1.16);
+  opacity: 0.92;
+  z-index: 0;
+}
+.recall-zone-img {
+  z-index: 1;
+  object-fit: contain; /* 等比例，不拉伸变形 */
+  background: transparent;
 }
 .recall-zone-placeholder {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  min-height: 140px;
-  max-height: 220px;
+  height: 100%;
+  min-height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -277,7 +292,7 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   position: absolute;
   top: 8px;
   left: 8px;
-  z-index: 1;
+  z-index: 2;
   max-width: calc(100% - 16px);
   padding: 4px 10px;
   border-radius: 999px;
@@ -293,27 +308,54 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   text-overflow: ellipsis;
   pointer-events: none;
 }
+/* 带图题：题干与选项按内容高度收紧，剩余高度全部给插图 */
 .qa-body {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   min-height: 0;
-  padding: 12px 12px 14px;
-  background: #ffffff;
-  /* solid opaque — readable text, not washed overlay */
+  padding: 10px 16px 12px;
+  background: #fffdf9;
+}
+.qa-stack .scene-prompt {
+  font-size: 1.08rem;
+  margin-bottom: 10px;
+}
+.qa-stack .option-list {
+  gap: 8px;
+}
+.qa-stack .option-btn {
+  padding: 11px 14px;
+}
+/* 宽屏：3 个及以上选项改成方砖铺满，避免一条一条底下空一大截 */
+@media (min-width: 880px) {
+  .option-list--tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-content: stretch;
+  }
+  .option-list--tiles .option-btn {
+    min-height: 64px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 }
 .qa-stack--no-recall {
-  /* 不带图题：不留空图区，题干与控件铺满 */
+  /* 不带图题：卡片随内容收紧，避免选项被拉成空洞大格 */
+  flex: 0 1 auto;
 }
 .qa-stack--no-recall .qa-body {
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   min-height: 0;
   padding: 16px 18px 18px;
 }
 .question-page--no-recall .scene-prompt,
 .qa-stack--no-recall .scene-prompt {
-  font-size: 1.12rem;
-  margin-bottom: 14px;
+  font-size: 1.14rem;
+  margin-bottom: 12px;
+  flex: 0 0 auto;
 }
 .qa-stack--no-recall .scene-interact {
   flex: 1 1 auto;
@@ -331,16 +373,27 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: stretch;
   gap: 12px;
 }
 .qa-stack--no-recall .option-btn {
   flex: 1 1 0;
-  min-height: 52px;
-  max-height: 110px;
+  min-height: 56px;
   display: flex;
   align-items: center;
   padding: 14px 16px;
+}
+@media (min-width: 880px) {
+  .qa-stack--no-recall .option-list--tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .qa-stack--no-recall .option-list--tiles .option-btn {
+    min-height: 88px;
+    max-height: none;
+    height: 100%;
+  }
 }
 .qa-stack--no-recall .slots-row {
   margin-bottom: 18px;
@@ -504,4 +557,36 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   padding: 10px 12px;
   border-radius: 10px;
   margin: 10px 0;
+}
+
+/* option tiles last — beat earlier .option-list { display:flex } */
+@media (min-width: 880px) {
+  .option-list.option-list--tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-content: stretch;
+  }
+  .option-list.option-list--tiles .option-btn {
+    min-height: 72px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+  }
+  .qa-stack--no-recall .option-list.option-list--tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex: 0 1 auto;
+    gap: 12px;
+    align-content: start;
+  }
+  .qa-stack--no-recall .option-list.option-list--tiles .option-btn {
+    min-height: 108px;
+    max-height: 148px;
+    height: auto;
+    flex: unset;
+    font-size: 1.06rem;
+    padding: 18px 20px;
+  }
 }
