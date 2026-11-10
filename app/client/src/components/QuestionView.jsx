@@ -7,9 +7,19 @@ import StageProgressChip from './StageProgressChip.jsx';
  * before the student answers (no yellow glow / hand on a single choice).
  */
 
+
+function questionShowsRecall(question) {
+  if (!question) return false;
+  if (question.hasRecallImage === false) return false;
+  return !!(question.recallImage || question.recallCaption || question.recallSceneAnchor);
+}
+
 function ChoiceOptions({ options, value, onChange }) {
   return (
-    <div className="option-list" role="radiogroup">
+    <div
+      className={'option-list' + ((options || []).length >= 3 ? ' option-list--tiles' : '')}
+      role="radiogroup"
+    >
       {(options || []).map((opt) => {
         const picked = value === opt;
         return (
@@ -276,7 +286,7 @@ export default function QuestionView({
       case 'app_op_choice':
       case 'flowchart_back_edge':
         return (
-          <ChoiceOptions options={question.options} value={value} onChange={onChange} />
+          <ChoiceOptions key={question.id} options={question.options} value={value} onChange={onChange} />
         );
       case 'flowchart_fix_choice':
         return (
@@ -291,6 +301,7 @@ export default function QuestionView({
       case 'matching_one_to_one':
         return (
           <MatchingView
+            key={question.id}
             left={question.left}
             right={question.right}
             value={value || {}}
@@ -300,6 +311,7 @@ export default function QuestionView({
       case 'flowchart_order_cards':
         return (
           <OrderCardsView
+            key={question.id}
             cards={question.cards}
             slots={question.slots}
             value={value || {}}
@@ -309,6 +321,7 @@ export default function QuestionView({
       case 'flowchart_fill_triple':
         return (
           <FillTripleView
+            key={question.id}
             cards={question.cards}
             slots={question.slots}
             value={value || {}}
@@ -318,6 +331,7 @@ export default function QuestionView({
       case 'flowchart_pick_invalid':
         return (
           <PickInvalidView
+            key={question.id}
             cards={question.cards}
             value={value}
             onChange={onChange}
@@ -339,8 +353,12 @@ export default function QuestionView({
 
   if (!question) return null;
 
+  const showRecall = questionShowsRecall(question);
+  const diagramVisual = question.diagram && question.diagram.visual;
+  const diagramNote = question.diagram && question.diagram.note && key === 'flowchart_back_edge';
+
   return (
-    <div className="card question-page page-fill">
+    <div className={'card question-page page-fill' + (showRecall ? '' : ' question-page--no-recall')}>
       <div style={{ display: 'flex', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap' }}>
         <StageProgressChip
           stageName={stageName}
@@ -352,11 +370,12 @@ export default function QuestionView({
         </span>
       </div>
       <div style={{ height: 6 }} />
-      <div className="qa-stack">
-        <RecallPanel question={question} />
+      <div className={'qa-stack' + (showRecall ? '' : ' qa-stack--no-recall')}>
+        {showRecall ? <RecallPanel question={question} /> : null}
         <div className="qa-body">
           <div className="scene-prompt">{question.prompt}</div>
-          {question.diagram && question.diagram.note && key === 'flowchart_back_edge' ? (
+          {diagramVisual ? <div className="state-board">{diagramVisual}</div> : null}
+          {diagramNote ? (
             <p className="muted" style={{ marginTop: 0 }}>
               {question.diagram.note}
             </p>

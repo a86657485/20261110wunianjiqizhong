@@ -7,7 +7,7 @@ export default function CarnivalMap({ stageProgress, onEnter, onSubmitMain, main
       <div className="card">
         <h2 style={{ margin: '0 0 6px', color: '#c2410c' }}>嘉年华站点地图</h2>
         <p className="muted" style={{ margin: 0 }}>
-          一站接一站闯关。本关题全部作答提交即可解锁下一站（不因分数卡关）。建议用时约 30 分钟。
+          一站接一站闯关。本关题全部作答提交即可解锁下一站（不因分数卡关）。主卷 52 题，建议用时约 60–65 分钟。
         </p>
       </div>
       <div className="carnival-map">

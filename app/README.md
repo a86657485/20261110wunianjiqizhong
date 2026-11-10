@@ -1,6 +1,6 @@
 # 五年级《身边的算法》期中 · 算法嘉年华·站点通行证
 
-命题版本：**2026-11-09-midterm-v1.4.2**（只读自 `/workspace/g5-midterm/design/`，勿改题库）。
+命题版本：**2026-11-10-midterm-v1.5**（只读自 `/workspace/g5-midterm/design/`，勿改题库）。
 
 ## 启动
 
@@ -30,17 +30,18 @@ npm run selftest     # API 一条龙（临时 DATA_DIR）
 ```
 app/
   server/index.cjs    # HTTP API + 静态托管
-  server/paper.cjs    # 加载 v1.4.2 并剥离 serverOnly 字段
+  server/paper.cjs    # 加载 v1.5 并剥离 serverOnly 字段
   server/grade.cjs    # 服务端判分
   client/             # Vite + React 18（es2019，兼顾较旧 Chrome）
   roster/roster.json  # 501–504 名单
   data/               # 默认 DATA_DIR（sqlite）
-  public/assets/recall/  # 回忆插图占位（可后换真图）
+  public/assets/recall/  # 回忆插图（M01–M24、C01–C05）
 ```
 
 ## 产品口径（已实现）
 
-- 7 站主卷 + 可选挑战；答完解锁，不因分数卡关；`passLine=null`
-- 主卷百分 = round(首答正确/24×100)；挑战每对 +2、满分 +10
-- 一题一页；未作答选项零高亮；过关反馈仅用 `stages[].clearFeedback`
+- 7 站主卷 52 题（带图 24＋不带图 28）＋可选挑战；答完解锁，不因分数卡关；`passLine=null`
+- 主卷百分 = `round(首答正确/52×100)`；挑战每对 +2、满分 +10，不计入主卷百分
+- 一题一页：带图题维持上图下题（`.qa-stack`）；不带图题（M25–M52）不留空图区，题干与控件铺满
+- 未作答选项零高亮；过关反馈仅用 `stages[].clearFeedback`
 - 学生端不下发 answer／goalIds／analysis／remix／recallImagePrompt 等

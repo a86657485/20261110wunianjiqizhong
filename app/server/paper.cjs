@@ -1,6 +1,6 @@
 'use strict';
 /**
- * Load midterm paper (v1.4.1) and strip server-only fields for students.
+ * Load midterm paper (v1.5) and strip server-only fields for students.
  */
 const fs = require('node:fs');
 const path = require('node:path');
@@ -24,6 +24,7 @@ const CLIENT_ALLOW = new Set([
   'diagram',
   'appRef',
   'interactionSpecKey',
+  'hasRecallImage',
   'estimatedMinutes',
   'stage',
   'stageId',
@@ -37,7 +38,7 @@ const CLIENT_ALLOW = new Set([
 
 function loadPaper() {
   const raw = JSON.parse(fs.readFileSync(DESIGN_JSON, 'utf8'));
-  if (raw.version !== '2026-11-09-midterm-v1.4.2') {
+  if (raw.version !== '2026-11-10-midterm-v1.5') {
     console.warn('[paper] unexpected version:', raw.version);
   }
   return raw;

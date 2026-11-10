@@ -283,6 +283,10 @@ function TeacherPage() {
               <b>{data.avgMainPercent != null ? data.avgMainPercent : '—'}</b>
             </div>
             <div className="stat">
+              <span className="muted">主卷题量</span>
+              <b>{data.mainQuestionCount != null ? data.mainQuestionCount : '—'}</b>
+            </div>
+            <div className="stat">
               <span className="muted">命题</span>
               <b style={{ fontSize: '0.85rem' }}>{data.paperVersion}</b>
             </div>
@@ -415,7 +419,7 @@ function StudentApp() {
         answers,
       });
       setProgress(data.progress);
-      // ONLY server-approved clearFeedback (v1.4.2 encouraging text)
+      // ONLY server-approved clearFeedback (stages[].clearFeedback encouraging text)
       setClearFeedback(data.stageClearFeedback || '');
       setView('clear');
     } catch (e) {
@@ -473,7 +477,7 @@ function StudentApp() {
         <div className="brand">算法嘉年华·站点通行证</div>
         <div className="chip">
           {student.classId} · {student.name}
-          {paper ? ' · ' + paper.version.replace('2026-11-09-midterm-', '') : ''}
+          {paper ? ' · ' + paper.version.replace(/^\d{4}-\d{2}-\d{2}-midterm-/, '') : ''}
         </div>
       </div>
       {error ? <div className="error-box">{error}</div> : null}
