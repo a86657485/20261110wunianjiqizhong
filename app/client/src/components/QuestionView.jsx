@@ -275,9 +275,17 @@ export default function QuestionView({
       case 'single_choice':
       case 'app_op_choice':
       case 'flowchart_back_edge':
-      case 'flowchart_fix_choice':
         return (
           <ChoiceOptions options={question.options} value={value} onChange={onChange} />
+        );
+      case 'flowchart_fix_choice':
+        return (
+          <div>
+            <p className="muted" style={{ marginTop: 0 }}>
+              点选应如何改正的那一项。
+            </p>
+            <ChoiceOptions options={question.options} value={value} onChange={onChange} />
+          </div>
         );
       case 'matching':
       case 'matching_one_to_one':

@@ -157,12 +157,18 @@ function LoginPage({ onLoggedIn }) {
   );
 }
 
-function ResultPanel({ progress, onMap, onChallenge, onSkipChallenge }) {
+function ResultPanel({ progress, onMap, onChallenge, onSkipChallenge, onSubmitMain, submitting }) {
   const main = progress.firstSubmitMain;
   const ch = progress.firstSubmitChallenge;
+  const mainPending = progress.mainReady && !progress.mainSubmitted;
   return (
     <div className="card">
       <h2 style={{ marginTop: 0, color: '#c2410c' }}>闯关结果</h2>
+      {mainPending ? (
+        <p className="muted" style={{ marginTop: 0 }}>
+          先做挑战不会自动交主卷。主卷百分要点「提交主卷」后才计入。
+        </p>
+      ) : null}
       <div className="stat-row">
         <div className="stat">
           <span className="muted">主卷百分</span>
@@ -188,9 +194,19 @@ function ResultPanel({ progress, onMap, onChallenge, onSkipChallenge }) {
         <button type="button" className="btn-ghost" onClick={onMap}>
           回到站点地图
         </button>
+        {mainPending && onSubmitMain ? (
+          <button
+            type="button"
+            className="btn-primary"
+            onClick={onSubmitMain}
+            disabled={!!submitting}
+          >
+            {submitting ? '提交中…' : '提交主卷 · 查看百分'}
+          </button>
+        ) : null}
         {progress.mainReady && !progress.challengeSubmitted && !progress.challengeSkipped ? (
           <>
-            <button type="button" className="btn-primary" onClick={onChallenge}>
+            <button type="button" className={mainPending ? 'btn-ghost' : 'btn-primary'} onClick={onChallenge}>
               进入加分挑战关
             </button>
             <button type="button" className="btn-ghost" onClick={onSkipChallenge}>
@@ -482,6 +498,8 @@ function StudentApp() {
               if (bonus) enterStage(bonus);
             }}
             onSkipChallenge={skipChallenge}
+            onSubmitMain={submitMain}
+            submitting={submitting}
           />
         </div>
       ) : null}
@@ -525,6 +543,8 @@ function StudentApp() {
             if (bonus) enterStage(bonus);
           }}
           onSkipChallenge={skipChallenge}
+          onSubmitMain={submitMain}
+          submitting={submitting}
         />
       ) : null}
 

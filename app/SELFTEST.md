@@ -18,13 +18,21 @@
 | 构建 `npm run build` | PASS | Vite es2019 产出 client/dist |
 | 服务启动 8780 | PASS | 见下方演示地址 |
 
+## 浏览器全流程（2026-11-10，按老师新常驻）
+
+| 项 | 结果 | 说明 |
+| --- | --- | --- |
+| 全流程交互与控件检测 | PASS 145 / FAIL 0 | Chrome+puppeteer 真点；报告 `drafts/QA_FULL_FLOW_交互检测_20261110.md`；截图 `screenshots/qa-20261110/` |
+| 学生一条龙＋教师屏 | PASS | 登录→7站→主卷100→挑战+10→教师屏 501 陈远晴 |
+| 焦点／过关不泄答案 | PASS | 未作答无预高亮；API 无 answer／goalIds／analysis |
+| 回忆与题对应 | PASS | 29/29 recall 路径与题号一致且可加载 |
+
 ## 未测 / 已知限制
 
 | 项 | 说明 |
 | --- | --- |
-| 浏览器手测全 UI | 需打开 http://127.0.0.1:8780/ 走登录→地图→一题一页 |
 | Win7 Chrome 实机 | 构建 target es2019／cssTarget chrome87；待机房验收 |
-| 回忆插图真图 | 现为色块占位 + `recallCaption`（v1.4.2 文案）；路径 `assets/recall/` |
+| 回忆插图真图质量 | 路径 `assets/recall/` 可加载；部分仍可能为占位/简图，待美术补齐 |
 | 读屏／无障碍专项 | 未做 |
 | 不占用 8766 | 已用 8780 + 独立 DATA_DIR |
 

@@ -16,10 +16,17 @@ export default function CarnivalMap({ stageProgress, onEnter, onSubmitMain, main
         ))}
       </div>
       {mainReady ? (
-        <div className="btn-row">
-          <button type="button" className="btn-primary" onClick={onSubmitMain} disabled={mainSubmitted}>
-            {mainSubmitted ? '主卷已交卷' : '提交主卷 · 查看百分'}
-          </button>
+        <div>
+          {!mainSubmitted ? (
+            <p className="muted" style={{ margin: '8px 0 0' }}>
+              七站已齐：可先交主卷看百分，也可先点「加分挑战关」。进挑战不会自动交主卷。
+            </p>
+          ) : null}
+          <div className="btn-row">
+            <button type="button" className="btn-primary" onClick={onSubmitMain} disabled={mainSubmitted}>
+              {mainSubmitted ? '主卷已交卷' : '提交主卷 · 查看百分'}
+            </button>
+          </div>
         </div>
       ) : null}
     </div>

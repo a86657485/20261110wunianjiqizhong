@@ -101,6 +101,54 @@ async function main() {
       );
     }
 
+    // Challenge-first on another student: entering/submitting challenge must NOT auto-submit main
+    const s1 =
+      roster.json.classes[0].students.find((s) => s.id !== s0.id) ||
+      (roster.json.classes[1] && roster.json.classes[1].students[0]);
+    ok('challenge-first peer student', !!s1, s1 && s1.name);
+    await req(port, 'POST', '/api/login', { studentId: s1.id });
+    for (const stage of stages) {
+      const answers = {};
+      for (const qid of stage.questionIds) {
+        answers[qid] = fullById[qid].answer;
+        await req(port, 'POST', '/api/answer', {
+          studentId: s1.id,
+          questionId: qid,
+          answer: answers[qid],
+        });
+      }
+      await req(port, 'POST', '/api/stage/submit', {
+        studentId: s1.id,
+        stageId: stage.stageId,
+        answers,
+      });
+    }
+    const beforeCh = (await req(port, 'POST', '/api/login', { studentId: s1.id })).json.progress;
+    ok('challenge-first mainReady', !!beforeCh.mainReady);
+    ok('challenge-first not yet mainSubmitted', !beforeCh.mainSubmitted && !beforeCh.firstSubmitMain);
+
+    const bonusEarly = full.stages.find((s) => s.stageId === 'gate_bonus');
+    const earlyAnswers = {};
+    for (const qid of bonusEarly.questionIds) {
+      earlyAnswers[qid] = fullById[qid].answer;
+      await req(port, 'POST', '/api/answer', {
+        studentId: s1.id,
+        questionId: qid,
+        answer: earlyAnswers[qid],
+      });
+    }
+    const chEarly = await req(port, 'POST', '/api/challenge/submit', {
+      studentId: s1.id,
+      answers: earlyAnswers,
+    });
+    ok('challenge-first challenge +10', chEarly.status === 200 && chEarly.json.bonus === 10, String(chEarly.json && chEarly.json.bonus));
+    ok(
+      'challenge-first no auto main submit',
+      !!(chEarly.json.progress && !chEarly.json.progress.mainSubmitted && !chEarly.json.progress.firstSubmitMain)
+    );
+    const mainLater = await req(port, 'POST', '/api/main/submit', { studentId: s1.id });
+    ok('challenge-first main submit later', mainLater.status === 200 && mainLater.json.percent === 100);
+
     const main = await req(port, 'POST', '/api/main/submit', { studentId: s0.id });
     ok('main submit 100', main.status === 200 && main.json.percent === 100, String(main.json.percent));
 
