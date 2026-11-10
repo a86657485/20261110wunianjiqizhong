@@ -1,0 +1,1040 @@
+{
+  "version": "2026-11-09-midterm-v1.0",
+  "title": "五年级《身边的算法》期中考试",
+  "shell": "校园算法开放日·期中验收",
+  "scope": "浙教版《身边的算法》第1–7课",
+  "timeMinutes": 30,
+  "targetDifficulty": 0.75,
+  "mainCount": 24,
+  "challengeCount": 4,
+  "passNote": "建议主卷得分≥60/100为达标，只看首答；挑战只加分。详见03。",
+  "sourcePolicy": "L3–L7筛自 /workspace/g5-midterm/source-banks/ 优质题再创编；L2筛自课堂应用 algorithm-detective-app/shared/quiz-data.mjs 再创编（source-banks无L2文件）；L1无考核JSON，按教材与应用关键操作补编。不参考旧期末壳。",
+  "studentClientFields": [
+    "id",
+    "section",
+    "type",
+    "prompt",
+    "stemExtras",
+    "options",
+    "blanks",
+    "pairs",
+    "flow"
+  ],
+  "serverOnlyFields": [
+    "answer",
+    "accept",
+    "explain",
+    "misconception",
+    "goals",
+    "remixFrom",
+    "difficulty",
+    "points",
+    "tier",
+    "reverseDebug"
+  ],
+  "forbiddenInPrompt": [
+    "G1",
+    "K1",
+    "D1",
+    "S1",
+    "循环体"
+  ],
+  "questions": [
+    {
+      "id": "S01",
+      "section": "一、单选",
+      "type": "single",
+      "tier": "base",
+      "lesson": 1,
+      "goals": [
+        "G1",
+        "K1",
+        "D1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.78,
+      "points": 3,
+      "reverseDebug": true,
+      "remixFrom": "5-1shenghuozhongsuanfa 机器人厨房（无考核JSON；按应用关键操作与教材菜谱补编：独立切配可对调，热油与倒蛋不可对调）",
+      "prompt": "机器人厨房里，哪一组步骤对调后，机器人最容易停错、菜也做不成？",
+      "options": [
+        "“西红柿切成块”和“把鸡蛋打散”对调",
+        "“锅中放油烧热”和“把打散的鸡蛋倒入锅中”对调",
+        "两步切配都做完后，只是先切还是先打散的差别",
+        "最后“装入餐盘”仍放在全部翻炒之后"
+      ],
+      "answer": 1,
+      "explain": "切西红柿和打散鸡蛋是可以分开准备的独立步骤，对调一般仍能做下去。放油烧热必须在倒入蛋液之前，对调后机器人会把蛋倒进冷锅，任务失败。算法步骤不但要写清做什么，还要分清哪些先后不能换。",
+      "misconception": "以为生活步骤全都可以随便对调；或反过来以为所有准备步骤也都不能对调。"
+    },
+    {
+      "id": "S02",
+      "section": "一、单选",
+      "type": "single",
+      "tier": "base",
+      "lesson": 2,
+      "goals": [
+        "G1",
+        "K1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.8,
+      "points": 3,
+      "reverseDebug": false,
+      "remixFrom": "algorithm-detective-app/shared/quiz-data.mjs#q2（感应灯零输入→教学楼感应灯；保留“允许自动获取数据”）",
+      "prompt": "教学楼感应灯天黑会自己亮，没有人专门输入“天黑了”。这说明？",
+      "options": [
+        "没有人手输入，就不能叫算法",
+        "算法允许设备自动获取数据，可以没有人去输入",
+        "感应灯的工作过程不是算法",
+        "感应灯只有处理，没有输出"
+      ],
+      "answer": 1,
+      "explain": "算法基本流程常写成输入—处理—输出，但输入可以由设备自动采集。灯亮起来是输出；自动读取光线是一种输入方式，不是“没有算法”。",
+      "misconception": "把“输入”理解成必须有人敲键盘；或认为自动控制就不是算法。"
+    },
+    {
+      "id": "S03",
+      "section": "一、单选",
+      "type": "single",
+      "tier": "base",
+      "lesson": 3,
+      "goals": [
+        "G2",
+        "K1",
+        "D1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.72,
+      "points": 3,
+      "reverseDebug": true,
+      "remixFrom": "source-banks/L3_quiz-bank.cjs#11（先拿大环再移开上方小环→不能执行；改写题干措辞）",
+      "prompt": "方案写着“先把大环移到目标柱，再移开压在它上面的小环”。为什么不能执行？",
+      "options": [
+        "大环还被压着，应先移开上面的环",
+        "大环永远不能移动",
+        "小环不能放到空柱上",
+        "所有环必须一起移动"
+      ],
+      "answer": 0,
+      "explain": "汉诺塔每次只能拿顶层的环。大环被压着时，先写“移动大环”就不具备执行条件。应先移开上面的环，再移动大环。",
+      "misconception": "只记得“最后才动大环”的口号，说不清当前被压住就不能拿；或以为大环禁止移动。"
+    },
+    {
+      "id": "S04",
+      "section": "一、单选",
+      "type": "single",
+      "tier": "base",
+      "lesson": 3,
+      "goals": [
+        "G1",
+        "K1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.76,
+      "points": 3,
+      "reverseDebug": false,
+      "remixFrom": "source-banks/L3_quiz-bank.cjs#12+#17（两份合法方案步数不同，先判正确再比效率；情境改为小凯7步/小宁9步）",
+      "prompt": "同样三个环、从柱1到柱3：小凯用7步，小宁用9步，都没犯规且都完成。哪句有依据？",
+      "options": [
+        "两份都能完成，可以再比谁的步数更少",
+        "只有7步的才算算法",
+        "9步的一定犯规了",
+        "谁先点完按钮，谁就正确"
+      ],
+      "answer": 0,
+      "explain": "能完成任务且遵守规则的方案都是可执行的算法。步数不同只说明效率可以再比较，不能据此说长方案一定错。",
+      "misconception": "把“最少步数”等同于“唯一正确算法”；或用点击快慢代替规则判断。"
+    },
+    {
+      "id": "S05",
+      "section": "一、单选",
+      "type": "single",
+      "tier": "base",
+      "lesson": 4,
+      "goals": [
+        "G1",
+        "D1"
+      ],
+      "literacy": "信息意识",
+      "difficulty": 0.74,
+      "points": 3,
+      "reverseDebug": false,
+      "remixFrom": "source-banks/L4_quiz-bank.cjs#A15（历史记录≠当前需要；艺术/科学探索改为昨天艺术屋、今天科学探索）",
+      "prompt": "奇趣游园会里，推荐亭根据小安昨天的艺术体验建议再去艺术屋。可小安今天明确想做科学探索。向导应？",
+      "options": [
+        "必须送他去艺术屋",
+        "结合今天的需要，帮他找科学活动",
+        "关掉所有推荐工具",
+        "只看哪张海报更好看"
+      ],
+      "answer": 1,
+      "explain": "推荐算法依据历史记录给出建议，但不能代替当前明确的需要。今天要科学探索，就应按今天的目标查找和推荐。",
+      "misconception": "以为推荐结果必须服从；或反过来完全拒绝使用算法工具。"
+    },
+    {
+      "id": "S06",
+      "section": "一、单选",
+      "type": "single",
+      "tier": "base",
+      "lesson": 4,
+      "goals": [
+        "G1",
+        "K1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.78,
+      "points": 3,
+      "reverseDebug": false,
+      "remixFrom": "source-banks/L4_quiz-bank.cjs#A09（尽快到达比预计用时；数据由200米/6分 vs 300米/4分改为180米/5分 vs 260米/3分）",
+      "prompt": "去演出广场：甲路180米约5分钟，乙路260米约3分钟，两条都通。游客要尽快到达，应选？",
+      "options": [
+        "甲，因为路程更近",
+        "乙，因为预计用时更少",
+        "两条无法比较",
+        "选路只看地图颜色"
+      ],
+      "answer": 1,
+      "explain": "目标是“尽快”，应比较预计用时：乙约3分钟更短。路程近不等于用时少，两条路的距离和用时都给出了，可以比较。",
+      "misconception": "把“少走路”和“尽快到达”混为一谈；或觉得没有相同距离就不能比。"
+    },
+    {
+      "id": "S07",
+      "section": "一、单选",
+      "type": "single",
+      "tier": "base",
+      "lesson": 6,
+      "goals": [
+        "G2",
+        "K1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.7,
+      "points": 3,
+      "reverseDebug": true,
+      "remixFrom": "source-banks/L6_03_questions.json#q19（＜12岁边界→身高＜130厘米买半价；恰好等于走“否”）",
+      "prompt": "规则：如果身高小于130厘米，买半价票；否则买全价票。小朋友恰好130厘米，应？",
+      "options": [
+        "条件成立，买半价票",
+        "条件不成立，买全价票",
+        "两种票都要买",
+        "等于130时无法判断"
+      ],
+      "answer": 1,
+      "explain": "判断的是“身高＜130厘米”。130＜130不成立，走“否则”，买全价票。刚好相等时，要看原条件有没有“等于”。",
+      "misconception": "看见数字一样就走“是”；或以为“小于”自动包含等于。"
+    },
+    {
+      "id": "S08",
+      "section": "一、单选",
+      "type": "single",
+      "tier": "base",
+      "lesson": 7,
+      "goals": [
+        "G1",
+        "K1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.72,
+      "points": 3,
+      "reverseDebug": false,
+      "remixFrom": "source-banks/L7_03_questions.json#B09（有天桥吗的选路被误说成循环；保留“无回边、各走一次”）",
+      "prompt": "同伴把“有过街天桥吗→有就上天桥，没有就等灯”说成循环。主要错在哪？",
+      "options": [
+        "这是选路，通常各走一次，没有“再做一遍”的回边",
+        "天桥不能画进图里",
+        "分支图里不能出现菱形",
+        "必须先问水温才算循环"
+      ],
+      "answer": 0,
+      "explain": "菱形既可以表示分支，也可以表示循环里的“还要不要再做”。区分关键看有没有接回前面步骤的回边。有天桥就上天桥、没有就等灯，是选一条路，不是反复再做。",
+      "misconception": "看见菱形就当成循环；或以为循环必须先出现水温例子。"
+    },
+    {
+      "id": "F01",
+      "section": "二、填空／补充句子",
+      "type": "fill",
+      "tier": "base",
+      "lesson": 2,
+      "goals": [
+        "G2",
+        "K1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.82,
+      "points": 4,
+      "reverseDebug": false,
+      "remixFrom": "algorithm-detective-app/shared/quiz-data.mjs#q5-q8（西红柿炒鸡蛋三阶段IPO→校园鲜榨橙汁，三项对应关系不变）",
+      "prompt": "校园开放日做鲜榨橙汁：准备橙子和杯子相当于______；去皮榨汁搅拌相当于______；一杯橙汁相当于______。",
+      "blanks": [
+        {
+          "id": "b1",
+          "placeholder": "两个字"
+        },
+        {
+          "id": "b2",
+          "placeholder": "两个字"
+        },
+        {
+          "id": "b3",
+          "placeholder": "两个字"
+        }
+      ],
+      "answer": {
+        "b1": "输入",
+        "b2": "处理",
+        "b3": "输出"
+      },
+      "accept": {
+        "b1": [
+          "输入"
+        ],
+        "b2": [
+          "处理"
+        ],
+        "b3": [
+          "输出"
+        ]
+      },
+      "explain": "准备好的材料是输入，按步骤加工是处理，最后得到的成果是输出。换成果汁仍然遵循输入—处理—输出。",
+      "misconception": "把杯子或橙子当成输出；或把榨汁当成输入。"
+    },
+    {
+      "id": "F02",
+      "section": "二、填空／补充句子",
+      "type": "fill",
+      "tier": "base",
+      "lesson": 5,
+      "goals": [
+        "G2",
+        "K1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.7,
+      "points": 4,
+      "reverseDebug": true,
+      "remixFrom": "source-banks/L5_quiz.cjs G2-2（写死输出10℃不是好算法；保留换86℉仍输出10℃的冲突，改成填空）",
+      "prompt": "小安第1步输入华氏温度，第2步却输出“10℃”。50℉碰巧对，86℉仍输出10℃。他写的是______，不是______。",
+      "blanks": [
+        {
+          "id": "b1",
+          "placeholder": "两三个字"
+        },
+        {
+          "id": "b2",
+          "placeholder": "两三个字"
+        }
+      ],
+      "answer": {
+        "b1": "答案",
+        "b2": "方法"
+      },
+      "accept": {
+        "b1": [
+          "答案",
+          "写死的答案",
+          "固定答案",
+          "一个答案"
+        ],
+        "b2": [
+          "方法",
+          "算法",
+          "方法描述"
+        ]
+      },
+      "explain": "好的算法描述的是方法：换一组输入，按同样步骤也能算出对应结果。把某一次的10℃写死，换86℉就错了。",
+      "misconception": "把某一次算对的结果当成算法本身。"
+    },
+    {
+      "id": "F03",
+      "section": "二、填空／补充句子",
+      "type": "fill",
+      "tier": "base",
+      "lesson": 6,
+      "goals": [
+        "G2",
+        "K1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.73,
+      "points": 4,
+      "reverseDebug": false,
+      "remixFrom": "source-banks/L6_03_questions.json#q6（积分达到50用≥；阈值改为80，改成填空）",
+      "prompt": "积分达到80就升级。菱形里的判断应写成：积分______80。",
+      "blanks": [
+        {
+          "id": "b1",
+          "placeholder": "填写符号或“大于等于”"
+        }
+      ],
+      "answer": {
+        "b1": "≥"
+      },
+      "accept": {
+        "b1": [
+          "≥",
+          ">=",
+          "＞=",
+          "大于等于",
+          "不小于",
+          "≥80",
+          "大于或等于"
+        ]
+      },
+      "explain": "“达到”包含80本身，所以用“积分≥80”。如果写成“积分＞80”，刚好80分的同学就不能升级。",
+      "misconception": "把“达到”写成“超过”；或反过来把“超过”写成“≥”。"
+    },
+    {
+      "id": "F04",
+      "section": "二、填空／补充句子",
+      "type": "fill",
+      "tier": "base",
+      "lesson": 7,
+      "goals": [
+        "G1",
+        "D1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.75,
+      "points": 4,
+      "reverseDebug": false,
+      "remixFrom": "source-banks/L7_03_questions.json#B11（保温壶先读水温再决定是否加热→先问再做；改成填空，不用“循环体”）",
+      "prompt": "莲花山休息点的保温壶图：先读取并比较水温，再决定是否继续加热。这是先______再______。",
+      "blanks": [
+        {
+          "id": "b1",
+          "placeholder": "一个字"
+        },
+        {
+          "id": "b2",
+          "placeholder": "一个字"
+        }
+      ],
+      "answer": {
+        "b1": "问",
+        "b2": "做"
+      },
+      "accept": {
+        "b1": [
+          "问",
+          "判断",
+          "比较"
+        ],
+        "b2": [
+          "做",
+          "加热",
+          "执行"
+        ]
+      },
+      "explain": "可以先判断条件再执行动作，也可以先做再问是否还要继续。这张保温壶图是先比较水温（问），再决定加热（做）。",
+      "misconception": "把先问再做和先做再问看成一回事；或把这里的反复判断误说成只选一次路的分支。"
+    },
+    {
+      "id": "T01",
+      "section": "三、连线匹配",
+      "type": "match",
+      "tier": "base",
+      "lesson": 4,
+      "goals": [
+        "G1",
+        "K1",
+        "D1"
+      ],
+      "literacy": "信息意识",
+      "difficulty": 0.76,
+      "points": 6,
+      "reverseDebug": false,
+      "remixFrom": "source-banks/L4_quiz-bank.cjs#A01+#A11+#A15+#A17（搜索/封路改道/当前需要/识别须核对，合成连线，改写场景句）",
+      "prompt": "把奇趣游园会里的现场情况和算法帮的忙连起来。（一对一）",
+      "pairs": {
+        "left": [
+          {
+            "id": "L1",
+            "text": "游客要找“拍照认识植物”，向导先改搜索词"
+          },
+          {
+            "id": "L2",
+            "text": "原先最快的中心路突然拉起围栏"
+          },
+          {
+            "id": "L3",
+            "text": "历史记录偏爱艺术，游客今天却要科学探索"
+          },
+          {
+            "id": "L4",
+            "text": "叶片识别给出两个相似的植物名"
+          }
+        ],
+        "right": [
+          {
+            "id": "R1",
+            "text": "按线索匹配相关活动"
+          },
+          {
+            "id": "R2",
+            "text": "按能否通行重新规划路线"
+          },
+          {
+            "id": "R3",
+            "text": "当前明确需要优先于旧推荐"
+          },
+          {
+            "id": "R4",
+            "text": "候选结果仍要对照特征核对"
+          }
+        ]
+      },
+      "answer": {
+        "L1": "R1",
+        "L2": "R2",
+        "L3": "R3",
+        "L4": "R4"
+      },
+      "explain": "搜索根据关键词匹配活动；道路封闭后要按新条件重新规划；推荐只是建议，今天的明确需要更优先；图像识别给出的是候选，还要核对特征。",
+      "misconception": "把排序第一或历史推荐直接当成正确答案；或认为封路后仍应走原路线。"
+    },
+    {
+      "id": "T02",
+      "section": "三、连线匹配",
+      "type": "match",
+      "tier": "base",
+      "lesson": 5,
+      "goals": [
+        "G1",
+        "K1",
+        "D1"
+      ],
+      "goalsNote": "左项分别对应第5课顺序图框、第6课分支判断、第7课回边循环；内部按所连结构计入L5/L6/L7诊断",
+      "literacy": "计算思维",
+      "difficulty": 0.77,
+      "points": 6,
+      "reverseDebug": false,
+      "remixFrom": "source-banks/L5_quiz.cjs K2符号题 + L6_03_questions.json#q35 + L7_03_questions.json#B04/#B16（图框职责改成“这件事该怎么表示”，避免只背名称）",
+      "prompt": "把要做的事情和它在图里该怎么表示连起来。（一对一）",
+      "pairs": {
+        "left": [
+          {
+            "id": "L1",
+            "text": "把已知的华氏温度写进图里"
+          },
+          {
+            "id": "L2",
+            "text": "按公式算出对应的摄氏温度"
+          },
+          {
+            "id": "L3",
+            "text": "问“积分≥80吗”，再选升级或留下"
+          },
+          {
+            "id": "L4",
+            "text": "绿灯还没亮，就再观察一次"
+          }
+        ],
+        "right": [
+          {
+            "id": "R1",
+            "text": "平行四边形：表示输入或输出"
+          },
+          {
+            "id": "R2",
+            "text": "直角矩形：表示处理、计算"
+          },
+          {
+            "id": "R3",
+            "text": "菱形：回答是或否，再选一条路"
+          },
+          {
+            "id": "R4",
+            "text": "菱形判断，并把“是”接回前面的观察"
+          }
+        ]
+      },
+      "answer": {
+        "L1": "R1",
+        "L2": "R2",
+        "L3": "R3",
+        "L4": "R4"
+      },
+      "explain": "输入输出用平行四边形，计算用直角矩形，一次选择用菱形分出是/否。若条件成立还要再做刚才那一步，就要把回边接回去，这才表示反复等待。",
+      "misconception": "看见菱形一律当成循环；或把计算也画成平行四边形。"
+    },
+    {
+      "id": "FL01",
+      "section": "四、操作流程图",
+      "type": "flowchart",
+      "tier": "base",
+      "lesson": 5,
+      "goals": [
+        "G1",
+        "D1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.74,
+      "points": 6,
+      "reverseDebug": true,
+      "remixFrom": "source-banks/L5_quiz.cjs K2-5（温度流程图未算就输出→花坛周长流程图，错误类型不变）",
+      "prompt": "同学画“花坛周长”的流程图如下。错在哪？",
+      "flow": {
+        "kind": "find_error",
+        "title": "花坛周长",
+        "nodes": [
+          "开始",
+          "输入长和宽",
+          "输出周长",
+          "计算（长+宽）×2",
+          "结束"
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      },
+      "options": [
+        "还没计算就输出，计算和输出的顺序反了",
+        "开始框画错了",
+        "没有错",
+        "少画了一个输入框"
+      ],
+      "answer": 0,
+      "explain": "顺序结构要按“输入→处理→输出”执行。这里已经输入了长和宽，但还没计算就输出周长，后面的计算框用不上。应先计算（长+宽）×2，再输出。",
+      "misconception": "以为有了输入框和输出框就算完整；或只检查开始/结束有没有画。"
+    },
+    {
+      "id": "FL02",
+      "section": "四、操作流程图",
+      "type": "flowchart",
+      "tier": "base",
+      "lesson": 6,
+      "goals": [
+        "G1",
+        "D1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.7,
+      "points": 6,
+      "reverseDebug": false,
+      "remixFrom": "source-banks/L6_03_questions.json#q22（跳绳满100得星→阅读打卡满20页得章；≥与出口对应，承认条件取反且出口对调的等价解）",
+      "prompt": "阅读打卡满20页得小章，不满不得。点卡片补全流程图。",
+      "flow": {
+        "kind": "fill_branch",
+        "preview": [
+          "开始",
+          "输入本周阅读页数",
+          "【条件】",
+          "是 → 【是出口】",
+          "否 → 【否出口】",
+          "结束"
+        ],
+        "slots": [
+          "condition",
+          "yes",
+          "no"
+        ]
+      },
+      "options": [
+        {
+          "id": "c_ge",
+          "text": "页数≥20"
+        },
+        {
+          "id": "c_gt",
+          "text": "页数＞20"
+        },
+        {
+          "id": "c_lt",
+          "text": "页数＜20"
+        },
+        {
+          "id": "y_yes",
+          "text": "得章"
+        },
+        {
+          "id": "y_no",
+          "text": "没章"
+        }
+      ],
+      "answer": {
+        "condition": "c_ge",
+        "yes": "y_yes",
+        "no": "y_no"
+      },
+      "accept": [
+        {
+          "condition": "c_ge",
+          "yes": "y_yes",
+          "no": "y_no"
+        },
+        {
+          "condition": "c_lt",
+          "yes": "y_no",
+          "no": "y_yes"
+        }
+      ],
+      "explain": "“满20页”包含20，条件写“页数≥20”，是→得章，否→没章。如果条件写成“页数＜20”，两个出口必须对调，意思才一样。写成“页数＞20”会把刚好20页判错。",
+      "misconception": "用“超过20”代替“满20”；或条件取反后忘记对调出口。"
+    },
+    {
+      "id": "FL03",
+      "section": "四、操作流程图",
+      "type": "flowchart",
+      "tier": "base",
+      "lesson": 7,
+      "goals": [
+        "G1",
+        "D1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.68,
+      "points": 6,
+      "reverseDebug": true,
+      "remixFrom": "source-banks/L7_03_questions.json#B06（回边应从“还要再等”接到原地观察；保留四选一干扰）",
+      "prompt": "把“观察并等待绿灯”改成能表示“还要不要再等”的图。回边应从“绿灯未亮”的“是”接到哪里？",
+      "flow": {
+        "kind": "back_edge",
+        "preview": [
+          "到达路口",
+          "原地观察红绿灯",
+          "菱形：绿灯未亮？",
+          "是 → ？",
+          "否 → 过马路",
+          "到达对面"
+        ]
+      },
+      "options": [
+        "接回“原地观察红绿灯”",
+        "接到“过马路”",
+        "接到“开始”",
+        "接到“到达对面”"
+      ],
+      "answer": 0,
+      "explain": "条件“绿灯未亮”成立时，还要再观察、再等待，所以“是”应接回“原地观察红绿灯”。如果回边接到“过马路”，灯没亮人却走上斑马线。",
+      "misconception": "把回边接到过马路或开始；或以为写了“等待”二字就不必画回边。"
+    },
+    {
+      "id": "FL04",
+      "section": "四、操作流程图",
+      "type": "flowchart",
+      "tier": "base",
+      "lesson": 3,
+      "goals": [
+        "G1",
+        "D1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.8,
+      "points": 6,
+      "reverseDebug": false,
+      "remixFrom": "source-banks/L3_quiz-bank.cjs#13（两环从柱1到柱3的三步顺序；改为点选排序卡）",
+      "prompt": "把两个圆环从柱1移到柱3。按可执行顺序点选三张步骤卡。",
+      "flow": {
+        "kind": "order",
+        "slots": 3
+      },
+      "options": [
+        {
+          "id": "s0",
+          "text": "小环：柱1→柱2"
+        },
+        {
+          "id": "s1",
+          "text": "大环：柱1→柱3"
+        },
+        {
+          "id": "s2",
+          "text": "小环：柱2→柱3"
+        }
+      ],
+      "answer": [
+        "s0",
+        "s1",
+        "s2"
+      ],
+      "explain": "先把小环放到过渡柱，大环才能从柱1移到目标柱3；最后再把小环移到大环上面。这是把问题缩小后再还原的有序步骤。",
+      "misconception": "先移动大环；或最后忘记把小环移到目标柱。"
+    },
+    {
+      "id": "A01",
+      "section": "五、曾经应用的操作",
+      "type": "app_op",
+      "tier": "base",
+      "lesson": 1,
+      "goals": [
+        "G1",
+        "D1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.76,
+      "points": 4,
+      "reverseDebug": true,
+      "app": "生活处处有算法·指令修复站／插花工坊",
+      "remixFrom": "5-1shenghuozhongsuanfa 指令修复站／插花工坊（无考核JSON；按应用关键操作补编：区分“表达明确、可执行”与口语含糊指令）",
+      "prompt": "在“生活处处有算法”的指令修复站，哪一句还不能交给机器人直接做？",
+      "options": [
+        "把丝带剪成20厘米",
+        "把花弄得好看一点",
+        "把主花插在花泥中央",
+        "把包装纸对折一次"
+      ],
+      "answer": 1,
+      "explain": "机器人需要明确、可执行的步骤。“好看一点”没有说清做什么、做到什么程度。另外三句都指出了对象和具体动作，可以执行。",
+      "misconception": "以为口语热闹就是可执行；或以为短句就一定含糊。"
+    },
+    {
+      "id": "A02",
+      "section": "五、曾经应用的操作",
+      "type": "app_op",
+      "tier": "base",
+      "lesson": 2,
+      "goals": [
+        "G2",
+        "D1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.73,
+      "points": 4,
+      "reverseDebug": true,
+      "app": "算法小侦探·数字迷宫",
+      "remixFrom": "algorithm-detective-app/shared/quiz-data.mjs#q14（136+92十位3+9=12写2进1→158+67十位5+6=11写1进1）",
+      "prompt": "算法小侦探里计算158＋67。十位上5＋6＝11。接下来应？",
+      "options": [
+        "在十位下面写11",
+        "在十位下面写1，并向百位进1",
+        "在十位下面写1，并向百位进2",
+        "在十位下面写0，并向百位进1"
+      ],
+      "answer": 1,
+      "explain": "和是11，个位数字1写在十位下面，十位数字1进到百位。百位再算1＋0＋1＝2，结果是225。不能把11整个写在十位下面。",
+      "misconception": "忘记进位；或把11的十位误进成2。"
+    },
+    {
+      "id": "A03",
+      "section": "五、曾经应用的操作",
+      "type": "app_op",
+      "tier": "base",
+      "lesson": 3,
+      "goals": [
+        "G1",
+        "K1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.7,
+      "points": 4,
+      "reverseDebug": true,
+      "app": "汉诺塔实验室·三环找规律",
+      "remixFrom": "source-banks/L3_quiz-bank.cjs#5（状态：柱1大中、柱2小、柱3空；下一步合法操作）",
+      "prompt": "汉诺塔实验室出现下面状态。下一步哪项合法？",
+      "stemExtras": {
+        "visual": "柱1：大环、中环（中环在上）；柱2：小环；柱3：空"
+      },
+      "options": [
+        "把柱1顶端的中环移到柱3",
+        "把柱1底部的大环移到柱3",
+        "把柱1的中环放到柱2的小环上",
+        "一次把柱1上的两个环移到柱3"
+      ],
+      "answer": 0,
+      "explain": "只能拿每根柱最上面的环，且小环必须在大环上面。柱1顶端是中环，柱3是空的，把中环移到柱3合法。大环被压着不能拿；中环比小环大，不能压到柱2的小环上；也不能一次移两个环。",
+      "misconception": "忽略“只能拿顶层”或“大环不能压小环”。"
+    },
+    {
+      "id": "A04",
+      "section": "五、曾经应用的操作",
+      "type": "app_op",
+      "tier": "base",
+      "lesson": 4,
+      "goals": [
+        "G1",
+        "D1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.75,
+      "points": 4,
+      "reverseDebug": true,
+      "app": "奇趣游园会·带游客",
+      "remixFrom": "source-banks/L4_quiz-bank.cjs#A11（最快的中心路封闭须按通行情况重新选路）",
+      "prompt": "奇趣游园会里，原先最快的中心路突然拉起围栏。向导应？",
+      "options": [
+        "仍按原来的最快路线往前走",
+        "只把地图换一种颜色",
+        "按现在哪条路还能走，重新选路",
+        "让游客从围栏缝里挤过去"
+      ],
+      "answer": 2,
+      "explain": "道路能否通行是新的重要条件。原来最快的路封闭后，要按新条件重新规划，而不是沿用旧路线或只改界面颜色。",
+      "misconception": "以为第一次选出的“最快路线”永远有效。"
+    },
+    {
+      "id": "A05",
+      "section": "五、曾经应用的操作",
+      "type": "app_op",
+      "tier": "base",
+      "lesson": 5,
+      "goals": [
+        "G1",
+        "K1",
+        "D1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.72,
+      "points": 4,
+      "reverseDebug": true,
+      "app": "生活算法站·科学实验室",
+      "remixFrom": "source-banks/L5_quiz.cjs G1-3（必须先算m再算s，因为s的公式用到m；改为“同桌点运行会卡住”的应用操作）",
+      "prompt": "生活算法站里，算种子总数s要用到第n组粒数m。小周先写“算s”，再写“算m”。点运行时会怎样？",
+      "options": [
+        "算s时要用到m，m还没算出来，会卡住",
+        "m比较小，先算谁都没关系",
+        "程序会自动对调两步",
+        "只要公式写出来，顺序不影响"
+      ],
+      "answer": 0,
+      "explain": "s＝n×（3＋m）÷2，前一步的结果是后一步的材料。生活算法站会按你写的顺序执行，先算s时m还不存在，所以会卡住。应先算m，再算s。",
+      "misconception": "以为公式里的字母可以按任意顺序算；或指望程序自动补步骤。"
+    },
+    {
+      "id": "A06",
+      "section": "五、曾经应用的操作",
+      "type": "app_op",
+      "tier": "base",
+      "lesson": 6,
+      "goals": [
+        "G2",
+        "K1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.68,
+      "points": 4,
+      "reverseDebug": true,
+      "app": "分支岛·温室通风",
+      "remixFrom": "source-banks/L6_03_questions.json 储备题q5及课堂应用温室规则（≥30℃启动风机；题干改为恰好30℃怎么走，对应分支岛关键判断）",
+      "prompt": "分支岛温室试运行：温度≥30℃就启动风机，否则关闭。探测器读到恰好30℃，风机应？",
+      "options": [
+        "启动风机",
+        "关闭风机",
+        "先启动再马上关闭",
+        "没写“等于”，所以无法判断"
+      ],
+      "answer": 0,
+      "explain": "“≥”包含等于。30≥30成立，走“是”，启动风机。这是分支岛里“刚好等于阈值”的关键判断，不能丢掉等号。",
+      "misconception": "看见“等于”就犹豫，或把≥当成＞。"
+    },
+    {
+      "id": "C01",
+      "section": "挑战加分",
+      "type": "single",
+      "tier": "challenge",
+      "lesson": 6,
+      "goals": [
+        "G2",
+        "K1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.62,
+      "points": 3,
+      "reverseDebug": true,
+      "remixFrom": "source-banks/L6_03_questions.json#q29（测59/60/61查≥60；改为步数达到8000，测7999/8000/8001）",
+      "prompt": "规则“步数达到8000就得小红花”。要检查程序有没有写错，测哪组最有用？",
+      "options": [
+        "8000、9000、10000",
+        "8001、8500、9999",
+        "7999、8000、8001",
+        "1000、3000、7999"
+      ],
+      "answer": 2,
+      "explain": "7999应不得花，8000刚好达到应得花，8001也应得花。这样“是”“否”两条路和边界都测到了。只测一边，即使全对也不能说明程序没错。",
+      "misconception": "只拿明显达标或明显不达标的数去测，以为测过就算验证完毕。"
+    },
+    {
+      "id": "C02",
+      "section": "挑战加分",
+      "type": "single",
+      "tier": "challenge",
+      "lesson": 7,
+      "goals": [
+        "G1",
+        "D1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.6,
+      "points": 3,
+      "reverseDebug": true,
+      "remixFrom": "source-banks/L7_03_questions.json#C06（整段圈成循环的最小改法：只拆观察等待，过街与对面留在循环外）",
+      "prompt": "有人把“到达路口→观察等待→过马路→到达对面”整段都圈成循环。最小改法是？",
+      "options": [
+        "只把“观察等待”拆成带回边的反复，过马路和到达对面留在外面",
+        "全部删掉，只留一个菱形",
+        "改成“有天桥吗”的选路图",
+        "把等待次数写成100"
+      ],
+      "answer": 0,
+      "explain": "真正在反复的是“观察并等待绿灯”。到达路口、过马路、到达对面通常各做一次，不必放进反复里。最小改法是只拆开等待这一步并补上回边。",
+      "misconception": "把整段顺序都当成反复；或用固定次数代替“亮了就停”。"
+    },
+    {
+      "id": "C03",
+      "section": "挑战加分",
+      "type": "single",
+      "tier": "challenge",
+      "lesson": 3,
+      "goals": [
+        "G1",
+        "K1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.65,
+      "points": 3,
+      "reverseDebug": false,
+      "remixFrom": "source-banks/L3_quiz-bank.cjs#8（为大环清出目标柱，上方圆环先暂放过渡柱；由两环扩展为四环、上方三个环）",
+      "prompt": "四个环要从柱1移到柱3。想先把最大环挪到柱3，它上面的三个环应先暂放到哪？",
+      "options": [
+        "柱2（过渡柱）",
+        "也放到柱3上",
+        "继续留在柱1，压着最大环",
+        "分别搁在柱1和柱3"
+      ],
+      "answer": 0,
+      "explain": "目标柱3要空出来才能放下最大环，所以上面的三个环要先移到过渡柱2。这和课堂上“忽略最大环，先把其余环移到另一根柱”的规律一致。",
+      "misconception": "把小环直接堆到目标柱上，挡住最大环；或以为大环可以连同上面的环一起挪。"
+    },
+    {
+      "id": "C04",
+      "section": "挑战加分",
+      "type": "single",
+      "tier": "challenge",
+      "lesson": 6,
+      "goals": [
+        "G2",
+        "K1"
+      ],
+      "literacy": "计算思维",
+      "difficulty": 0.58,
+      "points": 3,
+      "reverseDebug": true,
+      "remixFrom": "source-banks/L6_03_questions.json 储备题q8（只把≥改成＞，哪次测试结果会与原规则不同）",
+      "prompt": "原规则“温度≥30℃启动风机，否则关闭”。如果只把“≥”改成“＞”，哪一次测试的结果会和原来不同？",
+      "options": [
+        "29℃",
+        "30℃",
+        "31℃",
+        "三次都会不同"
+      ],
+      "answer": 1,
+      "explain": "29℃两种写法都不启动，31℃两种写法都启动。只有刚好30℃：原规则≥会启动，改成＞就不启动。要发现“丢掉等号”的错误，必须测边界值。",
+      "misconception": "以为改一个符号所有温度都会变；或只拿29℃、31℃去测，发现不了错误。"
+    }
+  ]
+}

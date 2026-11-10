@@ -1,0 +1,13 @@
+node_modules/
+**/node_modules/
+app/client/node_modules/
+app/data/
+app/.data-test/
+*.sqlite
+*.db
+.DS_Store
+app/client/dist/
+ref-5qimo/
+screenshots/
+app/data/
+app/.data-test/

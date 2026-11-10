@@ -1,0 +1,1912 @@
+{
+  "version": "2026-11-09-midterm-v1.4.2",
+  "shell": "算法嘉年华·站点通行证",
+  "paperType": "midterm",
+  "grade": 5,
+  "lessons": "1-7",
+  "codeSource": "教材L1-L7；source-banks L3–L7；L2 detective quiz；L1应用考察点；去呆板化六准则",
+  "paperRule": "期中整卷＝轻量站点闯关：主卷7站（L1–L7）必做＋可选加分挑战站；本关题全部作答提交即可解锁下一关（不因分数卡关）；学生端不下发答案/解析/remix/内部代号；禁止沿用旧期末5qimokaoshi地图/布局/组件命名；外壳组件自拟（CarnivalMap/StageNode等）",
+  "clientFieldsBeforeSubmit": [
+    "id",
+    "section",
+    "type",
+    "lesson",
+    "lessonTitle",
+    "prompt",
+    "options",
+    "left",
+    "right",
+    "slots",
+    "cards",
+    "diagram",
+    "appRef",
+    "interactionSpecKey",
+    "estimatedMinutes",
+    "stage",
+    "stageId",
+    "stageName",
+    "currentStage",
+    "stagesCompleted",
+    "stageProgress",
+    "stageClearFeedback",
+    "recallSceneAnchor",
+    "recallCaption",
+    "recallImage",
+    "recallImageMaxWidthPx",
+    "recallImageAnimated"
+  ],
+  "serverOnlyFields": [
+    "answer",
+    "accept",
+    "acceptAlternate",
+    "analysis",
+    "misconceptionMap",
+    "literacy",
+    "ctTags",
+    "difficultyEstimate",
+    "remixFrom",
+    "remixNote",
+    "reverseDebug",
+    "teacherNote",
+    "goalIds",
+    "recallImagePrompt",
+    "recallImageMotionNote"
+  ],
+  "forbiddenStudentTerms": [
+    "G1",
+    "G2",
+    "K1",
+    "K2",
+    "D1",
+    "S1",
+    "E1",
+    "M1",
+    "remixFrom",
+    "循环体"
+  ],
+  "typeCounts": {
+    "main": {
+      "single_choice": 11,
+      "matching": 3,
+      "flowchart_op": 4,
+      "app_op": 6,
+      "sentence_fill": 0,
+      "total": 24
+    },
+    "challenge": {
+      "single_choice": 4,
+      "flowchart_op": 1,
+      "total": 5
+    }
+  },
+  "reverseOrCounterexample": [
+    "M02",
+    "M10",
+    "M13",
+    "M15",
+    "M18",
+    "M19",
+    "M21",
+    "M23"
+  ],
+  "questions": [
+    {
+      "id": "M01",
+      "section": "main",
+      "type": "single_choice",
+      "lesson": 1,
+      "lessonTitle": "生活处处有算法",
+      "prompt": "嘉年华向导说：「算法不只写在电脑程序里。」下面哪一项最能支持这句话？",
+      "options": [
+        "点心站菜谱按「称量→和面→烘烤」一步步做，说明生活做事也常按算法",
+        "只有写出程序代码才叫算法",
+        "算法只出现在数学公式里，生活用不上",
+        "玩游戏时乱按键，也算在执行算法"
+      ],
+      "answer": "点心站菜谱按「称量→和面→烘烤」一步步做，说明生活做事也常按算法",
+      "analysis": "算法是明确、有序、可执行的方法；生活中的菜谱步骤同样是算法。程序代码不是唯一形态；乱按键没有明确可执行步骤。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "生活中的算法"
+      ],
+      "difficultyEstimate": 0.82,
+      "estimatedMinutes": 1.0,
+      "misconceptionMap": {
+        "只有写出程序代码才叫算法": "误以为算法=编程",
+        "算法只出现在数学公式里，生活用不上": "否认生活中有算法",
+        "玩游戏时乱按键，也算在执行算法": "把无序操作当成算法"
+      },
+      "appRef": "生活处处有算法·指令修复站",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L1-G2「算法存在于日常生活」＋应用情境",
+      "remixNote": "v1.4改写补L1-G2：必须认识到「生活里也有算法」才能作答；非贴皮。原「含糊指令」考点改由M03覆盖。",
+      "stage": 1,
+      "stageId": "gate_l1",
+      "stageName": "点心站·有序步骤",
+      "goalIds": [
+        "L1-G2",
+        "L1-K1"
+      ],
+      "recallSceneAnchor": "生活处处有算法·指令修复站",
+      "recallCaption": "回想点心站菜谱画面",
+      "recallImagePrompt": "二年级友好2D课堂插画：嘉年华点心站展板旁，菜谱步骤卡片与烤箱道具并置，同学围观；明亮温暖；无文字墙、无选项字母、无正确答案黄框高亮。cartoon classroom festival booth, soft colors, no text overlay, no answer cue. static.",
+      "recallImage": "assets/recall/M01.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M02",
+      "section": "main",
+      "type": "app_op",
+      "lesson": 1,
+      "lessonTitle": "生活处处有算法",
+      "prompt": "嘉年华「机器人厨房」要做果汁：①洗水果 ②切块 ③放进搅拌机 ④倒入杯中。机器人把④放到了①之前，结果怎样？为什么？",
+      "options": [
+        "还能做成功，因为四步都能单独做",
+        "做不成：还没洗切就倒杯，关键先后被打乱",
+        "只会少洗一次，果汁照样好喝",
+        "只要最后有果汁，顺序无所谓"
+      ],
+      "answer": "做不成：还没洗切就倒杯，关键先后被打乱",
+      "analysis": "有先后依赖的步骤不能随便对调；「倒入杯中」依赖前面准备与搅拌完成。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "有序步骤"
+      ],
+      "difficultyEstimate": 0.8,
+      "estimatedMinutes": 1.2,
+      "misconceptionMap": {
+        "还能做成功，因为四步都能单独做": "把独立步与关键先后混为一谈"
+      },
+      "appRef": "生活处处有算法·机器人厨房",
+      "interactionSpecKey": "app_op_choice",
+      "remixFrom": "new:教材L1西红柿炒鸡蛋顺序＋应用厨房操作",
+      "remixNote": "新编迁移。考察点同教材「步骤顺序能否改变」与应用厨房错序停错；换果汁四步新数据。",
+      "reverseDebug": true,
+      "stage": 1,
+      "stageId": "gate_l1",
+      "stageName": "点心站·有序步骤",
+      "goalIds": [
+        "L1-G1",
+        "L1-D1"
+      ],
+      "recallSceneAnchor": "生活处处有算法·机器人厨房",
+      "recallCaption": "回想厨房步骤的先后",
+      "recallImagePrompt": "2D课堂友好：机器人厨房台面，洗切搅拌倒杯四件工具整齐摆放（不标编号对错），小机器人等待指令；嘉年华点心站氛围；无文字墙、无选项字母、无箭头指向「正确顺序」。cartoon kitchen lab, soft colors, no answer highlight. static.",
+      "recallImage": "assets/recall/M02.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M03",
+      "section": "main",
+      "type": "matching",
+      "lesson": 1,
+      "lessonTitle": "生活处处有算法",
+      "prompt": "把左侧生活说法与右侧「算法角度」一对一连线。",
+      "left": [
+        "菜谱写清每一步用量",
+        "先洗后切再炒",
+        "「翻炒一会儿」让机器人停住了"
+      ],
+      "right": [
+        "步骤明确、可执行",
+        "步骤有先后顺序",
+        "表达含糊、难以执行"
+      ],
+      "answer": {
+        "菜谱写清每一步用量": "步骤明确、可执行",
+        "先洗后切再炒": "步骤有先后顺序",
+        "「翻炒一会儿」让机器人停住了": "表达含糊、难以执行"
+      },
+      "analysis": "明确／有序／可执行是算法描述的三件关键事；含糊时长会卡住执行者。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "算法特征匹配"
+      ],
+      "difficultyEstimate": 0.82,
+      "estimatedMinutes": 1.5,
+      "appRef": null,
+      "interactionSpecKey": "matching_one_to_one",
+      "remixFrom": "new:教材L1学习目标",
+      "remixNote": "新编连线，覆盖「明确、有序、可执行」三要素。",
+      "stage": 1,
+      "stageId": "gate_l1",
+      "stageName": "点心站·有序步骤",
+      "goalIds": [
+        "L1-G1",
+        "L1-K1",
+        "L1-D1"
+      ],
+      "recallSceneAnchor": "生活处处有算法·机器人厨房",
+      "recallCaption": "回想点心站连线教具",
+      "recallImagePrompt": "2D课堂插画：点心站连线教具板，左侧生活说法卡片、右侧空白分类卡槽（内容模糊不可读），氛围温馨；无可读答案文字、无选项字母、无已连好的唯一正确连线高亮。cartoon matching board, soft colors, no text wall. static.",
+      "recallImage": "assets/recall/M03.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M04",
+      "section": "main",
+      "type": "app_op",
+      "lesson": 2,
+      "lessonTitle": "算法认识与体验",
+      "prompt": "算法小侦探接到新案：校园「借书机」先扫借书证，再核对是否可借，最后弹出「借出成功」。扫借书证相当于哪一部分？",
+      "options": [
+        "输入",
+        "处理",
+        "输出",
+        "既不是输入也不是处理"
+      ],
+      "answer": "输入",
+      "analysis": "开始前提供给设备的数据／凭证是输入；核对是处理；「借出成功」提示是输出。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "IPO"
+      ],
+      "difficultyEstimate": 0.85,
+      "estimatedMinutes": 1.0,
+      "appRef": "算法小侦探",
+      "interactionSpecKey": "app_op_choice",
+      "remixFrom": "L2:algorithm-detective q5",
+      "remixNote": "再创编。原题「准备食材＝输入」；改为借书机扫证＝输入，保留 IPO 识别考察点与干扰结构。",
+      "stage": 2,
+      "stageId": "gate_l2",
+      "stageName": "侦探亭·输入处理输出",
+      "goalIds": [
+        "L2-G2",
+        "L2-K1"
+      ],
+      "recallSceneAnchor": "算法小侦探",
+      "recallCaption": "回想侦探亭借书机看板",
+      "recallImagePrompt": "2D课堂友好：算法小侦探看板，校园借书机剪影与放大镜图标，三段空白流程格示意（格内无答案字）；侦探亭氛围；无选项字母、无黄框标某一格。cartoon detective booth, soft colors, no answer cue. static.",
+      "recallImage": "assets/recall/M04.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M05",
+      "section": "main",
+      "type": "matching",
+      "lesson": 2,
+      "lessonTitle": "算法认识与体验",
+      "prompt": "算法小侦探：把「做番茄炒蛋」的三段，连到基本流程里该叫什么。",
+      "left": [
+        "准备蛋与番茄",
+        "按步骤翻炒调味",
+        "端出一盘菜"
+      ],
+      "right": [
+        "输入",
+        "处理",
+        "输出",
+        "循环条件"
+      ],
+      "answer": {
+        "准备蛋与番茄": "输入",
+        "按步骤翻炒调味": "处理",
+        "端出一盘菜": "输出"
+      },
+      "analysis": "基本流程是输入→处理→输出。「循环条件」是干扰项，做菜三阶段不靠它命名。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "IPO"
+      ],
+      "difficultyEstimate": 0.85,
+      "estimatedMinutes": 1.3,
+      "interactionSpecKey": "matching",
+      "misconceptionMap": {
+        "准备蛋与番茄→处理": "M_IPO混段",
+        "端出一盘菜→输入": "M_IPO颠倒"
+      },
+      "remixFrom": "L2:algorithm-detective q4",
+      "remixNote": "原再创编为填空；老师改口无填空后改回连线匹配，仍考 IPO 三段对应。",
+      "stage": 2,
+      "stageId": "gate_l2",
+      "stageName": "侦探亭·输入处理输出",
+      "goalIds": [
+        "L2-G2",
+        "L2-K1"
+      ],
+      "recallSceneAnchor": "算法小侦探",
+      "recallCaption": "回想做菜也分三段流程",
+      "recallImagePrompt": "2D课堂插画：侦探亭里番茄炒蛋三阶段示意（备料／翻炒／装盘）与空白IPO标签槽，标签字迹不可读；无选项字母、无已配对正确答案高亮。cartoon cooking IPO board, soft colors, no text wall. static.",
+      "recallImage": "assets/recall/M05.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M06",
+      "section": "main",
+      "type": "single_choice",
+      "lesson": 2,
+      "lessonTitle": "算法认识与体验",
+      "prompt": "侦探亭对比两段「泡热可可」说明。哪一段用自然语言把步骤写得更明确、别人更能照着做？",
+      "options": [
+        "①倒入热水 ②加入可可粉 2 勺 ③搅拌至无明显颗粒 ④尝温后饮用",
+        "弄一点可可，弄好了就能喝",
+        "随便加点东西搅一搅就行",
+        "用魔法变出一杯热可可"
+      ],
+      "answer": "①倒入热水 ②加入可可粉 2 勺 ③搅拌至无明显颗粒 ④尝温后饮用",
+      "analysis": "明确可执行的自然语言步骤要说清做什么、用多少、做到什么程度；含糊「弄一点／随便／魔法」别人无法稳定照做。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "自然语言步骤"
+      ],
+      "difficultyEstimate": 0.8,
+      "estimatedMinutes": 1.1,
+      "misconceptionMap": {
+        "弄一点可可，弄好了就能喝": "把含糊描述当成够用",
+        "随便加点东西搅一搅就行": "缺少可执行细节",
+        "用魔法变出一杯热可可": "不可执行表达"
+      },
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "L2:algorithm-detective＋教材L2-D1自然语言描述步骤",
+      "remixNote": "v1.4改写补L2-D1：对比哪段自然语言步骤明确可执行；IPO 仍由本站M04／M05覆盖。原零输入考点让位。",
+      "stage": 2,
+      "stageId": "gate_l2",
+      "stageName": "侦探亭·输入处理输出",
+      "goalIds": [
+        "L2-D1",
+        "L2-G1",
+        "L2-G2"
+      ],
+      "recallSceneAnchor": "算法小侦探",
+      "recallCaption": "回想泡可可便签对比",
+      "recallImagePrompt": "2D课堂友好：侦探亭桌上两张「泡热可可」说明便签（字迹故意模糊不可读），一杯可可在旁；对比陈列氛围，不标哪张更好；无选项字母、无勾叉。cartoon detective desk, soft colors, no answer highlight. static.",
+      "recallImage": "assets/recall/M06.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M07",
+      "section": "main",
+      "type": "app_op",
+      "lesson": 3,
+      "lessonTitle": "游戏体验寻规律",
+      "prompt": "汉诺塔实验室状态：柱1有大、中；柱2有小；柱3空。只做合法一步，应怎样？",
+      "options": [
+        "把柱1顶端的中环移到柱3",
+        "把柱1底部的大环直接移到柱3",
+        "把柱1中环放到柱2的小环上",
+        "一次把柱1两个环移到柱3"
+      ],
+      "answer": "把柱1顶端的中环移到柱3",
+      "analysis": "每次只能移一个且只能拿顶端；中环在柱1顶，柱3为空可放；大环被压着；中环不能压小环。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "规则／状态"
+      ],
+      "difficultyEstimate": 0.7,
+      "estimatedMinutes": 1.3,
+      "diagram": {
+        "visual": "柱1：大、中；柱2：小；柱3：空"
+      },
+      "appRef": "汉诺塔实验室",
+      "interactionSpecKey": "app_op_choice",
+      "remixFrom": "L3:hanoi-quiz id5",
+      "remixNote": "再创编。原状态题合法下一步；换表述嵌入嘉年华／实验室，干扰项逻辑保留（压环／一次多移／放大压小）。",
+      "stage": 3,
+      "stageId": "gate_l3",
+      "stageName": "汉诺塔实验室",
+      "goalIds": [
+        "L3-G1",
+        "L3-K1"
+      ],
+      "recallSceneAnchor": "汉诺塔实验室",
+      "recallCaption": "回想汉诺塔实验室移环",
+      "recallImagePrompt": "2D课堂插画：汉诺塔实验室三根柱与大小环（状态可示意但不要用箭头指出下一步该移哪），同学观察；实验室灯光；无文字墙、无选项字母、无唯一合法步黄框。cartoon hanoi lab, soft colors, no answer cue. static.",
+      "recallImage": "assets/recall/M07.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M08",
+      "section": "main",
+      "type": "flowchart_op",
+      "lesson": 3,
+      "lessonTitle": "游戏体验寻规律",
+      "prompt": "把「两环从柱1移到柱3」的三步按可执行顺序点选放入①②③。",
+      "cards": [
+        "小环：柱1→柱2",
+        "大环：柱1→柱3",
+        "小环：柱2→柱3"
+      ],
+      "slots": [
+        "①",
+        "②",
+        "③"
+      ],
+      "answer": {
+        "①": "小环：柱1→柱2",
+        "②": "大环：柱1→柱3",
+        "③": "小环：柱2→柱3"
+      },
+      "analysis": "先安置小环腾出大环，再移大环到目标，最后小环归位。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "有序步骤"
+      ],
+      "difficultyEstimate": 0.75,
+      "estimatedMinutes": 1.5,
+      "appRef": "汉诺塔实验室",
+      "interactionSpecKey": "flowchart_order_cards",
+      "remixFrom": "L3:hanoi-quiz id13",
+      "remixNote": "再创编为流程图／排序残局。原 order 三步；交互改为点卡入槽，考察点不变。",
+      "stage": 3,
+      "stageId": "gate_l3",
+      "stageName": "汉诺塔实验室",
+      "goalIds": [
+        "L3-G2",
+        "L3-D1"
+      ],
+      "recallSceneAnchor": "汉诺塔实验室",
+      "recallCaption": "回想移塔三步怎么排",
+      "recallImagePrompt": "2D课堂友好：汉诺塔流程图／排序卡槽①②③为空槽，旁边散放模糊步骤卡；探究站氛围；无填入答案、无选项字母、无正确顺序高亮。cartoon sequencing slots, soft colors, no text readable as answer. static.",
+      "recallImage": "assets/recall/M08.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M09",
+      "section": "main",
+      "type": "single_choice",
+      "lesson": 3,
+      "lessonTitle": "游戏体验寻规律",
+      "prompt": "同伴方案写着「把那个环放到那边」。主要问题是？",
+      "options": [
+        "没有说清哪个环与目标柱",
+        "字数太少不好看",
+        "圆环只能用颜色命名",
+        "不能写成汉字"
+      ],
+      "answer": "没有说清哪个环与目标柱",
+      "analysis": "可执行步骤要说清对象、起点和终点；含糊指代别人无法照做。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "算法表达"
+      ],
+      "difficultyEstimate": 0.82,
+      "estimatedMinutes": 1.0,
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "L3:hanoi-quiz id10",
+      "remixNote": "再创编。保留「指代不明不可执行」；外壳改为同伴方案评阅。",
+      "stage": 3,
+      "stageId": "gate_l3",
+      "stageName": "汉诺塔实验室",
+      "goalIds": [
+        "L3-G2",
+        "L3-D1"
+      ],
+      "recallSceneAnchor": "汉诺塔实验室",
+      "recallCaption": "回想汉诺塔同伴草稿本",
+      "recallImagePrompt": "2D课堂插画：汉诺塔实验室同伴方案草稿本摊开（字迹模糊），同学皱眉对照三柱环塔；无文字墙、无选项字母、无标出问题原因的正确答案框。cartoon peer review desk, soft colors, no answer cue. static.",
+      "recallImage": "assets/recall/M09.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M10",
+      "section": "main",
+      "type": "app_op",
+      "lesson": 4,
+      "lessonTitle": "算法应用在身边",
+      "prompt": "奇趣游园会：向导原选「中心路最快」。广播说中心路临时封闭。向导应怎样？",
+      "options": [
+        "照原路线走，动画好看就行",
+        "只换地图颜色，路线不变",
+        "按通行情况重新选路",
+        "关闭导航，随意走"
+      ],
+      "answer": "按通行情况重新选路",
+      "analysis": "道路能否通行是新的重要条件；封闭后必须按新条件重选。",
+      "literacy": [
+        "计算思维",
+        "信息意识"
+      ],
+      "ctTags": [
+        "路径规划"
+      ],
+      "difficultyEstimate": 0.8,
+      "estimatedMinutes": 1.0,
+      "appRef": "奇趣游园会",
+      "interactionSpecKey": "app_op_choice",
+      "remixFrom": "L4:quiz-bank A11",
+      "remixNote": "再创编。原「中心路封闭应重新选路」；保留条件更新考察点，改嘉年华广播措辞。",
+      "reverseDebug": true,
+      "stage": 4,
+      "stageId": "gate_l4",
+      "stageName": "奇趣游园会",
+      "goalIds": [
+        "L4-G1",
+        "L4-D1"
+      ],
+      "recallSceneAnchor": "奇趣游园会",
+      "recallCaption": "回想游园会封闭路色带",
+      "recallImagePrompt": "2D课堂友好：奇趣游园会地图展板，一条路贴着「临时封闭」色带（不显示最终应选哪条新路），向导角色站立；无选项字母、无箭头指向正确新路线。cartoon carnival map booth, soft colors, no answer highlight. static.",
+      "recallImage": "assets/recall/M10.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M11",
+      "section": "main",
+      "type": "matching",
+      "lesson": 4,
+      "lessonTitle": "算法应用在身边",
+      "prompt": "把嘉年华服务与背后的算法应用一对一连线。",
+      "left": [
+        "按关键词找活动海报",
+        "根据道路与时间带路",
+        "按历史记录建议下一站",
+        "给叶片拍照提示植物名"
+      ],
+      "right": [
+        "搜索",
+        "路线规划",
+        "推荐",
+        "图像识别"
+      ],
+      "answer": {
+        "按关键词找活动海报": "搜索",
+        "根据道路与时间带路": "路线规划",
+        "按历史记录建议下一站": "推荐",
+        "给叶片拍照提示植物名": "图像识别"
+      },
+      "analysis": "四类身边算法应用：搜索、导航／路线规划、推荐、图像识别。",
+      "literacy": [
+        "信息意识"
+      ],
+      "ctTags": [
+        "应用领域"
+      ],
+      "difficultyEstimate": 0.78,
+      "estimatedMinutes": 1.5,
+      "appRef": "奇趣游园会",
+      "interactionSpecKey": "matching_one_to_one",
+      "remixFrom": "L4:quiz-bank A01–A04",
+      "remixNote": "再创编为连线。合并原单题应用辨识，换嘉年华服务表述，忌原数。",
+      "stage": 4,
+      "stageId": "gate_l4",
+      "stageName": "奇趣游园会",
+      "goalIds": [
+        "L4-K1",
+        "L4-G2"
+      ],
+      "recallSceneAnchor": "奇趣游园会",
+      "recallCaption": "回想身边四种算法应用",
+      "recallImagePrompt": "2D课堂插画：游园会四个服务窗口剪影（找海报／带路／建议下一站／拍植物），下方空白应用名称标签槽；无已填正确答案、无选项字母。cartoon carnival services, soft colors, no text wall. static.",
+      "recallImage": "assets/recall/M11.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M12",
+      "section": "main",
+      "type": "single_choice",
+      "lesson": 4,
+      "lessonTitle": "算法应用在身边",
+      "prompt": "推荐器因历史记录推「艺术屋」，但游客今天明确要「运动挑战」。应怎样？",
+      "options": [
+        "必须去艺术屋",
+        "关闭所有工具",
+        "结合今天明确需要调整为运动建议",
+        "只看封面颜色决定"
+      ],
+      "answer": "结合今天明确需要调整为运动建议",
+      "analysis": "历史记录只提供建议，当前明确需求应被考虑。",
+      "literacy": [
+        "信息意识",
+        "信息社会责任"
+      ],
+      "ctTags": [
+        "推荐与当前需求"
+      ],
+      "difficultyEstimate": 0.75,
+      "estimatedMinutes": 1.0,
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "L4:quiz-bank A15／E3",
+      "remixNote": "再创编。保留「历史≠当前需要」；情境压缩为嘉年华一句冲突。",
+      "stage": 4,
+      "stageId": "gate_l4",
+      "stageName": "奇趣游园会",
+      "goalIds": [
+        "L4-G1",
+        "L4-G2"
+      ],
+      "recallSceneAnchor": "奇趣游园会",
+      "recallCaption": "回想推荐器与展板冲突",
+      "recallImagePrompt": "2D课堂友好：推荐器平板示意历史活动卡片与游客指着另一块活动展板，两边信息不一致的冲突氛围，但不标应听哪边；无选项字母、无黄框。cartoon recommendation kiosk, soft colors, no answer cue. static.",
+      "recallImage": "assets/recall/M12.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M13",
+      "section": "main",
+      "type": "app_op",
+      "lesson": 5,
+      "lessonTitle": "数学运算讲方法",
+      "prompt": "生活算法站气象角：把 68℉ 换成摄氏。小周先×5、再÷9、最后减32，得到奇怪结果。这说明？",
+      "options": [
+        "计算步骤和顺序会直接影响结果",
+        "68℉ 本来就是错的",
+        "顺序不重要，只是计算器坏了",
+        "公式里的 5 和 9 写反了所以无关"
+      ],
+      "answer": "计算步骤和顺序会直接影响结果",
+      "analysis": "应先减 32，再×5÷9；同样运算换先后结果不同。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "顺序结构"
+      ],
+      "difficultyEstimate": 0.72,
+      "estimatedMinutes": 1.2,
+      "appRef": "生活算法站",
+      "interactionSpecKey": "app_op_choice",
+      "remixFrom": "L5:quiz G1-M（小周算50℉顺序）",
+      "remixNote": "再创编。换 68℉ 新数据；保留「顺序影响结果」与同质干扰逻辑。",
+      "reverseDebug": true,
+      "stage": 5,
+      "stageId": "gate_l5",
+      "stageName": "生活算法站",
+      "goalIds": [
+        "L5-G1",
+        "L5-D1"
+      ],
+      "recallSceneAnchor": "生活算法站",
+      "recallCaption": "回想气象角换算卡片",
+      "recallImagePrompt": "2D课堂插画：生活算法站气象角，华氏↔摄氏换算步骤卡片散落在桌（无运算式高亮），温度计道具；无文字墙可读答案、无选项字母。cartoon weather math corner, soft colors, no answer highlight. static.",
+      "recallImage": "assets/recall/M13.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M14",
+      "section": "main",
+      "type": "single_choice",
+      "lesson": 5,
+      "lessonTitle": "数学运算讲方法",
+      "prompt": "生活算法站里，下面哪一句说对了「算法」？",
+      "options": [
+        "算法说的是解决问题的方法（步骤），不是某一次算出来的那个答案",
+        "算法就是某一次算出的最终数字",
+        "只要结果对，有没有明确步骤无所谓",
+        "算法只能用在数学题，生活里没有"
+      ],
+      "answer": "算法说的是解决问题的方法（步骤），不是某一次算出来的那个答案",
+      "analysis": "算法是可执行的方法描述；换一组输入仍可按同一方法做。答案只是某次执行结果。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "算法是方法"
+      ],
+      "difficultyEstimate": 0.8,
+      "estimatedMinutes": 1.0,
+      "interactionSpecKey": "single_choice",
+      "misconceptionMap": {
+        "算法就是某一次算出的最终数字": "M_算法=答案",
+        "只要结果对，有没有明确步骤无所谓": "M_忽视步骤",
+        "算法只能用在数学题，生活里没有": "M_算法仅数学"
+      },
+      "remixFrom": "L5:quiz G2-A／G2-T",
+      "remixNote": "原压成填空；无填空后改回单选，保留「方法≠某次答案」考点。",
+      "stage": 5,
+      "stageId": "gate_l5",
+      "stageName": "生活算法站",
+      "goalIds": [
+        "L5-G2",
+        "L5-K1"
+      ],
+      "recallSceneAnchor": "生活算法站",
+      "recallCaption": "回想算法站讨论氛围",
+      "recallImagePrompt": "2D课堂友好：生活算法站展板与围坐讨论的同学，展板字迹故意模糊不可读；不出现可读定义句、无选项字母勾选态。cartoon algorithm station, soft colors, no text wall as answer. static.",
+      "recallImage": "assets/recall/M14.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M15",
+      "section": "main",
+      "type": "single_choice",
+      "lesson": 5,
+      "lessonTitle": "数学运算讲方法",
+      "prompt": "小安写：①输入华氏温度 ②输出「20℃」。输入 68℉ 时碰巧对了。为什么它不是好算法？",
+      "options": [
+        "换成别的华氏温度仍输出 20℃，写死了答案不是方法",
+        "步骤太少就不能叫算法",
+        "没有画流程图就不算",
+        "它完全正确，任何输入都适用"
+      ],
+      "answer": "换成别的华氏温度仍输出 20℃，写死了答案不是方法",
+      "analysis": "好算法换输入也能照着算对；写死单一答案经不起换数检验。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "方法vs答案",
+        "反例"
+      ],
+      "difficultyEstimate": 0.68,
+      "estimatedMinutes": 1.2,
+      "reverseDebug": true,
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "L5:quiz G2-M（小安写死10℃）",
+      "remixNote": "再创编。换 68℉／20℃；保留「写死答案」反例排障逻辑。",
+      "stage": 5,
+      "stageId": "gate_l5",
+      "stageName": "生活算法站",
+      "goalIds": [
+        "L5-G2",
+        "L5-K1"
+      ],
+      "recallSceneAnchor": "生活算法站",
+      "recallCaption": "回想写着20℃的作业纸",
+      "recallImagePrompt": "2D课堂插画：算法站作业纸上大大的「20℃」与旁边橡皮、输入温度符号框；陈列场景，不标改法对错、无选项字母。cartoon worksheet scene, soft colors, no answer cue. static.",
+      "recallImage": "assets/recall/M15.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M16",
+      "section": "main",
+      "type": "flowchart_op",
+      "lesson": 6,
+      "lessonTitle": "判断选择用分支",
+      "prompt": "分支岛温室残局：菱形里要放「能回答是／否」的条件。哪张卡不能放进菱形？",
+      "cards": [
+        "温度≥28",
+        "今天是开放日",
+        "湿度＞80%",
+        "打开天窗"
+      ],
+      "answer": "打开天窗",
+      "analysis": "菱形放条件；「打开天窗」是动作，应放矩形。条件不必是数字。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "分支菱形"
+      ],
+      "difficultyEstimate": 0.78,
+      "estimatedMinutes": 1.2,
+      "diagram": {
+        "slots": [
+          "◇菱形"
+        ],
+        "note": "点选不可放入菱形的卡"
+      },
+      "appRef": "分支岛",
+      "interactionSpecKey": "flowchart_pick_invalid",
+      "remixFrom": "L6:03 q35",
+      "remixNote": "再创编。原「打开风扇」不可入菱形；改为「打开天窗」＋温室新阈值，干扰同质。",
+      "stage": 6,
+      "stageId": "gate_l6",
+      "stageName": "分支岛",
+      "goalIds": [
+        "L6-G1",
+        "L6-K1"
+      ],
+      "recallSceneAnchor": "分支岛",
+      "recallCaption": "回想温室流程图与卡片",
+      "recallImagePrompt": "2D课堂友好：分支岛温室流程图，中央菱形为空，旁边几张条件／动作卡片（字迹模糊）散落；不标明哪张该进菱形；无选项字母、无叉号。cartoon greenhouse flowchart, soft colors, no answer highlight. static.",
+      "recallImage": "assets/recall/M16.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M17",
+      "section": "main",
+      "type": "flowchart_op",
+      "lesson": 6,
+      "lessonTitle": "判断选择用分支",
+      "prompt": "嘉年华「积分满 80 升级，不满不升级」。点卡片补全：◇条件 → 是／否两个出口。",
+      "cards": [
+        "积分≥80",
+        "积分＞80",
+        "积分≤80",
+        "升级",
+        "不升级"
+      ],
+      "slots": [
+        "diamond",
+        "yes",
+        "no"
+      ],
+      "answer": {
+        "diamond": "积分≥80",
+        "yes": "升级",
+        "no": "不升级"
+      },
+      "acceptAlternate": {
+        "diamond": "积分＜80",
+        "yes": "不升级",
+        "no": "升级"
+      },
+      "analysis": "「满80」含80，用≥80；是→升级，否→不升级。若写＜80则出口对调。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "边界≥",
+        "出口配合"
+      ],
+      "difficultyEstimate": 0.7,
+      "estimatedMinutes": 1.5,
+      "appRef": "分支岛",
+      "interactionSpecKey": "flowchart_fill_triple",
+      "remixFrom": "L6:03 q6＋q22",
+      "remixNote": "再创编合并。原「积分≥50」「跳绳≥100」边界补图；换满80新阈值，保留≥与出口配合。",
+      "stage": 6,
+      "stageId": "gate_l6",
+      "stageName": "分支岛",
+      "goalIds": [
+        "L6-G2",
+        "L6-D1"
+      ],
+      "recallSceneAnchor": "分支岛",
+      "recallCaption": "回想积分升级流程图",
+      "recallImagePrompt": "2D课堂插画：分支岛积分升级流程图残局，菱形与两条出口空着待补，卡片散落；无填好的正确答案、无选项字母高亮。cartoon score upgrade flowchart, soft colors, no answer cue. Optionally short gentle pulse on empty diamond only (not pointing to a choice).",
+      "recallImage": "assets/recall/M17.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": true,
+      "recallImageMotionNote": "短循环：空菱形极轻呼吸闪烁提示「此处待补」，不闪烁任何选项卡；≤1.5s循环；轻量 webp/gif，Win7 Chrome 友好。"
+    },
+    {
+      "id": "M18",
+      "section": "main",
+      "type": "single_choice",
+      "lesson": 6,
+      "lessonTitle": "判断选择用分支",
+      "prompt": "规则：身高＜140cm 买儿童票，否则普通票。恰好 140cm 时？",
+      "options": [
+        "是→儿童票",
+        "否→普通票",
+        "两种都买",
+        "两种都不买"
+      ],
+      "answer": "否→普通票",
+      "analysis": "140＜140 不成立，走「否」，普通票。临界值常考。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "临界值"
+      ],
+      "difficultyEstimate": 0.75,
+      "estimatedMinutes": 1.0,
+      "misconceptionMap": {
+        "是→儿童票": "把＜当成≤"
+      },
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "L6:03 q19",
+      "remixNote": "再创编。原＜12岁恰好12；改为身高＜140恰好140，干扰结构保留。",
+      "stage": 6,
+      "stageId": "gate_l6",
+      "stageName": "分支岛",
+      "goalIds": [
+        "L6-G2",
+        "L6-K1"
+      ],
+      "reverseDebug": true,
+      "recallSceneAnchor": "分支岛",
+      "recallCaption": "回想边界值怎么判",
+      "recallImagePrompt": "2D课堂友好：分支岛售票处身高尺道具（刻度模糊），儿童票／普通票窗口；不显示140cm判定结果、无选项字母勾选。cartoon ticket booth, soft colors, no answer highlight. static.",
+      "recallImage": "assets/recall/M18.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M19",
+      "section": "main",
+      "type": "single_choice",
+      "lesson": 6,
+      "lessonTitle": "判断选择用分支",
+      "prompt": "规则「得分≥60 及格」。测哪组最能查出条件写错？",
+      "options": [
+        "60、70、80",
+        "61、80、99",
+        "59、60、61",
+        "10、30、59"
+      ],
+      "answer": "59、60、61",
+      "analysis": "59测否侧，60测恰好相等，61测是侧；两边加边界才完备。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "最小完备测试",
+        "反例"
+      ],
+      "difficultyEstimate": 0.65,
+      "estimatedMinutes": 1.3,
+      "reverseDebug": true,
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "L6:03 q29",
+      "remixNote": "再创编。保留三元边界测试集逻辑；分数情境微调措辞。",
+      "stage": 6,
+      "stageId": "gate_l6",
+      "stageName": "分支岛",
+      "goalIds": [
+        "L6-G2",
+        "L6-K1"
+      ],
+      "recallSceneAnchor": "分支岛",
+      "recallCaption": "回想用数据测条件对错",
+      "recallImagePrompt": "2D课堂插画：分支岛测验台，多组成绩纸条散放待选测（数值字迹故意不清），及格线示意条；不圈出「最该测的一组」、无选项字母。cartoon test bench, soft colors, no answer cue. static.",
+      "recallImage": "assets/recall/M19.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M20",
+      "section": "main",
+      "type": "app_op",
+      "lesson": 7,
+      "lessonTitle": "重复操作用循环",
+      "prompt": "嘉年华摆渡车站规定：「车厢满员就暂停上客，等下一班再检。」下面哪一步其实在「反复等到某条件满足」？",
+      "options": [
+        "走到摆渡车站牌下集中",
+        "看车厢是否还有空位，满了就等下一班再看一次",
+        "上车刷通行证并找到座位",
+        "到园区门口下车进场"
+      ],
+      "answer": "看车厢是否还有空位，满了就等下一班再看一次",
+      "analysis": "反复的是「看是否满员／等下一班再看」；走到站牌、上车落座、下车进场通常各做一次，不构成循环等待。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "识别反复",
+        "条件等待"
+      ],
+      "difficultyEstimate": 0.82,
+      "estimatedMinutes": 1.1,
+      "appRef": "莲花山小交警",
+      "interactionSpecKey": "app_op_choice",
+      "remixFrom": "L7:03 B01",
+      "remixNote": "v1.4加重再创编：换「摆渡车满员等下一班」新情境与全新四选项措辞；保留「哪一步在反复等待某条件」考察点。禁止与B01选项「到达路口／观察并等待绿灯／过马路／到达对面」字符串相同。",
+      "stage": 7,
+      "stageId": "gate_l7",
+      "stageName": "莲花山小交警",
+      "misconceptionMap": {
+        "走到摆渡车站牌下集中": "把单次到达当成反复",
+        "上车刷通行证并找到座位": "把单次上车当成循环",
+        "到园区门口下车进场": "把单次下车当成循环"
+      },
+      "goalIds": [
+        "L7-G1",
+        "L7-K1"
+      ],
+      "recallSceneAnchor": "莲花山小交警",
+      "recallCaption": "回想摆渡车站排队画面",
+      "recallImagePrompt": "2D课堂友好：莲花山嘉年华摆渡车站牌与车厢门口，乘客排队等待示意，小交警角色；不标步骤类别、无选项字母、无黄框。cartoon shuttle stop, soft colors, no answer highlight. static.",
+      "recallImage": "assets/recall/M20.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M21",
+      "section": "main",
+      "type": "flowchart_op",
+      "lesson": 7,
+      "lessonTitle": "重复操作用循环",
+      "prompt": "过街图已有「观察等待」和菱形「绿灯未亮？」。回边箭头应从「还要再等」一侧接到哪里？",
+      "options": [
+        "接回「观察并等待」",
+        "接到「过马路」",
+        "接到「到达对面」",
+        "接到「开始」框外面任意处"
+      ],
+      "answer": "接回「观察并等待」",
+      "analysis": "还要再等就回到反复做的那一步；接到过马路会红灯也走。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "回边"
+      ],
+      "difficultyEstimate": 0.7,
+      "estimatedMinutes": 1.3,
+      "reverseDebug": true,
+      "diagram": {
+        "note": "残局：到达→观察等待→◇绿灯未亮？→是／否"
+      },
+      "appRef": "莲花山小交警",
+      "interactionSpecKey": "flowchart_back_edge",
+      "remixFrom": "L7:03 B06",
+      "remixNote": "再创编。保留回边落点考察与逆向排障干扰（接到过马路）。",
+      "stage": 7,
+      "stageId": "gate_l7",
+      "stageName": "莲花山小交警",
+      "goalIds": [
+        "L7-D1"
+      ],
+      "recallSceneAnchor": "莲花山小交警",
+      "recallCaption": "回想过街流程图回边",
+      "recallImagePrompt": "2D课堂插画：过街流程图教具，观察等待框与信号灯菱形，回边画成未落点的虚线悬空（不接到任何确定框）；无文字墙、无选项字母、无正确落点高亮。cartoon pedestrian light flowchart, soft colors, no answer cue. Optionally short dashed-arrow shimmer only on unattached loop tip.",
+      "recallImage": "assets/recall/M21.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": true,
+      "recallImageMotionNote": "短循环：未落点虚线回边轻微闪烁，不点亮任何目标框；≤1.5s；轻量动图。"
+    },
+    {
+      "id": "M22",
+      "section": "main",
+      "type": "single_choice",
+      "lesson": 7,
+      "lessonTitle": "重复操作用循环",
+      "prompt": "莲花山等绿灯：关于「要等几次」和「何时停下」，哪项正确？",
+      "options": [
+        "可以事先不知道一共等几次；绿灯亮了就停止等待",
+        "必须事先写死等 3 次，少一次都不能画循环",
+        "绿灯亮了还要继续空等，才算循环",
+        "只要人站在路边，就算自动控制循环"
+      ],
+      "answer": "可以事先不知道一共等几次；绿灯亮了就停止等待",
+      "analysis": "循环可按条件结束，次数不定也能描述；条件满足就停止反复。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "条件结束循环"
+      ],
+      "difficultyEstimate": 0.75,
+      "estimatedMinutes": 1.0,
+      "interactionSpecKey": "single_choice",
+      "misconceptionMap": {
+        "必须事先写死等 3 次，少一次都不能画循环": "M2次数必须固定",
+        "绿灯亮了还要继续空等，才算循环": "M_条件结束误解",
+        "只要人站在路边，就算自动控制循环": "M4只看有人"
+      },
+      "remixFrom": "L7:03 B03",
+      "remixNote": "原压成填空；无填空后改回单选，保留「次数可不定＋条件结束」考点。",
+      "stage": 7,
+      "stageId": "gate_l7",
+      "stageName": "莲花山小交警",
+      "goalIds": [
+        "L7-G1",
+        "L7-K1"
+      ],
+      "recallSceneAnchor": "莲花山小交警",
+      "recallCaption": "回想人行横道等待画面",
+      "recallImagePrompt": "2D课堂友好：莲花山人行横道与信号灯（灯色中性），同学等待姿态；无选项字母、无次数或停等结论标注。cartoon crosswalk wait, soft colors, no answer highlight. static.",
+      "recallImage": "assets/recall/M22.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M23",
+      "section": "main",
+      "type": "single_choice",
+      "lesson": 7,
+      "lessonTitle": "重复操作用循环",
+      "prompt": "同伴把「有天桥吗→上天桥／等灯」说成循环。主要错在哪？",
+      "options": [
+        "这是按条件选一条路，不是反复做同一件事",
+        "天桥不能出现在算法里",
+        "等灯不能画成菱形",
+        "循环必须先知道次数"
+      ],
+      "answer": "这是按条件选一条路，不是反复做同一件事",
+      "analysis": "分支：条件成立走一条、不成立走另一条；循环才是反复直到条件变化。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "循环≠分支"
+      ],
+      "difficultyEstimate": 0.68,
+      "estimatedMinutes": 1.2,
+      "reverseDebug": true,
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "L7:03 B09",
+      "remixNote": "再创编。保留循环／分支辨析与排障语气。",
+      "stage": 7,
+      "stageId": "gate_l7",
+      "stageName": "莲花山小交警",
+      "goalIds": [
+        "L7-G1",
+        "L7-K1"
+      ],
+      "recallSceneAnchor": "莲花山小交警",
+      "recallCaption": "回想黑板两栏图标",
+      "recallImagePrompt": "2D课堂插画：黑板左右两栏抽象图标（无可读定义句），天桥／等灯剪影在旁；不标同伴对错、无选项字母。cartoon compare icons, soft colors, no text wall. static.",
+      "recallImage": "assets/recall/M23.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "M24",
+      "section": "main",
+      "type": "single_choice",
+      "lesson": 7,
+      "lessonTitle": "重复操作用循环",
+      "prompt": "莲花山嘉年华开放日，调度台显示「人行方向排队很长」。设置行人绿灯时长时，更合理的是？",
+      "options": [
+        "适当加长行人通行绿灯，让更多人安全过完",
+        "只加长机动车绿灯，行人灯尽量缩短到接近 0",
+        "信号灯时长必须全年固定，开放日也不能调",
+        "取消所有条件判断，灯色随机闪烁"
+      ],
+      "answer": "适当加长行人通行绿灯，让更多人安全过完",
+      "analysis": "时长设置要服务当下通行需求：人多时应给行人更充足的通行时间；缩到接近0、全年死固定或随机闪都不能合理回应「人很多」。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "信号灯时长意义"
+      ],
+      "difficultyEstimate": 0.72,
+      "estimatedMinutes": 1.2,
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "L7:03 B15（开放日人很多）",
+      "remixNote": "v1.4改写专考L7-G2信号灯时长意义：开放日人多→加长行人灯；换数换壳，选项全文重写，非照搬B15。原「无回边」反例仍由M21／C05覆盖。",
+      "stage": 7,
+      "stageId": "gate_l7",
+      "stageName": "莲花山小交警",
+      "misconceptionMap": {
+        "只加长机动车绿灯，行人灯尽量缩短到接近 0": "忽视行人需求",
+        "信号灯时长必须全年固定，开放日也不能调": "否认按时段调节的意义",
+        "取消所有条件判断，灯色随机闪烁": "取消合理控制"
+      },
+      "goalIds": [
+        "L7-G2"
+      ],
+      "recallSceneAnchor": "莲花山小交警",
+      "recallCaption": "回想开放日调度台长队",
+      "recallImagePrompt": "2D课堂友好：莲花山开放日调度台，行人排队长队剪影与信号灯时长旋钮示意（旋钮不标正确档位）；无选项字母、无调节结论黄框。cartoon dispatch desk, soft colors, no answer cue. static.",
+      "recallImage": "assets/recall/M24.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "C01",
+      "section": "challenge",
+      "type": "single_choice",
+      "lesson": 1,
+      "lessonTitle": "生活处处有算法",
+      "prompt": "点心站两步「洗草莓」与「洗蓝莓」互不依赖。把它们对调后机器人仍成功。这说明？",
+      "options": [
+        "所有步骤都可以任意对调",
+        "没有先后依赖的独立步骤可以对调",
+        "算法不需要顺序",
+        "只有洗水果的步骤算算法"
+      ],
+      "answer": "没有先后依赖的独立步骤可以对调",
+      "analysis": "关键先后不能乱；真正独立的步骤才可交换。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "独立步"
+      ],
+      "difficultyEstimate": 0.6,
+      "estimatedMinutes": 1.5,
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "new:教材L1＋应用厨房「可交换独立步」",
+      "remixNote": "新编挑战。对齐 L1 应用厨房可交换独立步证据点。",
+      "stage": "challenge",
+      "stageId": "gate_bonus",
+      "stageName": "加分挑战关（可选）",
+      "goalIds": [
+        "L1-G1",
+        "L1-D1"
+      ],
+      "recallSceneAnchor": "生活处处有算法·机器人厨房",
+      "recallCaption": "回想两篮水果并排",
+      "recallImagePrompt": "二年级友好的2D课堂插画：机器人厨房工作台，两份水果篮（草莓与蓝莓）并排放着，机械臂待命，明亮嘉年华点心站氛围；无文字墙、无选项字母、无步骤高亮或箭头。温馨探究站回忆图。cartoon classroom friendly, soft colors, no text overlay, no answer highlight. static preferred.",
+      "recallImage": "assets/recall/C01.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "C02",
+      "section": "challenge",
+      "type": "single_choice",
+      "lesson": 3,
+      "lessonTitle": "游戏体验寻规律",
+      "prompt": "三环同任务：甲 7 步、乙 9 步，都合法到达。哪个判断有依据？",
+      "options": [
+        "甲的移动次数更少",
+        "乙的动画一定更快",
+        "甲才算正确算法",
+        "只看谁先点完成"
+      ],
+      "answer": "甲的移动次数更少",
+      "analysis": "都正确时再比较合法移动次数；长方案仍可能正确。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "效率比较"
+      ],
+      "difficultyEstimate": 0.65,
+      "estimatedMinutes": 1.3,
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "L3:hanoi-quiz id17",
+      "remixNote": "再创编。保留正确性优先、再比步数。",
+      "stage": "challenge",
+      "stageId": "gate_bonus",
+      "stageName": "加分挑战关（可选）",
+      "goalIds": [
+        "L3-G1",
+        "L3-K1"
+      ],
+      "recallSceneAnchor": "汉诺塔实验室",
+      "recallCaption": "回想两套移环记录板",
+      "recallImagePrompt": "2D课堂友好插画：汉诺塔实验室两名同学对照两套移环记录板（不显示步数结论），三柱环塔整齐，探究氛围；无文字墙、无选项字母、无黄框。cartoon lab, soft lighting, no text, no answer cue. static.",
+      "recallImage": "assets/recall/C02.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "C03",
+      "section": "challenge",
+      "type": "flowchart_op",
+      "lesson": 5,
+      "lessonTitle": "数学运算讲方法",
+      "prompt": "同学画周长图：开始→输入长宽→输出周长→计算（长+宽）×2→结束。错在哪？点选修复。",
+      "options": [
+        "把「计算」与「输出」对调：先计算再输出",
+        "删掉开始框",
+        "把输入改成输出",
+        "不用改，顺序无所谓"
+      ],
+      "answer": "把「计算」与「输出」对调：先计算再输出",
+      "analysis": "还没计算就输出；顺序结构应先处理再输出。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "流程图顺序",
+        "排障"
+      ],
+      "difficultyEstimate": 0.62,
+      "estimatedMinutes": 1.5,
+      "reverseDebug": true,
+      "interactionSpecKey": "flowchart_fix_choice",
+      "remixFrom": "L5:quiz K2-M（温度图先输出后计算）",
+      "remixNote": "再创编。原温度流程图错序；改为周长图同类错序排障。",
+      "stage": "challenge",
+      "stageId": "gate_bonus",
+      "stageName": "加分挑战关（可选）",
+      "goalIds": [
+        "L5-G1",
+        "L5-D1"
+      ],
+      "recallSceneAnchor": "生活算法站",
+      "recallCaption": "回想算法站流程图海报",
+      "recallImagePrompt": "2D课堂插画：生活算法站墙上海报式流程图轮廓（若干空白框串联，框内无对错标记），同学指着流程讨论；无文字墙、无选项字母、无箭头指向某一修复点。cartoon classroom, soft colors, no answer highlight. static.",
+      "recallImage": "assets/recall/C03.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "C04",
+      "section": "challenge",
+      "type": "single_choice",
+      "lesson": 6,
+      "lessonTitle": "判断选择用分支",
+      "prompt": "规则「气温＜18℃ 提醒加衣」。测了 12℃ 有提醒。还最该再测哪个？",
+      "options": [
+        "10℃",
+        "15℃",
+        "22℃",
+        "8℃"
+      ],
+      "answer": "22℃",
+      "analysis": "12℃走「是」；再测 22℃才能检查「否」侧。只测一边不能说明没错。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "单侧测试不够",
+        "反例"
+      ],
+      "difficultyEstimate": 0.6,
+      "estimatedMinutes": 1.3,
+      "reverseDebug": true,
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "L6:03 q33",
+      "remixNote": "再创编。换阈值 18／12／22；保留「补测否侧」逻辑。",
+      "stage": "challenge",
+      "stageId": "gate_bonus",
+      "stageName": "加分挑战关（可选）",
+      "goalIds": [
+        "L6-G2",
+        "L6-K1"
+      ],
+      "recallSceneAnchor": "分支岛",
+      "recallCaption": "回想边界也要测一测",
+      "recallImagePrompt": "2D课堂友好：分支岛气象角温度计与「是／否」分叉示意海报（不标具体摄氏数值答案），同学拿测验卡片；无选项字母、无唯一高亮温度读数。cartoon island classroom, soft colors, no text wall, no answer cue. static.",
+      "recallImage": "assets/recall/C04.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    },
+    {
+      "id": "C05",
+      "section": "challenge",
+      "type": "single_choice",
+      "lesson": 7,
+      "lessonTitle": "重复操作用循环",
+      "prompt": "回边被错接到「过马路」。回放：绿灯未亮人却走上斑马线。错在哪？",
+      "options": [
+        "回边应接回「观察并等待」，不应接到过马路",
+        "循环不能有菱形",
+        "过马路不能出现在图里",
+        "只要有回边接哪里都行"
+      ],
+      "answer": "回边应接回「观察并等待」，不应接到过马路",
+      "analysis": "还要再等必须回到等待；接到过马路会在红灯时走入斑马线。",
+      "literacy": [
+        "计算思维"
+      ],
+      "ctTags": [
+        "回边排障"
+      ],
+      "difficultyEstimate": 0.58,
+      "estimatedMinutes": 1.5,
+      "reverseDebug": true,
+      "appRef": "莲花山小交警",
+      "interactionSpecKey": "single_choice",
+      "remixFrom": "L7:03 C01",
+      "remixNote": "再创编。保留回边错接排障与回放现象。",
+      "stage": "challenge",
+      "stageId": "gate_bonus",
+      "stageName": "加分挑战关（可选）",
+      "goalIds": [
+        "L7-D1",
+        "L7-G1"
+      ],
+      "recallSceneAnchor": "莲花山小交警",
+      "recallCaption": "回想小交警流程图教具",
+      "recallImagePrompt": "2D课堂插画：莲花山小交警流程图教具，回边箭头画成虚线悬空示意（不标明落点对错、不圈选项），斑马线与信号灯在背景；无文字墙、无选项字母、无黄框。cartoon traffic safety classroom, soft colors, no answer highlight. static.",
+      "recallImage": "assets/recall/C05.webp",
+      "recallImageMaxWidthPx": 800,
+      "recallImageAnimated": false,
+      "recallImageMotionNote": null
+    }
+  ],
+  "previousVersion": "2026-11-09-midterm-v1.4.1",
+  "confirmedAt": "2026-11-09T23:30:00+08:00",
+  "revisionNote": "v1.4.2：老师硬口径——回忆 caption／prompt、过关反馈、操作引导不得暗示正确选项或关键步骤；自检改写 M01／M03／M04／M06／M07／M09／M10／M12–M17／M20–M24／C01–C03／C05 等；stages.clearFeedback 改为纯鼓励过关语；维持无填空、百分制100、不设达标线、7+1闯关、挑战+2／+10、M21 无 L7-G2。",
+  "scoring": {
+    "mode": "percentage",
+    "passLine": null,
+    "passLineNote": "老师确认不用达标；不设达标线、不因分数卡关",
+    "teacherConfirmed": "2026-11-09 不用达标，用百分制；同日改口无填空",
+    "main": {
+      "questionCount": 24,
+      "fullScore": 100,
+      "formula": "round(firstCorrectCount / 24 * 100)",
+      "perQuestionPoints": 4.1667,
+      "useFirstSubmitOnly": true
+    },
+    "challenge": {
+      "questionCount": 5,
+      "pointsPerCorrect": 2,
+      "maxBonus": 10,
+      "affectsMainPercentage": false,
+      "note": "加分用百分点表述；无满题门槛"
+    },
+    "diagnosticsOnly": [
+      "lesson",
+      "type",
+      "literacy"
+    ],
+    "stageUnlockIndependentOfScore": true,
+    "challengePointsPerCorrect": 2,
+    "challengeMaxBonus": 10,
+    "challengeLocked": true,
+    "teacherConfirmedChallengeBonus": "2026-11-09 每对+2，满分+10"
+  },
+  "typeQuotaMain": {
+    "single_choice": 11,
+    "matching": 3,
+    "flowchart_op": 4,
+    "app_op": 6,
+    "sentence_fill": 0
+  },
+  "pendingConfirmations": [],
+  "stages": [
+    {
+      "order": 1,
+      "stage": 1,
+      "stageId": "gate_l1",
+      "stageName": "点心站·有序步骤",
+      "lesson": 1,
+      "questionIds": [
+        "M01",
+        "M02",
+        "M03"
+      ],
+      "suggestedMinutes": 4,
+      "unlockRule": "start",
+      "clearFeedback": "点心站通关！下一站：侦探亭。",
+      "required": true
+    },
+    {
+      "order": 2,
+      "stage": 2,
+      "stageId": "gate_l2",
+      "stageName": "侦探亭·输入处理输出",
+      "lesson": 2,
+      "questionIds": [
+        "M04",
+        "M05",
+        "M06"
+      ],
+      "suggestedMinutes": 4,
+      "unlockRule": "prevStageAllAnswered",
+      "clearFeedback": "侦探亭通关！下一站：汉诺塔实验室。",
+      "required": true
+    },
+    {
+      "order": 3,
+      "stage": 3,
+      "stageId": "gate_l3",
+      "stageName": "汉诺塔实验室",
+      "lesson": 3,
+      "questionIds": [
+        "M07",
+        "M08",
+        "M09"
+      ],
+      "suggestedMinutes": 4,
+      "unlockRule": "prevStageAllAnswered",
+      "clearFeedback": "汉诺塔实验室通关！下一站：奇趣游园会。",
+      "required": true
+    },
+    {
+      "order": 4,
+      "stage": 4,
+      "stageId": "gate_l4",
+      "stageName": "奇趣游园会",
+      "lesson": 4,
+      "questionIds": [
+        "M10",
+        "M11",
+        "M12"
+      ],
+      "suggestedMinutes": 3.5,
+      "unlockRule": "prevStageAllAnswered",
+      "clearFeedback": "奇趣游园会通关！下一站：生活算法站。",
+      "required": true
+    },
+    {
+      "order": 5,
+      "stage": 5,
+      "stageId": "gate_l5",
+      "stageName": "生活算法站",
+      "lesson": 5,
+      "questionIds": [
+        "M13",
+        "M14",
+        "M15"
+      ],
+      "suggestedMinutes": 4,
+      "unlockRule": "prevStageAllAnswered",
+      "clearFeedback": "生活算法站通关！下一站：分支岛。",
+      "required": true
+    },
+    {
+      "order": 6,
+      "stage": 6,
+      "stageId": "gate_l6",
+      "stageName": "分支岛",
+      "lesson": 6,
+      "questionIds": [
+        "M16",
+        "M17",
+        "M18",
+        "M19"
+      ],
+      "suggestedMinutes": 5,
+      "unlockRule": "prevStageAllAnswered",
+      "clearFeedback": "分支岛通关！下一站：莲花山小交警。",
+      "required": true
+    },
+    {
+      "order": 7,
+      "stage": 7,
+      "stageId": "gate_l7",
+      "stageName": "莲花山小交警",
+      "lesson": 7,
+      "questionIds": [
+        "M20",
+        "M21",
+        "M22",
+        "M23",
+        "M24"
+      ],
+      "suggestedMinutes": 5.5,
+      "unlockRule": "prevStageAllAnswered",
+      "clearFeedback": "莲花山通关！主卷七站全部走完。可以交卷看百分，或进加分挑战关。",
+      "required": true
+    },
+    {
+      "order": 8,
+      "stage": "challenge",
+      "stageId": "gate_bonus",
+      "stageName": "加分挑战关（可选）",
+      "lesson": null,
+      "questionIds": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05"
+      ],
+      "suggestedMinutes": 7,
+      "unlockRule": "allMainStagesAnswered",
+      "clearFeedback": "挑战关完成！加分已计入（每对 +2，满分 +10）。",
+      "required": false,
+      "skippable": true,
+      "bonusOnly": true
+    }
+  ],
+  "stageProgression": {
+    "mode": "carnival_site_map",
+    "shellAlias": "算法嘉年华·站点通行证",
+    "uiComponentsSuggested": [
+      "CarnivalMap",
+      "StageNode",
+      "StageClearBanner",
+      "StageProgressChip"
+    ],
+    "forbiddenLegacyNames": [
+      "5qimokaoshi",
+      "旧期末地图组件名"
+    ],
+    "unlock": {
+      "rule": "answeredCount >= questionCount in current stage",
+      "scoreGate": false,
+      "note": "不因正确率／分数卡关；老师不要达标卡人"
+    },
+    "flow": [
+      "login",
+      "carnivalMap_seeUnlockedStages",
+      "enterStage_answerAll",
+      "submitStage_clearFeedback",
+      "unlockNextStage",
+      "after7MainStages_submitMainOrEnterBonus",
+      "challengeOptional_skipOk",
+      "result_mainPercent_plus_challengeBonus"
+    ],
+    "fields": {
+      "currentStage": "当前所在关 stage 值（1–7 或 challenge）",
+      "stagesCompleted": "已通关 stageId 数组（答完即记，不论对错）",
+      "stageProgress": "{ answeredCount, questionCount, stageId }",
+      "stageClearFeedback": "过关短反馈文案（用 stages[].clearFeedback 模板）",
+      "firstSubmitMain": "主卷首次整卷提交锁定百分",
+      "latestSubmit": "最近一次提交",
+      "history": "历史提交列表"
+    }
+  },
+  "coverageMatrix": {
+    "rule": "L1–L7 每条 G1/G2/K1/D1 至少 1 道主卷题",
+    "note": "challenge 题可补充但不计入本矩阵的「至少1」硬门槛；goalIds 学生端不下发",
+    "lessons": {
+      "L1": {
+        "G1": {
+          "goalId": "L1-G1",
+          "mainQuestionIds": [
+            "M02",
+            "M03"
+          ],
+          "mainCount": 2
+        },
+        "G2": {
+          "goalId": "L1-G2",
+          "mainQuestionIds": [
+            "M01"
+          ],
+          "mainCount": 1
+        },
+        "K1": {
+          "goalId": "L1-K1",
+          "mainQuestionIds": [
+            "M01",
+            "M03"
+          ],
+          "mainCount": 2
+        },
+        "D1": {
+          "goalId": "L1-D1",
+          "mainQuestionIds": [
+            "M02",
+            "M03"
+          ],
+          "mainCount": 2
+        }
+      },
+      "L2": {
+        "G1": {
+          "goalId": "L2-G1",
+          "mainQuestionIds": [
+            "M06"
+          ],
+          "mainCount": 1
+        },
+        "G2": {
+          "goalId": "L2-G2",
+          "mainQuestionIds": [
+            "M04",
+            "M05",
+            "M06"
+          ],
+          "mainCount": 3
+        },
+        "K1": {
+          "goalId": "L2-K1",
+          "mainQuestionIds": [
+            "M04",
+            "M05"
+          ],
+          "mainCount": 2
+        },
+        "D1": {
+          "goalId": "L2-D1",
+          "mainQuestionIds": [
+            "M06"
+          ],
+          "mainCount": 1
+        }
+      },
+      "L3": {
+        "G1": {
+          "goalId": "L3-G1",
+          "mainQuestionIds": [
+            "M07"
+          ],
+          "mainCount": 1
+        },
+        "G2": {
+          "goalId": "L3-G2",
+          "mainQuestionIds": [
+            "M08",
+            "M09"
+          ],
+          "mainCount": 2
+        },
+        "K1": {
+          "goalId": "L3-K1",
+          "mainQuestionIds": [
+            "M07"
+          ],
+          "mainCount": 1
+        },
+        "D1": {
+          "goalId": "L3-D1",
+          "mainQuestionIds": [
+            "M08",
+            "M09"
+          ],
+          "mainCount": 2
+        }
+      },
+      "L4": {
+        "G1": {
+          "goalId": "L4-G1",
+          "mainQuestionIds": [
+            "M10",
+            "M12"
+          ],
+          "mainCount": 2
+        },
+        "G2": {
+          "goalId": "L4-G2",
+          "mainQuestionIds": [
+            "M11",
+            "M12"
+          ],
+          "mainCount": 2
+        },
+        "K1": {
+          "goalId": "L4-K1",
+          "mainQuestionIds": [
+            "M11"
+          ],
+          "mainCount": 1
+        },
+        "D1": {
+          "goalId": "L4-D1",
+          "mainQuestionIds": [
+            "M10"
+          ],
+          "mainCount": 1
+        }
+      },
+      "L5": {
+        "G1": {
+          "goalId": "L5-G1",
+          "mainQuestionIds": [
+            "M13"
+          ],
+          "mainCount": 1
+        },
+        "G2": {
+          "goalId": "L5-G2",
+          "mainQuestionIds": [
+            "M14",
+            "M15"
+          ],
+          "mainCount": 2
+        },
+        "K1": {
+          "goalId": "L5-K1",
+          "mainQuestionIds": [
+            "M14",
+            "M15"
+          ],
+          "mainCount": 2
+        },
+        "D1": {
+          "goalId": "L5-D1",
+          "mainQuestionIds": [
+            "M13"
+          ],
+          "mainCount": 1
+        }
+      },
+      "L6": {
+        "G1": {
+          "goalId": "L6-G1",
+          "mainQuestionIds": [
+            "M16"
+          ],
+          "mainCount": 1
+        },
+        "G2": {
+          "goalId": "L6-G2",
+          "mainQuestionIds": [
+            "M17",
+            "M18",
+            "M19"
+          ],
+          "mainCount": 3
+        },
+        "K1": {
+          "goalId": "L6-K1",
+          "mainQuestionIds": [
+            "M16",
+            "M18",
+            "M19"
+          ],
+          "mainCount": 3
+        },
+        "D1": {
+          "goalId": "L6-D1",
+          "mainQuestionIds": [
+            "M17"
+          ],
+          "mainCount": 1
+        }
+      },
+      "L7": {
+        "G1": {
+          "goalId": "L7-G1",
+          "mainQuestionIds": [
+            "M20",
+            "M22",
+            "M23"
+          ],
+          "mainCount": 3
+        },
+        "G2": {
+          "goalId": "L7-G2",
+          "mainQuestionIds": [
+            "M24"
+          ],
+          "mainCount": 2
+        },
+        "K1": {
+          "goalId": "L7-K1",
+          "mainQuestionIds": [
+            "M20",
+            "M22",
+            "M23"
+          ],
+          "mainCount": 3
+        },
+        "D1": {
+          "goalId": "L7-D1",
+          "mainQuestionIds": [
+            "M21"
+          ],
+          "mainCount": 1
+        }
+      }
+    },
+    "gapsFixedInV14": [
+      {
+        "goalId": "L1-G2",
+        "via": "M01 改写：生活中也有算法"
+      },
+      {
+        "goalId": "L2-D1",
+        "via": "M06 改写：自然语言步骤明确性对比"
+      },
+      {
+        "goalId": "L7-G2",
+        "via": "M24 改写：开放日行人绿灯时长意义（兼 M21 流程图循环）"
+      }
+    ]
+  },
+  "recallImageSpec": {
+    "layout": "oneQuestionPerPage",
+    "staticPreferred": true,
+    "animatedAllowed": true,
+    "animatedNote": "必要时可用短循环 webp/gif；宜短、轻量；面向 Win7 Chrome 流畅",
+    "generatorsPriority": [
+      "GPT",
+      "Gemini"
+    ],
+    "maxWidthPx": 800,
+    "preferredFormats": [
+      "webp",
+      "jpg"
+    ],
+    "studentReceives": [
+      "recallSceneAnchor",
+      "recallCaption",
+      "recallImage",
+      "recallImageMaxWidthPx",
+      "recallImageAnimated"
+    ],
+    "serverOnlyOrTeacherPack": [
+      "recallImagePrompt",
+      "recallImageMotionNote"
+    ],
+    "artNotGeneratedYet": true
+  }
+}

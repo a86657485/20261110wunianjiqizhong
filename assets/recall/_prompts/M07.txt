@@ -1,0 +1,3 @@
+2D课堂插画：汉诺塔实验室三根柱与大小环（状态可示意但不要用箭头指出下一步该移哪），同学观察；实验室灯光；无文字墙、无选项字母、无唯一合法步黄框。cartoon hanoi lab, soft colors, no answer cue. static.
+
+HARD RULE (teacher): DO NOT leak exam answers. Show only the recalled learning scene / knowledge atmosphere. FORBIDDEN: correct option letters, answer paths, checkmarks, crosses, highlighted correct choice, arrows pointing to the right answer, score badges, solution diagrams that resolve the item, any readable Chinese/English text that states or implies the answer, yellow answer boxes. Soft warm kid-friendly 2D, static preferred, Win7-light.

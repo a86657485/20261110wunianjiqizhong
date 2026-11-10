@@ -1,0 +1,3 @@
+2D课堂插画：分支岛测验台，多组成绩纸条散放待选测（数值字迹故意不清），及格线示意条；不圈出「最该测的一组」、无选项字母。cartoon test bench, soft colors, no answer cue. static.
+
+HARD RULE (teacher): DO NOT leak exam answers. Show only the recalled learning scene / knowledge atmosphere. FORBIDDEN: correct option letters, answer paths, checkmarks, crosses, highlighted correct choice, arrows pointing to the right answer, score badges, solution diagrams that resolve the item, any readable Chinese/English text that states or implies the answer, yellow answer boxes. Soft warm kid-friendly 2D, static preferred, Win7-light.

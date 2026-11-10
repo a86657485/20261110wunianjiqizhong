@@ -1,0 +1,3 @@
+2D课堂友好：生活算法站展板与围坐讨论的同学，展板字迹故意模糊不可读；不出现可读定义句、无选项字母勾选态。cartoon algorithm station, soft colors, no text wall as answer. static.
+
+HARD RULE (teacher): DO NOT leak exam answers. Show only the recalled learning scene / knowledge atmosphere. FORBIDDEN: correct option letters, answer paths, checkmarks, crosses, highlighted correct choice, arrows pointing to the right answer, score badges, solution diagrams that resolve the item, any readable Chinese/English text that states or implies the answer, yellow answer boxes. Soft warm kid-friendly 2D, static preferred, Win7-light.

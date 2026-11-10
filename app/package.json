@@ -1,0 +1,17 @@
+{
+  "name": "g5-midterm-carnival",
+  "private": true,
+  "version": "1.0.0",
+  "description": "五年级《身边的算法》期中 · 算法嘉年华·站点通行证",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "postinstall": "npm --prefix client install",
+    "build": "npm --prefix client run build",
+    "start": "node --no-warnings server/index.cjs",
+    "dev:server": "DATA_DIR=./.data-test PORT=8780 node --no-warnings server/index.cjs",
+    "test:grade": "node --test server/grade.test.cjs",
+    "selftest": "node --no-warnings server/selftest.cjs"
+  }
+}
