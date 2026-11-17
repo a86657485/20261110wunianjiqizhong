@@ -341,13 +341,13 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   }
 }
 .qa-stack--no-recall {
-  /* 不带图题：卡片随内容收紧，避免选项被拉成空洞大格 */
-  flex: 0 1 auto;
+  /* 不带图题：填满可用高度，长题保留题区滚动 */
+  flex: 1 1 auto;
 }
 .qa-stack--no-recall .qa-body {
   display: flex;
   flex-direction: column;
-  flex: 0 1 auto;
+  flex: 1 0 auto;
   min-height: 0;
   padding: 16px 18px 18px;
 }
@@ -577,13 +577,13 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   .qa-stack--no-recall .option-list.option-list--tiles {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    flex: 0 1 auto;
+    flex: 1 0 auto;
     gap: 12px;
-    align-content: start;
+    align-content: stretch;
   }
   .qa-stack--no-recall .option-list.option-list--tiles .option-btn {
     min-height: 108px;
-    max-height: 148px;
+    max-height: none;
     height: auto;
     flex: unset;
     font-size: 1.06rem;

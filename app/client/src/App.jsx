@@ -554,7 +554,7 @@ function StudentApp() {
 
       {view === 'map' ? (
         <p className="muted" style={{ marginTop: 8, fontSize: '0.8rem' }}>
-          到时不强制锁死交卷。关内可改选至本关提交。学生端不显示答案与解析。
+          到时不强制锁死交卷。关内可改选至本关提交。
         </p>
       ) : null}
     </div>
