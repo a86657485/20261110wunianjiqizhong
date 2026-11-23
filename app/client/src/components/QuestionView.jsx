@@ -274,7 +274,7 @@ export default function QuestionView({
   onPrev,
   onNext,
   onSubmitStage,
-  canSubmitStage,
+  onBackMap,
   submitting,
 }) {
   const key = (question && (question.interactionSpecKey || question.type)) || '';
@@ -383,7 +383,15 @@ export default function QuestionView({
           <div className="scene-interact">{body}</div>
         </div>
       </div>
+      {answeredCount < questionCount ? (
+        <p className="muted" style={{ margin: '6px 0 0', fontSize: '0.85rem' }}>
+          本关还有 {questionCount - answeredCount} 题未作答，可直接提交；未答题目不得分。
+        </p>
+      ) : null}
       <div className="btn-row">
+        <button type="button" className="btn-ghost" onClick={onBackMap}>
+          ← 返回地图
+        </button>
         <button type="button" className="btn-ghost" onClick={onPrev} disabled={pageIndex <= 0}>
           上一题
         </button>
@@ -391,16 +399,15 @@ export default function QuestionView({
           <button type="button" className="btn-primary" onClick={onNext}>
             下一题
           </button>
-        ) : (
-          <button
-            type="button"
-            className="btn-primary"
-            onClick={onSubmitStage}
-            disabled={!canSubmitStage || submitting}
-          >
-            {submitting ? '提交中…' : '提交本关'}
-          </button>
-        )}
+        ) : null}
+        <button
+          type="button"
+          className={pageIndex < pageTotal - 1 ? 'btn-ghost' : 'btn-primary'}
+          onClick={onSubmitStage}
+          disabled={!!submitting}
+        >
+          {submitting ? '提交中…' : '提交本关'}
+        </button>
       </div>
     </div>
   );

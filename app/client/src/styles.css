@@ -166,11 +166,14 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 /* Carnival map */
 .map-page {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   min-height: 0;
-  gap: 8px;
+  gap: 12px;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
 }
 .map-page > .card {
   margin-bottom: 0 !important;
@@ -179,25 +182,29 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 }
 .carnival-map {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  grid-auto-rows: 1fr;
-  gap: 12px;
-  flex: 1 1 auto;
-  min-height: 0;
-  align-content: stretch;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  gap: 14px;
+  flex: 0 0 auto;
+  align-content: start;
 }
 .stage-node {
   text-align: left;
   background: #fff;
   border: 2px solid var(--line);
   border-radius: 14px;
-  padding: 14px;
-  min-height: 120px;
-  height: 100%;
+  padding: 14px 15px;
+  min-height: 128px;
+  height: auto;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.stage-node:not(.locked):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(194, 65, 12, 0.1);
 }
 .stage-node.unlocked { border-color: #fdba74; }
 .stage-node.completed {
@@ -215,8 +222,21 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   color: var(--brand);
 }
 .stage-node h3 {
-  margin: 4px 0 6px;
+  margin: 4px 0 0;
   font-size: 1rem;
+}
+.stage-head { display: flex; flex-direction: column; }
+.stage-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 12px;
+}
+.stage-count {
+  color: var(--muted);
+  font-size: 0.78rem;
+  white-space: nowrap;
 }
 .stage-node .status {
   font-size: 0.8rem;
@@ -225,6 +245,23 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .status-locked { color: var(--lock); }
 .status-open { color: var(--brand-dark); }
 .status-done { color: var(--ok); }
+
+.map-footnote {
+  width: 100%;
+  max-width: 1120px;
+  margin: 8px auto 0;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 980px) {
+  .carnival-map { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .carnival-map { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  .carnival-map { grid-template-columns: 1fr; }
+}
 
 /* Question page — 上图下题：余量给插图，题区贴合内容，避免选项下大片留白 */
 /* NO pre-answer option highlight / answer leak */

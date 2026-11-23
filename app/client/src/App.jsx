@@ -493,7 +493,7 @@ function StudentApp() {
       ) : null}
 
       {view === 'map' && progress && progress.mainSubmitted ? (
-        <div style={{ marginTop: 8 }}>
+        <div style={{ margin: '8px auto 0', width: '100%', maxWidth: 1120 }}>
           <ResultPanel
             progress={progress}
             onMap={() => setView('map')}
@@ -533,7 +533,7 @@ function StudentApp() {
           onSubmitStage={
             activeStage && activeStage.stageId === 'gate_bonus' ? submitChallenge : submitStage
           }
-          canSubmitStage={stageAnsweredCount >= stageQuestions.length}
+          onBackMap={() => setView('map')}
           submitting={submitting}
         />
       ) : null}
@@ -553,7 +553,7 @@ function StudentApp() {
       ) : null}
 
       {view === 'map' ? (
-        <p className="muted" style={{ marginTop: 8, fontSize: '0.8rem' }}>
+        <p className="muted map-footnote">
           到时不强制锁死交卷。关内可改选至本关提交。学生端不显示答案与解析。
         </p>
       ) : null}

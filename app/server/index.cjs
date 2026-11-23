@@ -163,27 +163,13 @@ function createService(options = {}) {
     return { answeredCount: answered, questionCount: stage.questionIds.length };
   }
 
-  function unlockedStageIds(state) {
-    const completed = new Set(state.stagesCompleted || []);
-    const out = [];
-    for (const s of paper.stages) {
-      if (s.unlockRule === 'start') {
-        out.push(s.stageId);
-        continue;
-      }
-      if (s.stageId === 'gate_bonus') {
-        const mains = paper.stages.filter((x) => x.required);
-        if (mains.every((m) => completed.has(m.stageId))) out.push(s.stageId);
-        continue;
-      }
-      const prev = paper.stages.find((x) => x.order === s.order - 1);
-      if (prev && completed.has(prev.stageId)) out.push(s.stageId);
-    }
-    return out;
+  // 全部站点开放：学生可自由选择作答顺序（每站可随时提交，未答不拦）
+  function unlockedStageIds() {
+    return paper.stages.map((s) => s.stageId);
   }
 
   function publicProgress(state) {
-    const unlocked = unlockedStageIds(state);
+    const unlocked = unlockedStageIds();
     const stageProgress = paper.stages.map((s) => {
       const c = stageAnsweredCount(state, s.stageId);
       return {
@@ -433,8 +419,6 @@ function createService(options = {}) {
       if (!row) fail(404, '学生不存在');
       const q = qById[body.questionId];
       if (!q) fail(404, '题目不存在');
-      const unlocked = unlockedStageIds(ensureState(row.id));
-      if (!unlocked.includes(q.stageId)) fail(403, '该站点尚未解锁');
       const state = ensureState(row.id);
       if (!state.draftAnswers) state.draftAnswers = {};
       state.draftAnswers[q.id] = body.answer;
@@ -450,8 +434,6 @@ function createService(options = {}) {
       const stage = stageById[body.stageId];
       if (!stage) fail(404, '站点不存在');
       const state = ensureState(row.id);
-      const unlocked = unlockedStageIds(state);
-      if (!unlocked.includes(stage.stageId)) fail(403, '该站点尚未解锁');
 
       // merge drafts into stage answers
       if (!state.stageAnswers[stage.stageId]) state.stageAnswers[stage.stageId] = {};
@@ -464,12 +446,7 @@ function createService(options = {}) {
           merged[qid] = body.answers[qid];
         }
       }
-      // require all answered
-      for (const qid of stage.questionIds) {
-        if (!isAnswered(merged[qid], qById[qid])) {
-          fail(400, '本关还有题目未作答');
-        }
-      }
+      // 不作答也可提交：未答题目按未得分计
       state.stageAnswers[stage.stageId] = merged;
       if (!state.stagesCompleted.includes(stage.stageId)) {
         state.stagesCompleted.push(stage.stageId);
@@ -533,10 +510,6 @@ function createService(options = {}) {
       const row = studentById(body.studentId);
       if (!row) fail(404, '学生不存在');
       const state = ensureState(row.id);
-      const mains = paper.stages.filter((s) => s.required);
-      if (!mains.every((s) => state.stagesCompleted.includes(s.stageId))) {
-        fail(400, '请先完成主卷七站');
-      }
       const bonusStage = stageById.gate_bonus;
       if (!state.stageAnswers[bonusStage.stageId]) state.stageAnswers[bonusStage.stageId] = {};
       const merged = Object.assign({}, state.stageAnswers[bonusStage.stageId]);
@@ -544,9 +517,7 @@ function createService(options = {}) {
         if (state.draftAnswers && state.draftAnswers[qid] !== undefined) merged[qid] = state.draftAnswers[qid];
         if (body.answers && body.answers[qid] !== undefined) merged[qid] = body.answers[qid];
       }
-      for (const qid of bonusStage.questionIds) {
-        if (!isAnswered(merged[qid], qById[qid])) fail(400, '挑战关还有题目未作答');
-      }
+      // 不作答也可提交挑战：未答题目按未得分计
       state.stageAnswers[bonusStage.stageId] = merged;
       if (!state.stagesCompleted.includes(bonusStage.stageId)) {
         state.stagesCompleted.push(bonusStage.stageId);
