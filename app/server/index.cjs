@@ -193,6 +193,8 @@ function createService(options = {}) {
       mainSubmitted: !!state.mainSubmitted,
       challengeSubmitted: !!state.challengeSubmitted,
       challengeSkipped: !!state.challengeSkipped,
+      mainLocked: !!state.mainSubmitted,
+      finished: !!state.mainSubmitted && (!!state.challengeSubmitted || !!state.challengeSkipped),
       firstSubmitMain: state.firstSubmitMain
         ? {
             percent: state.firstSubmitMain.percent,
@@ -400,11 +402,9 @@ function createService(options = {}) {
       }
       if (!row) fail(404, '找不到该学生');
       let state = ensureState(row.id);
-      if (!recordFor(row.id).entered) {
-        state = save(row.id, state);
-      } else {
-        state = save(row.id, state);
-      }
+      // 已结束的试卷仍可登录查看成绩，但不再写入活跃时间，也不能继续作答
+      const finished = !!state.mainSubmitted && (!!state.challengeSubmitted || !!state.challengeSkipped);
+      if (!finished) state = save(row.id, state);
       return json(res, 200, {
         student: { id: row.id, classId: row.classId, name: row.name },
         progress: publicProgress(state),
@@ -420,6 +420,11 @@ function createService(options = {}) {
       const q = qById[body.questionId];
       if (!q) fail(404, '题目不存在');
       const state = ensureState(row.id);
+      if (q.stageId === 'gate_bonus') {
+        if (state.challengeSubmitted || state.challengeSkipped) fail(403, '挑战关已结束，不能重复作答');
+      } else if (state.mainSubmitted) {
+        fail(403, '主卷已交卷，不能重复作答');
+      }
       if (!state.draftAnswers) state.draftAnswers = {};
       state.draftAnswers[q.id] = body.answer;
       state.currentStage = q.stage;
@@ -434,6 +439,8 @@ function createService(options = {}) {
       const stage = stageById[body.stageId];
       if (!stage) fail(404, '站点不存在');
       const state = ensureState(row.id);
+      if (stage.stageId === 'gate_bonus') fail(400, '挑战关请从挑战入口提交');
+      if (state.mainSubmitted) fail(403, '主卷已交卷，不能重复提交');
 
       // merge drafts into stage answers
       if (!state.stageAnswers[stage.stageId]) state.stageAnswers[stage.stageId] = {};
@@ -469,6 +476,7 @@ function createService(options = {}) {
       const row = studentById(body.studentId);
       if (!row) fail(404, '学生不存在');
       const state = ensureState(row.id);
+      if (state.mainSubmitted) fail(403, '主卷已交卷，不能重复提交');
       const mains = paper.stages.filter((s) => s.required);
       for (const s of mains) {
         if (!state.stagesCompleted.includes(s.stageId)) fail(400, '请先完成主卷七站');
@@ -510,6 +518,8 @@ function createService(options = {}) {
       const row = studentById(body.studentId);
       if (!row) fail(404, '学生不存在');
       const state = ensureState(row.id);
+      if (state.challengeSubmitted) fail(403, '挑战关已交卷，不能重复作答');
+      if (state.challengeSkipped) fail(403, '已跳过挑战，不能作答');
       const bonusStage = stageById.gate_bonus;
       if (!state.stageAnswers[bonusStage.stageId]) state.stageAnswers[bonusStage.stageId] = {};
       const merged = Object.assign({}, state.stageAnswers[bonusStage.stageId]);
@@ -559,6 +569,7 @@ function createService(options = {}) {
       const row = studentById(body.studentId);
       if (!row) fail(404, '学生不存在');
       const state = ensureState(row.id);
+      if (state.challengeSubmitted) fail(403, '挑战关已交卷，不能跳过');
       state.challengeSkipped = true;
       save(row.id, state);
       return json(res, 200, { ok: true, progress: publicProgress(state) });

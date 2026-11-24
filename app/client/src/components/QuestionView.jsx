@@ -1,6 +1,7 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import RecallPanel from './RecallPanel.jsx';
 import StageProgressChip from './StageProgressChip.jsx';
+import { seededShuffle } from '../lib/shuffle.js';
 
 /**
  * One question per page. Interaction focus must NOT hint the correct option
@@ -14,13 +15,17 @@ function questionShowsRecall(question) {
   return !!(question.recallImage || question.recallCaption || question.recallSceneAnchor);
 }
 
-function ChoiceOptions({ options, value, onChange }) {
+function ChoiceOptions({ options, value, onChange, seed }) {
+  const list = useMemo(
+    () => (seed ? seededShuffle(options, seed) : options || []),
+    [options, seed]
+  );
   return (
     <div
-      className={'option-list' + ((options || []).length >= 3 ? ' option-list--tiles' : '')}
+      className={'option-list' + (list.length >= 3 ? ' option-list--tiles' : '')}
       role="radiogroup"
     >
-      {(options || []).map((opt) => {
+      {list.map((opt) => {
         const picked = value === opt;
         return (
           <button
@@ -245,7 +250,7 @@ function FillTripleView({ cards, slots, value, onChange }) {
   );
 }
 
-function PickInvalidView({ cards, value, onChange, diagram }) {
+function PickInvalidView({ cards, value, onChange, diagram, seed }) {
   return (
     <div>
       {diagram && diagram.note ? (
@@ -257,13 +262,14 @@ function PickInvalidView({ cards, value, onChange, diagram }) {
           点选不能放入菱形的那一张卡。
         </p>
       )}
-      <ChoiceOptions options={cards} value={value} onChange={onChange} />
+      <ChoiceOptions options={cards} value={value} onChange={onChange} seed={seed} />
     </div>
   );
 }
 
 export default function QuestionView({
   question,
+  studentId,
   value,
   onChange,
   stageName,
@@ -275,9 +281,11 @@ export default function QuestionView({
   onNext,
   onSubmitStage,
   onBackMap,
+  backLabel,
   submitting,
 }) {
   const key = (question && (question.interactionSpecKey || question.type)) || '';
+  const seed = (studentId || '') + '|' + (question ? question.id : '');
 
   const body = useMemo(() => {
     if (!question) return null;
@@ -286,7 +294,7 @@ export default function QuestionView({
       case 'app_op_choice':
       case 'flowchart_back_edge':
         return (
-          <ChoiceOptions key={question.id} options={question.options} value={value} onChange={onChange} />
+          <ChoiceOptions key={question.id} options={question.options} value={value} onChange={onChange} seed={seed} />
         );
       case 'flowchart_fix_choice':
         return (
@@ -294,7 +302,7 @@ export default function QuestionView({
             <p className="muted" style={{ marginTop: 0 }}>
               点选应如何改正的那一项。
             </p>
-            <ChoiceOptions options={question.options} value={value} onChange={onChange} />
+            <ChoiceOptions options={question.options} value={value} onChange={onChange} seed={seed} />
           </div>
         );
       case 'matching':
@@ -336,15 +344,16 @@ export default function QuestionView({
             value={value}
             onChange={onChange}
             diagram={question.diagram}
+            seed={seed}
           />
         );
       default:
         if (question.options) {
-          return <ChoiceOptions options={question.options} value={value} onChange={onChange} />;
+          return <ChoiceOptions options={question.options} value={value} onChange={onChange} seed={seed} />;
         }
         return <p className="error-box">暂不支持的交互：{key}</p>;
     }
-  }, [question, key, value, onChange]);
+  }, [question, key, value, onChange, seed]);
 
   useEffect(() => {
     // scroll to top on question change
@@ -390,7 +399,7 @@ export default function QuestionView({
       ) : null}
       <div className="btn-row">
         <button type="button" className="btn-ghost" onClick={onBackMap}>
-          ← 返回地图
+          {backLabel || '← 返回地图'}
         </button>
         <button type="button" className="btn-ghost" onClick={onPrev} disabled={pageIndex <= 0}>
           上一题

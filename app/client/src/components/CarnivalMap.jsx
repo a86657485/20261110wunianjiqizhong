@@ -12,7 +12,7 @@ export default function CarnivalMap({ stageProgress, onEnter, onSubmitMain, main
       </div>
       <div className="carnival-map">
         {(stageProgress || []).map((n) => (
-          <StageNode key={n.stageId} node={n} onEnter={onEnter} />
+          <StageNode key={n.stageId} node={n} onEnter={onEnter} lockedBySubmit={mainSubmitted} />
         ))}
       </div>
       {mainReady ? (

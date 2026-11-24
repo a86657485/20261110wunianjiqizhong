@@ -1,7 +1,8 @@
 import React from 'react';
 
-export default function StageNode({ node, onEnter }) {
+export default function StageNode({ node, onEnter, lockedBySubmit }) {
   const locked = !node.unlocked;
+  const disabled = locked || (!!lockedBySubmit && node.required !== false);
   const done = node.completed;
   let statusClass = 'status-locked';
   let statusText = '未解锁';
@@ -19,8 +20,8 @@ export default function StageNode({ node, onEnter }) {
     <button
       type="button"
       className={nodeClass}
-      disabled={locked}
-      onClick={() => !locked && onEnter && onEnter(node)}
+      disabled={disabled}
+      onClick={() => !disabled && onEnter && onEnter(node)}
       aria-label={node.stageName + ' ' + statusText}
     >
       <div className="stage-head">

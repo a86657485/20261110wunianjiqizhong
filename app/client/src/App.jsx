@@ -72,6 +72,9 @@ function LoginPage({ onLoggedIn }) {
       <div className="login-hero">
         <h1>算法嘉年华·站点通行证</h1>
         <p className="muted">五年级《身边的算法》期中闯关 · 选班级和姓名进入</p>
+        <p className="muted" style={{ margin: '2px 0 0', fontSize: '0.8rem' }}>
+          每张试卷只能交一次；交卷前退出可重新登录继续，交卷后不能重复作答。
+        </p>
       </div>
       <div className="card login-card">
         <div className="class-pills">
@@ -161,9 +164,15 @@ function ResultPanel({ progress, onMap, onChallenge, onSkipChallenge, onSubmitMa
   const main = progress.firstSubmitMain;
   const ch = progress.firstSubmitChallenge;
   const mainPending = progress.mainReady && !progress.mainSubmitted;
+  const mainLocked = !!progress.mainSubmitted;
   return (
     <div className="card">
       <h2 style={{ marginTop: 0, color: '#c2410c' }}>闯关结果</h2>
+      {mainLocked ? (
+        <p className="muted" style={{ marginTop: 0 }}>
+          本试卷已交卷，不能重复作答。加分挑战关仍可完成一次。
+        </p>
+      ) : null}
       {mainPending ? (
         <p className="muted" style={{ marginTop: 0 }}>
           先做挑战不会自动交主卷。主卷百分要点「提交主卷」后才计入。
@@ -191,9 +200,11 @@ function ResultPanel({ progress, onMap, onChallenge, onSkipChallenge, onSubmitMa
         </div>
       </div>
       <div className="btn-row">
-        <button type="button" className="btn-ghost" onClick={onMap}>
-          回到站点地图
-        </button>
+        {!mainLocked ? (
+          <button type="button" className="btn-ghost" onClick={onMap}>
+            回到站点地图
+          </button>
+        ) : null}
         {mainPending && onSubmitMain ? (
           <button
             type="button"
@@ -215,6 +226,43 @@ function ResultPanel({ progress, onMap, onChallenge, onSkipChallenge, onSubmitMa
           </>
         ) : null}
       </div>
+    </div>
+  );
+}
+
+function FinishedPanel({ progress }) {
+  const main = progress.firstSubmitMain;
+  const ch = progress.firstSubmitChallenge;
+  const submittedAt =
+    main && main.at
+      ? new Date(main.at).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })
+      : '—';
+  return (
+    <div className="card">
+      <h2 style={{ marginTop: 0, color: '#c2410c' }}>本试卷已交卷</h2>
+      <p className="muted" style={{ marginTop: 0 }}>
+        每张试卷只能作答一次，不能重复登录作答。如需更正，请联系老师。
+      </p>
+      <div className="stat-row">
+        <div className="stat">
+          <span className="muted">主卷百分</span>
+          <b>{main ? main.percent : '—'}</b>
+          <span className="muted">{main ? main.correct + '/' + main.total + ' 题对' : '—'}</span>
+        </div>
+        <div className="stat">
+          <span className="muted">挑战加分</span>
+          <b>{ch ? '+' + ch.bonus : progress.challengeSkipped ? '已跳过' : '—'}</b>
+          <span className="muted">{ch ? ch.correct + '/' + ch.total + ' 题对' : '—'}</span>
+        </div>
+        <div className="stat">
+          <span className="muted">综合分</span>
+          <b>{main ? main.percent + (ch ? ch.bonus : 0) : '—'}</b>
+          <span className="muted">主卷百分＋挑战加分</span>
+        </div>
+      </div>
+      <p className="muted" style={{ marginBottom: 0 }}>
+        交卷时间：{submittedAt}
+      </p>
     </div>
   );
 }
@@ -381,10 +429,21 @@ function StudentApp() {
     setPaper(data.paper);
     setProgress(data.progress);
     setLocalAnswers(Object.assign({}, data.progress.draftAnswers || {}));
-    setView('map');
+    if (data.progress.finished) setView('finished');
+    else if (data.progress.mainSubmitted) setView('result');
+    else setView('map');
   }
 
   function enterStage(node) {
+    if (!node) return;
+    if (progress && progress.mainSubmitted && node.stageId !== 'gate_bonus') return;
+    if (
+      progress &&
+      node.stageId === 'gate_bonus' &&
+      (progress.challengeSubmitted || progress.challengeSkipped)
+    ) {
+      return;
+    }
     setActiveStageId(node.stageId);
     setPageIndex(0);
     setClearFeedback('');
@@ -436,7 +495,7 @@ function StudentApp() {
     try {
       const data = await api.submitMain({ studentId: student.id });
       setProgress(data.progress);
-      setView('result');
+      setView(data.progress.finished ? 'finished' : 'result');
     } catch (e) {
       setError(e.message);
     } finally {
@@ -454,7 +513,7 @@ function StudentApp() {
       const data = await api.submitChallenge({ studentId: student.id, answers });
       setProgress(data.progress);
       setClearFeedback(data.stageClearFeedback || '');
-      setView('result');
+      setView(data.progress.finished ? 'finished' : 'result');
     } catch (e) {
       setError(e.message);
     } finally {
@@ -466,7 +525,7 @@ function StudentApp() {
     if (!student) return;
     const data = await api.skipChallenge({ studentId: student.id });
     setProgress(data.progress);
-    setView('result');
+    setView(data.progress.finished ? 'finished' : 'result');
   }
 
   if (!student) return <LoginPage onLoggedIn={onLoggedIn} />;
@@ -521,6 +580,7 @@ function StudentApp() {
       {view === 'stage' && currentQ ? (
         <QuestionView
           question={currentQ}
+          studentId={student.id}
           value={localAnswers[currentQ.id]}
           onChange={(ans) => saveAnswer(currentQ.id, ans)}
           stageName={activeStage && activeStage.stageName}
@@ -533,7 +593,8 @@ function StudentApp() {
           onSubmitStage={
             activeStage && activeStage.stageId === 'gate_bonus' ? submitChallenge : submitStage
           }
-          onBackMap={() => setView('map')}
+          onBackMap={() => setView(progress && progress.mainSubmitted ? 'result' : 'map')}
+          backLabel={progress && progress.mainSubmitted ? '← 返回成绩' : '← 返回地图'}
           submitting={submitting}
         />
       ) : null}
@@ -551,6 +612,8 @@ function StudentApp() {
           submitting={submitting}
         />
       ) : null}
+
+      {view === 'finished' ? <FinishedPanel progress={progress} /> : null}
 
       {view === 'map' ? (
         <p className="muted map-footnote">
