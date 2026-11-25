@@ -267,10 +267,160 @@ function FinishedPanel({ progress }) {
   );
 }
 
+const LB_COLS = [
+  { key: 'classId', label: '班', kind: 'text' },
+  { key: 'name', label: '姓名', kind: 'text' },
+  { key: 'mainPercent', label: '主卷%', kind: 'num' },
+  { key: 'challengeBonus', label: '挑战+', kind: 'num' },
+  { key: 'total', label: '综合', kind: 'num' },
+  { key: 'mainStagesCompleted', label: '通关站', kind: 'num' },
+];
+
+function TeacherLeaderboard({ rows, keyword }) {
+  const [sort, setSort] = useState({ key: 'total', dir: 'desc' });
+  const [expanded, setExpanded] = useState(false);
+  const kw = (keyword || '').trim();
+
+  const scored = useMemo(
+    () =>
+      rows
+        .filter((s) => s.mainPercent != null)
+        .map((s) => ({ ...s, total: s.mainPercent + (s.challengeBonus || 0) })),
+    [rows]
+  );
+
+  // 名次始终按当前班级（或全年级）全部已交卷学生计算；搜索只过滤显示，不重排名次
+  const ranked = useMemo(() => {
+    const order = [...scored].sort(
+      (a, b) =>
+        b.total - a.total ||
+        b.mainPercent - a.mainPercent ||
+        a.name.localeCompare(b.name, 'zh-Hans-CN')
+    );
+    const out = [];
+    let last = null;
+    let rank = 0;
+    order.forEach((s, i) => {
+      if (last === null || s.total !== last) rank = i + 1;
+      out.push({ ...s, rank });
+      last = s.total;
+    });
+    return out;
+  }, [scored]);
+
+  const matched = useMemo(
+    () =>
+      kw
+        ? ranked.filter((s) => s.name.includes(kw) || String(s.classId).includes(kw))
+        : ranked,
+    [ranked, kw]
+  );
+
+  const sorted = useMemo(() => {
+    const arr = [...matched];
+    const dir = sort.dir === 'asc' ? 1 : -1;
+    arr.sort((a, b) => {
+      if (sort.key === 'name') return a.name.localeCompare(b.name, 'zh-Hans-CN') * dir;
+      if (sort.key === 'classId')
+        return (a.classId + a.name).localeCompare(b.classId + b.name, 'zh-Hans-CN') * dir;
+      const av = sort.key === 'challengeBonus' ? a.challengeBonus || 0 : a[sort.key] || 0;
+      const bv = sort.key === 'challengeBonus' ? b.challengeBonus || 0 : b[sort.key] || 0;
+      return (av - bv) * dir || a.rank - b.rank;
+    });
+    return arr;
+  }, [matched, sort]);
+
+  const visible = expanded ? sorted : sorted.slice(0, 10);
+
+  function toggleSort(key) {
+    setSort((prev) =>
+      prev.key === key
+        ? { key, dir: prev.dir === 'desc' ? 'asc' : 'desc' }
+        : { key, dir: key === 'name' || key === 'classId' ? 'asc' : 'desc' }
+    );
+  }
+
+  return (
+    <div className="card lb-card">
+      <div className="lb-head">
+        <h3>排行榜</h3>
+        <span className="muted">
+          仅统计已交主卷 {ranked.length} 人 · 综合分 = 主卷% + 挑战加分 · 同分并列
+          {kw ? ` · 已筛选「${kw}」，命中 ${matched.length} 人` : ''}
+        </span>
+      </div>
+      {ranked.length === 0 ? (
+        <p className="muted" style={{ margin: 0 }}>
+          还没有学生交主卷，交卷后这里会自动出现排名。
+        </p>
+      ) : matched.length === 0 ? (
+        <p className="muted" style={{ margin: 0 }}>
+          没有匹配的学生。
+        </p>
+      ) : (
+        <>
+          <div className="lb-wrap">
+            <table className="lb-table">
+              <thead>
+                <tr>
+                  <th className="lb-rank-col">名次</th>
+                  {LB_COLS.map((c) => (
+                    <th
+                      key={c.key}
+                      aria-sort={
+                        sort.key === c.key ? (sort.dir === 'asc' ? 'ascending' : 'descending') : 'none'
+                      }
+                    >
+                      <button type="button" className="lb-sort" onClick={() => toggleSort(c.key)}>
+                        {c.label}
+                        <span className={'lb-arrow' + (sort.key === c.key ? ' on' : '')}>
+                          {sort.key === c.key ? (sort.dir === 'desc' ? '▼' : '▲') : '↕'}
+                        </span>
+                      </button>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {visible.map((s) => (
+                  <tr key={s.id}>
+                    <td className={'lb-rank lb-rank-' + s.rank}>{s.rank}</td>
+                    <td>{s.classId}</td>
+                    <td>{s.name}</td>
+                    <td>{s.mainPercent}</td>
+                    <td>{s.challengeBonus != null ? '+' + s.challengeBonus : '—'}</td>
+                    <td>
+                      <b>{s.total}</b>
+                    </td>
+                    <td>{s.mainStagesCompleted}/7</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {sorted.length > 10 ? (
+            <button
+              type="button"
+              className="btn-ghost lb-toggle"
+              onClick={() => setExpanded((v) => !v)}
+            >
+              {expanded ? '收起，只看前 10 名' : `展开全部 ${sorted.length} 人`}
+            </button>
+          ) : null}
+        </>
+      )}
+    </div>
+  );
+}
+
 function TeacherPage() {
   const [classId, setClassId] = useState('');
   const [data, setData] = useState(null);
   const [error, setError] = useState('');
+  const [keyword, setKeyword] = useState('');
+  const [target, setTarget] = useState(null);
+  const [busy, setBusy] = useState(false);
+  const [notice, setNotice] = useState('');
 
   const load = useCallback(() => {
     api
@@ -284,6 +434,32 @@ function TeacherPage() {
     const t = setInterval(load, 8000);
     return () => clearInterval(t);
   }, [load]);
+
+  async function confirmDelete() {
+    if (!target) return;
+    setBusy(true);
+    setError('');
+    try {
+      const r = await api.teacherDelete({ studentId: target.id });
+      setNotice(
+        r.removedStudent
+          ? `已移除「${r.classId} ${r.name}」及其成绩，班级分母现为 ${r.denominator}。`
+          : `已清除「${r.classId} ${r.name}」的成绩，可重新作答。`
+      );
+      setTarget(null);
+      load();
+    } catch (e) {
+      setError(e.message);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  const allRows = data && data.students ? data.students : [];
+  const kw = keyword.trim();
+  const rows = kw
+    ? allRows.filter((s) => s.name.includes(kw) || String(s.classId).includes(kw))
+    : allRows;
 
   return (
     <div className="app-shell">
@@ -342,7 +518,26 @@ function TeacherPage() {
         ) : null}
         {error ? <div className="error-box">{error}</div> : null}
       </div>
-      <div className="card" style={{ overflow: 'auto', maxHeight: '70vh' }}>
+
+      <TeacherLeaderboard rows={allRows} keyword={kw} />
+
+      <div className="card teacher-table-wrap">
+        <div className="teacher-tools">
+          <input
+            className="teacher-search"
+            value={keyword}
+            onChange={(e) => {
+              setKeyword(e.target.value);
+              setNotice('');
+            }}
+            placeholder="搜索姓名或班级，如 501 或 张"
+            aria-label="搜索学生"
+          />
+          <span className="muted">
+            {kw ? `匹配 ${rows.length} / ${allRows.length} 人` : `共 ${allRows.length} 人`}
+          </span>
+        </div>
+        {notice ? <div className="ok-box">{notice}</div> : null}
         <table className="teacher-table">
           <thead>
             <tr>
@@ -353,10 +548,11 @@ function TeacherPage() {
               <th>主卷%</th>
               <th>挑战+</th>
               <th>分课正确（有首答时）</th>
+              <th>操作</th>
             </tr>
           </thead>
           <tbody>
-            {(data && data.students ? data.students : []).map((s) => (
+            {rows.map((s) => (
               <tr key={s.id}>
                 <td>{s.classId}</td>
                 <td>{s.name}</td>
@@ -365,21 +561,63 @@ function TeacherPage() {
                 <td>{s.mainPercent != null ? s.mainPercent : '—'}</td>
                 <td>{s.challengeBonus != null ? s.challengeBonus : '—'}</td>
                 <td>
-                  {s.byLesson
+                  {s.byLesson && Object.keys(s.byLesson).length
                     ? Object.keys(s.byLesson)
                         .sort()
                         .map((L) => L + ':' + s.byLesson[L].correct + '/' + s.byLesson[L].total)
                         .join(' ')
                     : '—'}
                 </td>
+                <td>
+                  {s.entered || s.manual ? (
+                    <button type="button" className="btn-link-danger" onClick={() => setTarget(s)}>
+                      {s.manual ? '移除该生' : '清除成绩'}
+                    </button>
+                  ) : (
+                    <span className="muted">—</span>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
+        {rows.length === 0 ? <p className="muted">没有匹配的学生。</p> : null}
         <p className="muted" style={{ marginBottom: 0 }}>
           不设达标线；正确率仅诊断。学生端不下发答案。更新于 {data && data.updatedAt}
         </p>
       </div>
+
+      {target ? (
+        <div className="modal-mask" role="dialog" aria-modal="true" aria-label="确认删除">
+          <div className="modal-card">
+            <h3>{target.manual ? '确认移除该生？' : '确认清除成绩？'}</h3>
+            <p>
+              <b>
+                {target.classId} {target.name}
+              </b>
+              {target.manual
+                ? '：该生不在原始名单中（手动添加），将同时从名单移除，班级分母减 1。'
+                : '：该生的作答、交卷与挑战记录将全部删除，不可恢复。'}
+            </p>
+            <p className="muted">
+              删除后该生可重新登录，从空白记录开始；若正在作答，其页面再操作也会重新开始。
+            </p>
+            <div className="btn-row">
+              <button
+                type="button"
+                className="btn-ghost"
+                onClick={() => setTarget(null)}
+                disabled={busy}
+              >
+                取消
+              </button>
+              <button type="button" className="btn-danger" onClick={confirmDelete} disabled={busy}>
+                {busy ? '处理中…' : target.manual ? '确认移除' : '确认清除'}
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

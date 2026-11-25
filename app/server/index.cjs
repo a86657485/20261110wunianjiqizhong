@@ -276,6 +276,7 @@ function createService(options = {}) {
 
   function teacherData(classId) {
     const students = allStudents().filter((s) => !classId || s.classId === classId);
+    const requiredStageIds = paper.stages.filter((s) => s.required).map((s) => s.stageId);
     const rows = students.map((s) => {
       const rec = recordFor(s.id);
       const st = rec.state;
@@ -299,8 +300,12 @@ function createService(options = {}) {
         id: s.id,
         classId: s.classId,
         name: s.name,
+        manual: !!s.manual,
         entered: !!rec.entered,
         stagesCompleted: prog ? prog.stagesCompleted.length : 0,
+        mainStagesCompleted: prog
+          ? prog.stagesCompleted.filter((id) => requiredStageIds.includes(id)).length
+          : 0,
         mainPercent: first ? first.percent : null,
         challengeBonus: ch ? ch.bonus : null,
         mainSubmitted: !!(st && st.mainSubmitted),
@@ -359,7 +364,11 @@ function createService(options = {}) {
     }
 
     if (req.method === 'GET' && route === '/api/roster') {
-      return json(res, 200, { classes: classes(), total: rosterIds.size });
+      const list = classes();
+      return json(res, 200, {
+        classes: list,
+        total: list.reduce((n, c) => n + c.students.length, 0),
+      });
     }
 
     if (req.method === 'GET' && route === '/api/paper') {
@@ -380,6 +389,38 @@ function createService(options = {}) {
 
     if (req.method === 'GET' && route === '/api/teacher') {
       return json(res, 200, teacherData(url.searchParams.get('classId')));
+    }
+
+    // 教师端清除某位学生的成绩记录（仅删状态，不动名单；手动新增的学生连同名单一并移除）
+    if (req.method === 'POST' && route === '/api/teacher/delete-record') {
+      const body = await readBody(req);
+      const row = studentById(body.studentId);
+      if (!row) fail(404, '找不到该学生');
+      const rec = recordFor(row.id);
+      if (!rec.entered && !row.manual) fail(400, '该生没有成绩记录');
+      db.exec('BEGIN IMMEDIATE');
+      try {
+        db.prepare('DELETE FROM states WHERE studentId=?').run(row.id);
+        db.prepare('DELETE FROM events WHERE studentId=?').run(row.id);
+        if (row.manual) db.prepare('DELETE FROM students WHERE id=? AND manual=1').run(row.id);
+        db.exec('COMMIT');
+      } catch (err) {
+        try {
+          db.exec('ROLLBACK');
+        } catch {
+          /* ignore */
+        }
+        throw err;
+      }
+      return json(res, 200, {
+        ok: true,
+        studentId: row.id,
+        name: row.name,
+        classId: row.classId,
+        hadRecord: !!rec.entered,
+        removedStudent: !!row.manual,
+        denominator: teacherData(null).denominator,
+      });
     }
 
     if (req.method === 'POST' && route === '/api/login') {

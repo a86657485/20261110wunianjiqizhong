@@ -1,0 +1,15 @@
+{
+  "name": "g5-carnival-qa",
+  "private": true,
+  "type": "module",
+  "description": "算法嘉年华验收脚本（Playwright，需本机 Chrome / Edge）",
+  "scripts": {
+    "endpoints": "node lan-endpoints.mjs",
+    "edge": "node edge-smoke.mjs",
+    "leaderboard": "node teacher-leaderboard.mjs",
+    "delete": "node teacher-delete.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.65.0"
+  }
+}
